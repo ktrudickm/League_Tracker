@@ -1,0 +1,23 @@
+Routes
+
+***GET Routes***
+/api/leagues  - Fetches all leagues
+/api/teams/:league  -  Fetches all teams in league
+/api/teams/:id  -  Fetch single team by id
+/api/players:teamid -  Fetch all players by team id
+/api/players/:id  -  Fetch single player by id
+
+***POST Routes***
+/api/leagues/add  -  Add new league
+/api/teams/add  -  Add new Team to league
+/api/players/add  -  Add new player to team
+
+***PUT Routes***
+/api/leagues/update  -  Update existing league
+/api/teams/update  -  Update existing Team
+/api/players/update  -  Update existing player
+
+***DELETE Routes***
+/api/leagues/delete/:id  -  Deletes existing leagues
+/api/teams/delete/:id  -  Deletes existing team
+/api/players/delete/:id  -  Deletes existing player

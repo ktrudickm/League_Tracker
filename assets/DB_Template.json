@@ -1,0 +1,39 @@
+//League Collection
+{
+    "_id": "fasdfasdfewfaq2341234234",
+    "name": "NAME_OF_LEAGUE",
+    "image": "URL_OF_IMG"
+}
+
+
+//Teams Collection
+{
+    "_id": "2j3h4l1kj23h4lkj12h34",
+    "name": "NAME_OF_TEAM",
+    "image": "URL_OF_IMAGE",
+    "league_key": "fasdfasdfewfaq2341234234",
+    "stats": {
+        champions_won: 0,
+        .....
+    }
+}
+
+//Player Collection
+{
+    "_id": "7df9a8sd7f98e7f",
+    "first_name": "NAME",
+    "last_name": "NAME",
+    "username": "USERNAME",
+    "password": "lh2kj345hkj345",
+    "email": "fasdfef@gmail.com",
+    "date_of_birth": "1995-01-19",
+    "stats": {
+        .....
+    }, 
+    "Phone": "1234567899",
+    "image": "URL_OF_IMAGE",
+    "Postion": "Goalie",
+    "Jersey": 1,
+    "team_key": "2j3h4l1kj23h4lkj12h34"
+}
+
