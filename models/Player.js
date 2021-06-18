@@ -52,7 +52,8 @@ const playerSchema = new Schema({
         required: "Enter a jersey number for the player"
     },
     team_key: {
-        type: String,
+        type: Schema.Types.ObjectId,
+        ref: 'Team'
     },
     stats: {
         goals: {
