@@ -2,42 +2,33 @@ const mongoose = require("mongoose");
 const leagues = mongoose.Schema;
 
 const leaguesSchema = new Leagues({
-    id:{
-        type: String,    
-    },
     name:{
         type:String,
     },
     image:{
-        type: "URL",
+        type: String,
     },
 });
 
 
 const teamsSchema = new Leagues({
-    id:{
-        type: String,    
-    },
     name:{
-        type:String,
+        type: String,
     },
     image:{
-        type: "URL",
-    },
-    leaguekey:{
-        type:String,
+        type: String,
     },
     stats:{
         type: Number,
     },
+    league: [{
+        type: Schema.Types.ObjectId,
+        ref: 'leaguesSchema'
+    }]
 });
 
 
 const playerSchema = new mongoose.Schema({
-  id: {
-    type: String,
-  },
-   
   firstname:{
       type: String,
   },
@@ -74,7 +65,7 @@ const playerSchema = new mongoose.Schema({
   },
 
   image:{
-      type: "URL",
+      type: String,
   },
 
   position:{
@@ -85,19 +76,19 @@ const playerSchema = new mongoose.Schema({
       type: Number,
   },
 
-  teamkey:{
-      type:String,
-  },
-
   playerCreated: {
     type: Date,
     default: Date.now
-  }
+  },
+  team: [{
+    type: Schema.Types.ObjectId,
+    ref: 'teamsSchema'
+}]
 });
 
 
 const leagues = mongoose.model("Leagues", leaguesSchema);
-const Teams = mongoose.model("Teams", teamsSchemaa);
+const Teams = mongoose.model("Teams", teamsSchema);
 const Player = mongoose.model("Player", playerSchema);
 
 module.exports = leagues;
