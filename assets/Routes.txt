@@ -4,7 +4,7 @@ Routes
 /api/leagues  - Fetches all leagues
 /api/teams/:league  -  Fetches all teams in league
 /api/teams/:id  -  Fetch single team by id
-/api/players:teamid -  Fetch all players by team id
+/api/players/:teamid -  Fetch all players by team id
 /api/players/:id  -  Fetch single player by id
 
 ***POST Routes***
