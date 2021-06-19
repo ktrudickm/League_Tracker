@@ -12,10 +12,10 @@ const teamSchema = new Schema({
     stats:{
         type: Number,
     },
-    league_key: [{
+    league_key: {
         type: Schema.Types.ObjectId,
         ref: 'League'
-    }]
+    }
 });
 
 const Team = mongoose.model("Team", teamSchema);

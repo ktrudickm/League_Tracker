@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { Player } = require('../../models');
 
+// Fetches single player data
 router.get('/:id', (req, res) => {
     Player.findById({_id: req.params.id})
         .then(dbPlayer => {
