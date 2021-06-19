@@ -1,8 +1,9 @@
 const express = require("express");
 const mongoose = require("mongoose");
 
-mongoose.connect(process.env.MONGOD_URI || 
-    "mongodb://localhost/leagueDB", { useNewUrlParser: true });
+mongoose.connect(process.env.MONGOD_URI || "mongodb://localhost/leagueDB", {
+  useNewUrlParser: true,
+});
 
 const PORT = process.env.PORT || 3000;
 
