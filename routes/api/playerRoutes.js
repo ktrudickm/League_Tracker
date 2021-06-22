@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Player, Team } = require('../../models');
+const { Player } = require('../../models');
 
 // Fetches single player data
 router.get('/:id', (req, res) => {
@@ -26,6 +26,7 @@ router.get('/byteam/:teamid', (req, res) => {
 
 // Creates new player
 router.post('/add', ({body}, res) => {
+    console.log(body);
     Player.create(body)
         .then(data => {
             res.status(200).json(data);
