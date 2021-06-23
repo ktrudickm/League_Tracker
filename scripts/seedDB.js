@@ -316,9 +316,85 @@ const playerSeed = [
   },
 ];
 
-const leagueSeed = {};
+const leagueSeed = [
+{
+    name: "Keon P",
+    image: "https://placekitten.com/300/300"
+},
+{
+    name: "Max Green",
+    image: "https://placekitten.com/300/300"
+},
+{
+    name: "Sam Maxwell",
+    image: "https://placekitten.com/300/300"
+},
+{
+    name: "John D",
+    image: "https://placekitten.com/300/300"
+},
+{
+    name: "Mark Wight",
+    image: "https://placekitten.com/300/300"
+}
+];
 
-const teamSeed = {};
+const teamSeed = [
+    {
+        name:"Red Team",
+        image:"xyz",
+        stats: [
+            {
+                championships:3,
+                madePlayoffs:false,
+                rank: 2,
+                wins: 0,
+                losses:1,
+                draws:1,
+                gamesPlayed:2,
+                goalsScored:1,
+                goalsAgainst:2,
+            }
+        ],
+        league_key:1
+    },
+    {
+        name:"Blue Team",
+        image:"xyz",
+        stats: [
+            {
+                championships:3,
+                madePlayoffs:false,
+                rank: 2,
+                wins: 0,
+                losses:1,
+                draws:1,
+                gamesPlayed:2,
+                goalsScored:1,
+                goalsAgainst:2,
+            }
+        ],
+        league_key:2
+    },
+    {
+        name:"Yellow Team",
+        image:"xyz",
+        stats: [
+            {
+                championships:3,
+                madePlayoffs:false,
+                rank: 2,
+                wins: 0,
+                losses:1,
+                draws:1,
+                gamesPlayed:2,
+                goalsScored:1,
+                goalsAgainst:2,
+            }
+        ],
+        league_key:3
+    },
+];
 
 const statSeed = {};
 
@@ -348,18 +424,6 @@ db.Team.deleteMany({})
   .then(() => db.Team.collection.insertMany(teamSeed))
   .then((data) => {
     console.log(data.result.n + " team records inserted!");
-    process.exit(0);
-  })
-  .catch((err) => {
-    console.error(err);
-    process.exit(1);
-  });
-
-db.playerStats
-  .deleteMany({})
-  .then(() => db.playerStats.collection.insertMany(statSeed))
-  .then((data) => {
-    console.log(data.result.n + " player stats records inserted!");
     process.exit(0);
   })
   .catch((err) => {
