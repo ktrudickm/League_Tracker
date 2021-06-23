@@ -1,6 +1,24 @@
 const router = require('express').Router();
 const { Player } = require('../../models');
 
+// Fetches players by either username first name last name
+router.get('/:str', async (req, res) => {
+    try {
+        const str = req.params.str;
+        let players = await Player.find({first_name: str}).exec();
+        if(players.length === 0) {
+            players = await Player.find({last_name: str}).exec();
+        }
+        if(players.length === 0) {
+            players = await Player.find({username: str}).exec();
+        }
+        res.status(200).json(players);
+    } catch (err) {
+        console.err(err);
+        res.status(400).json(err);
+    }
+});
+
 // Fetches single player data
 router.get('/:id', (req, res) => {
     Player.findById({_id: req.params.id})
