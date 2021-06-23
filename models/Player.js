@@ -7,37 +7,39 @@ const playerSchema = new Schema({
     first_name: {
         type: String,
         trim: true,
-        required: "Enter a name for Player"
+        required: "enter a first name"
     },
     last_name: {
         type: String,
         trim: true,
-        required: "Enter a last name for Player"
+        required: "enter a last name"    
     },
     username: {
         type: String,
         trim: true,
-        required: "Enter a username for player"
+        required: "Enter username"    
     },
     email: {
         type: String,
         trim: true,
-        required: "Enter a email for player"
+        unique: true,
+        match: [/.+@.+\..+/, "Please enter a valid e-mail address"],
+        // required: true    
     },
     password: {
         type: String,
         trim: true,
-        required: "Enter a password for player"
+        required: "Enter password"    
     },
     date_of_birth: {
         type: Date,
         default: Date.now(),
-        required: "Enter a date of birth for the player"
+        // required: true
     },
     phone: {
         type: String,
         trim: true,
-        required: "Enter a phone number for the player"
+        // required: true
     },
     image: {
         type: String
@@ -45,16 +47,16 @@ const playerSchema = new Schema({
     position: {
         type: String,
         trim: true,
-        required: "Enter a position for the player"
+        // required: true
     },
     jersey: {
         type: Number,
-        required: "Enter a jersey number for the player"
+        // required: true
     },
-    team_key: {
-        type: Schema.Types.ObjectId,
-        ref: 'Team'
-    },
+    // team_key: {
+    //     type: Schema.Types.ObjectId,
+    //     ref: 'Team'
+    // },
     stats: {
         goals: {
             type: Number,
