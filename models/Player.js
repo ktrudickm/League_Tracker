@@ -53,10 +53,10 @@ const playerSchema = new Schema({
         type: Number,
         // required: true
     },
-    // team_key: {
-    //     type: Schema.Types.ObjectId,
-    //     ref: 'Team'
-    // },
+    team_key: {
+        type: Schema.Types.ObjectId,
+        ref: 'Team'
+    },
     stats: {
         goals: {
             type: Number,
