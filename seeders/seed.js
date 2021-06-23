@@ -320,7 +320,6 @@ const leagueSeed = {};
 
 const teamSeed = {};
 
-const statSeed = {};
 
 db.Player.deleteMany({})
   .then(() => db.Player.collection.insertMany(playerSeed))
@@ -355,14 +354,3 @@ db.Team.deleteMany({})
     process.exit(1);
   });
 
-db.playerStats
-  .deleteMany({})
-  .then(() => db.playerStats.collection.insertMany(statSeed))
-  .then((data) => {
-    console.log(data.result.n + " player stats records inserted!");
-    process.exit(0);
-  })
-  .catch((err) => {
-    console.error(err);
-    process.exit(1);
-  });
