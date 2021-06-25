@@ -37,4 +37,20 @@ router.post("/add", ({ body }, res) => {
     });
 });
 
+<<<<<<< HEAD
 module.exports = router;
+=======
+router.get("/:str", async (req, res) => {
+  try {
+    const str = req.params.str;
+    let team = await Team.find({ name: str }).exec();
+    if (team.length === 0) {
+      team = "No teams found";
+    }
+    res.status(200).json(team);
+  } catch (err) {
+    console.err(err);
+    res.status(400).json(err);
+  }
+});
+>>>>>>> 74f401807107694e801b0b7a034a522416217a87
