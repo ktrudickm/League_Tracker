@@ -37,9 +37,6 @@ router.post("/add", ({ body }, res) => {
     });
 });
 
-<<<<<<< HEAD
-module.exports = router;
-=======
 router.get("/:str", async (req, res) => {
   try {
     const str = req.params.str;
@@ -53,4 +50,5 @@ router.get("/:str", async (req, res) => {
     res.status(400).json(err);
   }
 });
->>>>>>> 74f401807107694e801b0b7a034a522416217a87
+
+module.exports = router;

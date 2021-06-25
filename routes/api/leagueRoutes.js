@@ -2,17 +2,16 @@ const router = require("express").Router();
 const { League } = require("../../models");
 
 // Find league by league name search
-router.get('/:str', async (req, res) => {
-    try {
-        const str = req.params.str;
-        let league = await League.find({name: str}).exec();
-        res.status(200).json(league);
-    } catch (err) {
-        console.err(err);
-        res.status(400).json(err);
-    }
+router.get("/:str", async (req, res) => {
+  try {
+    const str = req.params.str;
+    let league = await League.find({ name: str }).exec();
+    res.status(200).json(league);
+  } catch (err) {
+    console.err(err);
+    res.status(400).json(err);
+  }
 });
-
 
 // Finds League by id
 router.get("/:id", (req, res) => {
@@ -39,4 +38,3 @@ router.post("/add", ({ body }, res) => {
 });
 
 module.exports = router;
-
