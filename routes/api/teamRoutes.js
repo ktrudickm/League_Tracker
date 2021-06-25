@@ -13,6 +13,20 @@ router.get("/byteam/:leagueid", (req, res) => {
   }
 });
 
+router.get("/search/:str", async (req, res) => {
+  try {
+    const str = req.params.str;
+    let team = await Team.find({ name: str }).exec();
+    if (team.length === 0) {
+      team = "No teams found";
+    }
+    res.status(200).json(team);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({message: "An Error occurred"});
+  }
+});
+
 // Fetches single team by id
 router.get("/:id", (req, res) => {
   Team.findById({ _id: req.params.id })

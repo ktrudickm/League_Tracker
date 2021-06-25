@@ -429,7 +429,3 @@ db.Team.deleteMany({})
     console.error(err);
     process.exit(1);
   });
-<<<<<<< HEAD:seeders/seed.js
-
-=======
->>>>>>> c82e91adc68afe75fef93c7972684a302f43cbc5:scripts/seedDB.js
