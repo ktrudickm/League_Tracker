@@ -317,85 +317,84 @@ const playerSeed = [
 ];
 
 const leagueSeed = [
-{
+  {
     name: "Keon P",
-    image: "https://placekitten.com/300/300"
-},
-{
+    image: "https://placekitten.com/300/300",
+  },
+  {
     name: "Max Green",
-    image: "https://placekitten.com/300/300"
-},
-{
+    image: "https://placekitten.com/300/300",
+  },
+  {
     name: "Sam Maxwell",
-    image: "https://placekitten.com/300/300"
-},
-{
+    image: "https://placekitten.com/300/300",
+  },
+  {
     name: "John D",
-    image: "https://placekitten.com/300/300"
-},
-{
+    image: "https://placekitten.com/300/300",
+  },
+  {
     name: "Mark Wight",
-    image: "https://placekitten.com/300/300"
-}
+    image: "https://placekitten.com/300/300",
+  },
 ];
 
 const teamSeed = [
-    {
-        name:"Red Team",
-        image:"xyz",
-        stats: [
-            {
-                championships:3,
-                madePlayoffs:false,
-                rank: 2,
-                wins: 0,
-                losses:1,
-                draws:1,
-                gamesPlayed:2,
-                goalsScored:1,
-                goalsAgainst:2,
-            }
-        ],
-        league_key:1
-    },
-    {
-        name:"Blue Team",
-        image:"xyz",
-        stats: [
-            {
-                championships:3,
-                madePlayoffs:false,
-                rank: 2,
-                wins: 0,
-                losses:1,
-                draws:1,
-                gamesPlayed:2,
-                goalsScored:1,
-                goalsAgainst:2,
-            }
-        ],
-        league_key:2
-    },
-    {
-        name:"Yellow Team",
-        image:"xyz",
-        stats: [
-            {
-                championships:3,
-                madePlayoffs:false,
-                rank: 2,
-                wins: 0,
-                losses:1,
-                draws:1,
-                gamesPlayed:2,
-                goalsScored:1,
-                goalsAgainst:2,
-            }
-        ],
-        league_key:3
-    },
+  {
+    name: "Red Team",
+    image: "xyz",
+    stats: [
+      {
+        championships: 3,
+        madePlayoffs: false,
+        rank: 2,
+        wins: 0,
+        losses: 1,
+        draws: 1,
+        gamesPlayed: 2,
+        goalsScored: 1,
+        goalsAgainst: 2,
+      },
+    ],
+    league_key: 1,
+  },
+  {
+    name: "Blue Team",
+    image: "xyz",
+    stats: [
+      {
+        championships: 3,
+        madePlayoffs: false,
+        rank: 2,
+        wins: 0,
+        losses: 1,
+        draws: 1,
+        gamesPlayed: 2,
+        goalsScored: 1,
+        goalsAgainst: 2,
+      },
+    ],
+    league_key: 2,
+  },
+  {
+    name: "Yellow Team",
+    image: "xyz",
+    stats: [
+      {
+        championships: 3,
+        madePlayoffs: false,
+        rank: 2,
+        wins: 0,
+        losses: 1,
+        draws: 1,
+        gamesPlayed: 2,
+        goalsScored: 1,
+        goalsAgainst: 2,
+      },
+    ],
+    league_key: 3,
+  },
 ];
-
 
 db.Player.deleteMany({})
   .then(() => db.Player.collection.insertMany(playerSeed))
