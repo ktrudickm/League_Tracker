@@ -3,7 +3,9 @@ import React from "react";
 const RegisterPlayer = () => {
     return (
         <div>
-            <h2 classNameName='RegisterHeading'>Register as a Player</h2>
+            <div class="jumbotron">
+                <h2 class="display-4">Register as a Player</h2>
+            </div>
             <form>
                 <div className="mb-3">
                     <label for="PlayerName" className="form-label">Full Name</label>
