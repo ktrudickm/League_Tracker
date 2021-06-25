@@ -38,4 +38,4 @@ router.post("/add", ({ body }, res) => {
     });
 });
 
-
+module.exports = router;
