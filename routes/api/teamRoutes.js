@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const { Team } = require("../../models");
+const withAuth = require('../../scripts/withAuth');
 
 // Fetches all teams from a particular league
 router.get("/byteam/:leagueid", (req, res) => {
@@ -19,11 +20,12 @@ router.get("/search/:str", async (req, res) => {
     let team = await Team.find({ name: str }).exec();
     if (team.length === 0) {
       team = "No teams found";
+      res.status(404).json({message: team});
     }
     res.status(200).json(team);
   } catch (err) {
     console.error(err);
-    res.status(500).json({message: "An Error occurred"});
+    res.status(500).json({ message: "An Error occurred" });
   }
 });
 
@@ -40,7 +42,7 @@ router.get("/:id", (req, res) => {
 });
 
 // Create a new team
-router.post("/add", ({ body }, res) => {
+router.post("/add", withAuth, ({ body }, res) => {
   Team.create(body)
     .then((data) => {
       res.status(200).json(data);
