@@ -1,4 +1,7 @@
 const express = require("express");
+const session = require('express-session');
+const compression = require('compression');
+const MongoStore = require('connect-mongo');
 
 const mongoose = require("mongoose");
 const routes = require('./routes');
@@ -11,6 +14,12 @@ const app = express();
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(session({
+  secret: 'foo',
+  saveUninitialized: false,
+  resave: false,
+  store: MongoStore.create({ mongoUrl: 'mongodb://localhost/leagueDB' })
+}));
 
 app.use(logger("dev"));
 
