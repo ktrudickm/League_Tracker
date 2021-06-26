@@ -7,6 +7,21 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/leagueDB", {
 
 const playerSeed = [
   {
+    first_name: "Admin",
+    last_name: "Admin",
+    username: "admin",
+    email: "admin@leaguetracker.com",
+    password: "password",
+    date_of_birth: new Date(""),
+    phone: "5555555",
+    image: "https://picsum.photos/200",
+    position: "Goalkeeper",
+    jersey: "0",
+    team_key: "1",
+    stats: "",
+    isAdmin: true,
+  },
+  {
     first_name: "Manuel",
     last_name: "Neuer",
     username: "MNeuer",
@@ -19,6 +34,7 @@ const playerSeed = [
     jersey: "0",
     team_key: "1",
     stats: "",
+    isAdmin: false,
   },
   {
     first_name: "Antonio",
@@ -33,6 +49,7 @@ const playerSeed = [
     jersey: "2",
     team_key: "1",
     stats: "",
+    isAdmin: false,
   },
   {
     first_name: "Marcel",
@@ -47,6 +64,7 @@ const playerSeed = [
     jersey: "3",
     team_key: "1",
     stats: "",
+    isAdmin: false,
   },
   {
     first_name: "Matthias",
@@ -61,6 +79,7 @@ const playerSeed = [
     jersey: "4",
     team_key: "1",
     stats: "",
+    isAdmin: false,
   },
   {
     first_name: "Mats",
@@ -75,6 +94,7 @@ const playerSeed = [
     jersey: "5",
     team_key: "1",
     stats: "",
+    isAdmin: false,
   },
   {
     first_name: "Joshua",
@@ -89,6 +109,7 @@ const playerSeed = [
     jersey: "6",
     team_key: "1",
     stats: "",
+    isAdmin: false,
   },
   {
     first_name: "Toni",
@@ -103,6 +124,7 @@ const playerSeed = [
     jersey: "8",
     team_key: "1",
     stats: "",
+    isAdmin: false,
   },
   {
     first_name: "Serge",
@@ -117,6 +139,7 @@ const playerSeed = [
     jersey: "10",
     team_key: "1",
     stats: "",
+    isAdmin: false,
   },
   {
     first_name: "Kai",
@@ -131,6 +154,7 @@ const playerSeed = [
     jersey: "7",
     team_key: "1",
     stats: "",
+    isAdmin: false,
   },
   {
     first_name: "Kevin",
@@ -145,6 +169,7 @@ const playerSeed = [
     jersey: "9",
     team_key: "1",
     stats: "",
+    isAdmin: false,
   },
   {
     first_name: "Timo",
@@ -159,6 +184,7 @@ const playerSeed = [
     jersey: "11",
     team_key: "1",
     stats: "",
+    isAdmin: false,
   },
   {
     first_name: "Keon",
@@ -173,6 +199,7 @@ const playerSeed = [
     jersey: "13",
     team_key: "2",
     stats: "",
+    isAdmin: false,
   },
   {
     first_name: "Kendall",
@@ -187,6 +214,7 @@ const playerSeed = [
     jersey: "35",
     team_key: "2",
     stats: "",
+    isAdmin: false,
   },
   {
     first_name: "Kevin",
@@ -201,6 +229,7 @@ const playerSeed = [
     jersey: "20",
     team_key: "2",
     stats: "",
+    isAdmin: false,
   },
   {
     first_name: "Kelly",
@@ -215,6 +244,7 @@ const playerSeed = [
     jersey: "12",
     team_key: "2",
     stats: "",
+    isAdmin: false,
   },
   {
     first_name: "Christiano",
@@ -229,6 +259,7 @@ const playerSeed = [
     jersey: "7",
     team_key: "2",
     stats: "",
+    isAdmin: false,
   },
   {
     first_name: "Mitch",
@@ -243,6 +274,7 @@ const playerSeed = [
     jersey: "10",
     team_key: "2",
     stats: "",
+    isAdmin: false,
   },
   {
     first_name: "Sydney",
@@ -257,6 +289,7 @@ const playerSeed = [
     jersey: "18",
     team_key: "2",
     stats: "",
+    isAdmin: false,
   },
   {
     first_name: "Ben",
@@ -271,6 +304,7 @@ const playerSeed = [
     jersey: "8",
     team_key: "2",
     stats: "",
+    isAdmin: false,
   },
   {
     first_name: "Gabby",
@@ -285,6 +319,7 @@ const playerSeed = [
     jersey: "24",
     team_key: "2",
     stats: "",
+    isAdmin: false,
   },
   {
     first_name: "Andrew",
@@ -299,6 +334,7 @@ const playerSeed = [
     jersey: "2",
     team_key: "2",
     stats: "",
+    isAdmin: false,
   },
   {
     first_name: "Avery",
@@ -313,6 +349,7 @@ const playerSeed = [
     jersey: "9",
     team_key: "2",
     stats: "",
+    isAdmin: false,
   },
 ];
 

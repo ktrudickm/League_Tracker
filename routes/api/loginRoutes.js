@@ -5,7 +5,7 @@ const bcrypt = require('bcrypt');
 router.post('/', async(req, res) => {
     try {
         const loginData = await Player.findOne({email: req.body.email});
-        req.body.password = await bcrypt.hash(req.body.password, 10);
+        // req.body.password = await bcrypt.hash(req.body.password, 10);
         if(loginData.password === req.body.password) {
             req.session.save(() => {
                 req.session.username = loginData.username;
