@@ -23,7 +23,7 @@ router.get("/search/:str", async (req, res) => {
     res.status(200).json(team);
   } catch (err) {
     console.error(err);
-    res.status(500).json({message: "An Error occurred"});
+    res.status(500).json({ message: "An Error occurred" });
   }
 });
 
