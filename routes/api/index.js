@@ -5,6 +5,6 @@ const loginRoutes = require("./loginRoutes");
 
 router.use("/players", playerRoutes);
 router.use("/teams", teamRoutes);
-router.use('/login', loginRoutes);
+router.use('/user', loginRoutes);
 
 module.exports = router;
