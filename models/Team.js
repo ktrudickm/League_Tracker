@@ -46,7 +46,7 @@ const teamSchema = new Schema({
     },
   },
   league_key: {
-    type: Number
+    type: Number,
   },
 });
 
