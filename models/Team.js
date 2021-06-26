@@ -45,10 +45,9 @@ const teamSchema = new Schema({
       default: 0,
     },
   },
-  // league_key: {
-  //   type: Schema.Types.ObjectId,
-  //   ref: "League",
-  // },
+  league_key: {
+    type: Number
+  },
 });
 
 const Team = mongoose.model("Team", teamSchema);
