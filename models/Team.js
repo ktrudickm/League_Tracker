@@ -46,12 +46,7 @@ const teamSchema = new Schema({
     },
   },
   league_key: {
-<<<<<<< HEAD
-    type: Schema.Types.ObjectId,
-    ref: "League",
-=======
-    type: Number
->>>>>>> 6ee6c2920565d6f40789d27dd52f71f2ed9107ff
+    type: Number,
   },
 });
 
