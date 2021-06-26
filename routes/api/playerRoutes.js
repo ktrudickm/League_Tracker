@@ -20,7 +20,7 @@ router.get('/:str', async (req, res) => {
 });
 
 // Fetches single player data
-router.get('/:id', (req, res) => {
+router.get('/id/:id', (req, res) => {
     Player.findById({_id: req.params.id})
         .then(dbPlayer => {
             res.status(200).json(dbPlayer);
@@ -43,16 +43,16 @@ router.get('/byteam/:teamid', (req, res) => {
 });
 
 // Creates new player
-router.post('/add', ({body}, res) => {
-    console.log(body);
-    Player.create(body)
-        .then(data => {
-            res.status(200).json(data);
-        })
-        .catch(err => {
-            console.error(err);
-            res.status(500).json(err);
-        });
-});
+// router.post('/add', ({body}, res) => {
+//     console.log(body);
+//     Player.create(body)
+//         .then(data => {
+//             res.status(200).json(data);
+//         })
+//         .catch(err => {
+//             console.error(err);
+//             res.status(500).json(err);
+//         });
+// });
 
 module.exports = router;
