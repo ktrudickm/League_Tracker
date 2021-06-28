@@ -7,8 +7,8 @@ export default {
   },
 
   // Get a specific user's information
-  getUserData: function () {
-    return axios.get("/api/players/:id");
+  getUserData: function (username) {
+    return axios.get("/api/players/" + username);
   },
 
   addUserImage: function () {

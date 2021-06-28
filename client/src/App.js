@@ -16,7 +16,6 @@ function App() {
           <Route exact path="/register" component={RegisterPlayer} />
         </Switch>
       </div>
-      <UserPage />
     </>
   );
 }
