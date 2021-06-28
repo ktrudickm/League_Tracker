@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const { League } = require("../../models");
+const withAuth = require('../../scripts/withAuth');
 
 // Find league by league name search
 router.get("/:str", async (req, res) => {
@@ -26,8 +27,8 @@ router.get("/:id", (req, res) => {
 });
 
 // Creates a new league
-router.post("/add", ({ body }, res) => {
-  Leaue.create(body)
+router.post("/add", withAuth, ({ body }, res) => {
+  League.create(body)
     .then((data) => {
       res.status(200).json(data);
     })

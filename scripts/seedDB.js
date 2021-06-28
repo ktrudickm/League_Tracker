@@ -6,13 +6,19 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/leagueDB", {
   useNewUrlParser: true,
 });
 
-const playerSeed = [
+let playerSeed = [];
+
+const createDBData = async () => {
+  const playerPassword = await bcrypt.hash("HASH", 10);
+  const adminPassword = await bcrypt.hash("password", 10);
+  console.log(playerPassword);
+  playerSeed = [
   {
     first_name: "Admin",
     last_name: "Admin",
     username: "admin",
     email: "admin@leaguetracker.com",
-    password: bcrypt.hash("password", 10),
+    password: adminPassword,
     date_of_birth: new Date(""),
     phone: "5555555",
     image: "https://picsum.photos/200",
@@ -27,7 +33,7 @@ const playerSeed = [
     last_name: "Neuer",
     username: "MNeuer",
     email: "MNeuer@gmail.com",
-    password: bcrypt.hash("HASH", 10),
+    password: playerPassword,
     date_of_birth: new Date(""),
     phone: "5555555",
     image: "https://picsum.photos/200",
@@ -42,7 +48,7 @@ const playerSeed = [
     last_name: "Rudiger",
     username: "ARudiger",
     email: "Arudiger@gmail.com",
-    password: bcrypt.hash("HASH", 10),
+    password: playerPassword,
     date_of_birth: new Date(""),
     phone: "5555555",
     image: "https://picsum.photos/200",
@@ -57,7 +63,7 @@ const playerSeed = [
     last_name: "Halstenberg",
     username: "MHalstenberg",
     email: "MHalstenberg@gmail.com",
-    password: bcrypt.hash("HASH", 10),
+    password: playerPassword,
     date_of_birth: new Date(""),
     phone: "5555555",
     image: "https://picsum.photos/200",
@@ -72,7 +78,7 @@ const playerSeed = [
     last_name: "Ginter",
     username: "Mginter",
     email: "Mginter@gmail.com",
-    password: bcrypt.hash("HASH", 10),
+    password: playerPassword,
     date_of_birth: new Date(""),
     phone: "5555555",
     image: "https://picsum.photos/200",
@@ -87,7 +93,7 @@ const playerSeed = [
     last_name: "Hummels",
     username: "MHummels",
     email: "MHummels@gmail.com",
-    password: bcrypt.hash("HASH", 10),
+    password: playerPassword,
     date_of_birth: new Date(""),
     phone: "5555555",
     image: "https://picsum.photos/200",
@@ -102,7 +108,7 @@ const playerSeed = [
     last_name: "Kimmich",
     username: "JKimmich",
     email: "Jkimmich@gmail.com",
-    password: bcrypt.hash("HASH", 10),
+    password: playerPassword,
     date_of_birth: new Date(""),
     phone: "5555555",
     image: "https://picsum.photos/200",
@@ -117,7 +123,7 @@ const playerSeed = [
     last_name: "Kroos",
     username: "Tkroos",
     email: "TKroos@gmail.com",
-    password: bcrypt.hash("HASH", 10),
+    password: playerPassword,
     date_of_birth: new Date(""),
     phone: "5555555",
     image: "https://picsum.photos/200",
@@ -132,7 +138,7 @@ const playerSeed = [
     last_name: "Gnabry",
     username: "SGnabry",
     email: "SGnabry@gmail.com",
-    password: bcrypt.hash("HASH", 10),
+    password: playerPassword,
     date_of_birth: new Date(""),
     phone: "5555555",
     image: "https://picsum.photos/200",
@@ -147,7 +153,7 @@ const playerSeed = [
     last_name: "Havertz",
     username: "KHavertz",
     email: "KHavertz@gmail.com",
-    password: bcrypt.hash("HASH", 10),
+    password: playerPassword,
     date_of_birth: new Date(""),
     phone: "5555555",
     image: "https://picsum.photos/200",
@@ -162,7 +168,7 @@ const playerSeed = [
     last_name: "Volland",
     username: "KVolland",
     email: "KVolland@gmail.com",
-    password: bcrypt.hash("HASH", 10),
+    password: playerPassword,
     date_of_birth: new Date(""),
     phone: "5555555",
     image: "https://picsum.photos/200",
@@ -177,7 +183,7 @@ const playerSeed = [
     last_name: "Werner",
     username: "TWerner",
     email: "Twerner@gmail.com",
-    password: bcrypt.hash("HASH", 10),
+    password: playerPassword,
     date_of_birth: new Date(""),
     phone: "5555555",
     image: "https://picsum.photos/200",
@@ -192,7 +198,7 @@ const playerSeed = [
     last_name: "Pourboghrat",
     username: "kpour",
     email: "keon@gmail.com",
-    password: bcrypt.hash("HASH", 10),
+    password: playerPassword,
     date_of_birth: new Date(""),
     phone: "3309998888",
     image: "https://picsum.photos/200",
@@ -207,7 +213,7 @@ const playerSeed = [
     last_name: "Trudick",
     username: "ktrudick",
     email: "kendall@gmail.com",
-    password: bcrypt.hash("HASH", 10),
+    password: playerPassword,
     date_of_birth: new Date(""),
     phone: "3309998888",
     image: "https://picsum.photos/200",
@@ -222,7 +228,7 @@ const playerSeed = [
     last_name: "Smith",
     username: "ksmith",
     email: "kevin@gmail.com",
-    password: bcrypt.hash("HASH", 10),
+    password: playerPassword,
     date_of_birth: new Date(""),
     phone: "3309998888",
     image: "https://picsum.photos/200",
@@ -237,7 +243,7 @@ const playerSeed = [
     last_name: "Baskin",
     username: "kellyb",
     email: "kelly@gmail.com",
-    password: bcrypt.hash("HASH", 10),
+    password: playerPassword,
     date_of_birth: new Date(""),
     phone: "3309998888",
     image: "https://picsum.photos/200",
@@ -252,7 +258,7 @@ const playerSeed = [
     last_name: "Ronaldo",
     username: "ronaldo",
     email: "ronaldo@gmail.com",
-    password: bcrypt.hash("HASH", 10),
+    password: playerPassword,
     date_of_birth: new Date(""),
     phone: "3309998888",
     image: "https://picsum.photos/200",
@@ -267,7 +273,7 @@ const playerSeed = [
     last_name: "Trout",
     username: "mitchT",
     email: "mitch@gmail.com",
-    password: bcrypt.hash("HASH", 10),
+    password: playerPassword,
     date_of_birth: new Date(""),
     phone: "3309998888",
     image: "https://picsum.photos/200",
@@ -282,7 +288,7 @@ const playerSeed = [
     last_name: "Riddle",
     username: "sydrid",
     email: "sydney@gmail.com",
-    password: bcrypt.hash("HASH", 10),
+    password: playerPassword,
     date_of_birth: new Date(""),
     phone: "3309998888",
     image: "https://picsum.photos/200",
@@ -297,7 +303,7 @@ const playerSeed = [
     last_name: "Keller",
     username: "benkell",
     email: "ben@gmail.com",
-    password: bcrypt.hash("HASH", 10),
+    password: playerPassword,
     date_of_birth: new Date(""),
     phone: "3309998888",
     image: "https://picsum.photos/200",
@@ -312,7 +318,7 @@ const playerSeed = [
     last_name: "Semar",
     username: "gabbysem",
     email: "gabby@gmail.com",
-    password: bcrypt.hash("HASH", 10),
+    password: playerPassword,
     date_of_birth: new Date(""),
     phone: "3309998888",
     image: "https://picsum.photos/200",
@@ -327,7 +333,7 @@ const playerSeed = [
     last_name: "Water",
     username: "awater",
     email: "andrew@gmail.com",
-    password: bcrypt.hash("HASH", 10),
+    password: playerPassword,
     date_of_birth: new Date(""),
     phone: "3309998888",
     image: "https://picsum.photos/200",
@@ -342,7 +348,7 @@ const playerSeed = [
     last_name: "Smith",
     username: "avery",
     email: "avery@gmail.com",
-    password: bcrypt.hash("HASH", 10),
+    password: playerPassword,
     date_of_birth: new Date(""),
     phone: "3309998888",
     image: "https://picsum.photos/200",
@@ -353,6 +359,7 @@ const playerSeed = [
     isAdmin: false,
   },
 ];
+
 
 const leagueSeed = [
   {
@@ -380,7 +387,7 @@ const leagueSeed = [
 const teamSeed = [
   {
     name: "Red Team",
-    image: "xyz",
+    image: "https://picsum.photos/200",
     stats: [
       {
         championships: 3,
@@ -398,7 +405,7 @@ const teamSeed = [
   },
   {
     name: "Blue Team",
-    image: "xyz",
+    image: "https://picsum.photos/200",
     stats: [
       {
         championships: 3,
@@ -416,7 +423,7 @@ const teamSeed = [
   },
   {
     name: "Yellow Team",
-    image: "xyz",
+    image: "https://picsum.photos/200",
     stats: [
       {
         championships: 3,
@@ -465,4 +472,9 @@ db.Team.deleteMany({})
   .catch((err) => {
     console.error(err);
     process.exit(1);
-  });
+});
+
+}
+
+createDBData();
+
