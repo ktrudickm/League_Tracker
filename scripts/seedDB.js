@@ -387,7 +387,7 @@ const leagueSeed = [
 const teamSeed = [
   {
     name: "Red Team",
-    image: "xyz",
+    image: "https://picsum.photos/200",
     stats: [
       {
         championships: 3,
@@ -405,7 +405,7 @@ const teamSeed = [
   },
   {
     name: "Blue Team",
-    image: "xyz",
+    image: "https://picsum.photos/200",
     stats: [
       {
         championships: 3,
@@ -423,7 +423,7 @@ const teamSeed = [
   },
   {
     name: "Yellow Team",
-    image: "xyz",
+    image: "https://picsum.photos/200",
     stats: [
       {
         championships: 3,
