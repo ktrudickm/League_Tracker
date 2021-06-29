@@ -23,6 +23,7 @@ router.post('/login', async(req, res) => {
             req.session.isAdmin = loginData.isAdmin;
             req.session.image = loginData.image;
 
+            loginData.password = undefined; 
             res.status(200).json(loginData);
         });
     } catch (err) {
@@ -38,9 +39,10 @@ router.post('/create', async ({ body }, res) => {
         req.session.save(() => {
             req.session.username = signupData.username;
             req.session.logged_in = true;
-            req.session.isAdmin = loginData.isAdmin;
-            req.session.image = loginData.image;
+            req.session.isAdmin = signupData.isAdmin;
+            req.session.image = signupData.image;
 
+            signupData.password = undefined;
             res.status(200).json(signupData);
         });
     } catch (err) {
