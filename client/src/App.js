@@ -18,7 +18,6 @@ function App() {
           <Route exact path="/teamsPage" component={Teams} />
         </Switch>
       </div>
-      <UserPage />
     </>
   );
 }
