@@ -89,6 +89,18 @@ router.put('/user/profile/change/password/:id', withPlayerAuth, async (req, res)
     }
 });
 
+// Updates image for player
+router.put('/user/profile/change/image/:id', withPlayerAuth, async (req, res) => {
+    try {
+        const {params: {id}, body } = req;
+        const playerData = await Player.findOneAndUpdate({_id: id}, {image: body.image}, {new: true});
+        res.status(200).json(playerData);
+    } catch (err) {
+        console.error(err);
+        res.status(400).json({message: "ERROR when updating user image"});
+    }
+});
+
 // Admin access only
 // Can change all of the properties of any player
 router.put('/update/:id', withAuth, async(req, res) => {
