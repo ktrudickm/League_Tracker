@@ -1,25 +1,28 @@
 const express = require("express");
-const session = require('express-session');
-const compression = require('compression');
-const MongoStore = require('connect-mongo');
+const session = require("express-session");
+const bodyParser = require("body-parser");
+const compression = require("compression");
+const MongoStore = require("connect-mongo");
 
 const mongoose = require("mongoose");
-const routes = require('./routes');
+const routes = require("./routes");
 const logger = require("morgan");
-const dotenv = require('dotenv').config();
+const dotenv = require("dotenv").config();
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
 const app = express();
 
 app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-app.use(session({
-  secret: 'foo',
-  saveUninitialized: false,
-  resave: false,
-  store: MongoStore.create({ mongoUrl: 'mongodb://localhost/leagueDB' })
-}));
+app.use(bodyParser.json({ limit: "5mb" }));
+app.use(
+  session({
+    secret: "foo",
+    saveUninitialized: false,
+    resave: false,
+    store: MongoStore.create({ mongoUrl: "mongodb://localhost/leagueDB" }),
+  })
+);
 
 app.use(logger("dev"));
 
@@ -34,7 +37,7 @@ mongoose.connect(process.env.MONGOD_URI || "mongodb://localhost/leagueDB", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
-  useFindAndModify: false
+  useFindAndModify: false,
 });
 
 app.use(routes);

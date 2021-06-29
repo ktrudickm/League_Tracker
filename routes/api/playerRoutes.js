@@ -20,6 +20,14 @@ router.get('/:str', async (req, res) => {
         console.err(err);
         res.status(400).json(err);
     }
+    if (players.length === 0) {
+      players = await Player.find({ username: str }).exec();
+    }
+    res.status(200).json(players);
+  } catch (err) {
+    console.err(err);
+    res.status(400).json(err);
+  }
 });
 
 // Fetches single player data

@@ -2,21 +2,26 @@ import axios from "axios";
 
 export default {
   // Gets all teams by league
-  getTeams: function() {
+  getTeams: function () {
     return axios.get("/api/teams/allTeams");
   },
 
   // Gets all teams by league
-  getTeamsByLeague: function(leagueid) {
+  getTeamsByLeague: function (leagueid) {
     return axios.get("/api/teams/byteam/" + leagueid);
   },
 
   // Get a specific user's information
-  getUserData: function () {
-    return axios.get("/api/players/:id");
+  getUserData: function (id) {
+    return axios.get(`/api/players/id/${id}`);
   },
 
-  addUserImage: function () {
-    return axios.post("/api/user/image");
+  updatePlayerImage: function (username, imageURL) {
+    console.log(imageURL);
+    return axios.put(`/api/players/update/image/${username}`, imageURL);
+  },
+
+  updatePlayerData: function (username, data) {
+    return axios.put(`/api/players/update/data/${username}`, data);
   },
 };

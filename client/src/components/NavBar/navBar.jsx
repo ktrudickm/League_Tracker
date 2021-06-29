@@ -30,8 +30,8 @@ const NavBar = () => {
               </NavLink>
             </li>
             <li className="nav-item px-2">
-              <NavLink className="nav-link" to="/s">
-                PLACEHOLDER
+              <NavLink className="nav-link" to="/user">
+                USER
               </NavLink>
             </li>
             <form className="d-flex justify-content-end">
