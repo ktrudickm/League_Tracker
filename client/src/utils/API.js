@@ -1,5 +1,6 @@
 import axios from "axios";
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default {
   // Gets all teams by league
   getTeams: function () {
@@ -13,7 +14,7 @@ export default {
 
   // Get a specific user's information
   getUserData: function (id) {
-    return axios.get(`/api/players/id/${id}`);
+    return axios.get(`/api/players/user/profile/${id}`);
   },
 
   updatePlayerImage: function (username, imageURL) {

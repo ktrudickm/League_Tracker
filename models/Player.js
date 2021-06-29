@@ -82,57 +82,32 @@ const playerSchema = new Schema({
       type: Number,
       default: 0,
     },
-    phone: {
-        type: String,
-        trim: true,
-        // required: true
-    },
-    image: {
-        type: String
-    },
-    position: {
-        type: String,
-        trim: true,
-        // required: true
-    },
-    jersey: {
-        type: Number,
-        // required: true
-    },
-    stats: {
-        goals: {
-            type: Number,
-            default: 0,
-        },
-        assists: {
-            type: Number,
-            default: 0
-        },
-        games_played: {
-            type: Number,
-            default: 0
-        },
-        yellow_cards: {
-            type: Number,
-            default: 0
-        },
-        red_cards: {
-            type: Number,
-            default: 0
-        },
-        goals_per_game: {
-            type: Number,
-            default: 0
-        }
-    },
-    isAdmin: {
-        type: Boolean,
-        default: false,
-        // required: true
-    },
-    team_key: {
-        type: String
-    }
+  },
+  phone: {
+    type: String,
+    trim: true,
+    // required: true
+  },
+  image: {
+    type: String,
+  },
+  position: {
+    type: String,
+    trim: true,
+    // required: true
+  },
+  jersey: {
+    type: Number,
+    // required: true
+  },
+  isAdmin: {
+    type: Boolean,
+    default: false,
+    // required: true
+  },
+  team_key: {
+    type: String,
+  },
 });
 
 const Player = mongoose.model("Player", playerSchema);
