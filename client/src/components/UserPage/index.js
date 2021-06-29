@@ -46,7 +46,11 @@ function UserPage(props) {
 
   return (
     <>
-      <PasswordModal toggle={toggleModal} showModal={showModal} />
+      <PasswordModal
+        toggle={toggleModal}
+        showModal={showModal}
+        prevPassword={userData.password}
+      />
       <div className="card align-items-center">
         <h1>{userData.username}</h1>
         <img

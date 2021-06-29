@@ -1,11 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 
 const PasswordModal = (props) => {
-  const { showModal, toggle } = props;
-  console.log(showModal);
+  const { showModal, toggle, prevPassword } = props;
+  const [password, setPassword] = useState(prevPassword);
+  const [first, setFirst] = useState("");
+  const [second, setSecond] = useState("");
+  const [error, setError] = useState("");
 
   const dismissModal = () => {
     toggle();
+  };
+
+  const handleFirst = (e) => {
+    setFirst(e);
+  };
+  const handleSecond = (e) => {
+    console.log(first);
+    console.log(e);
+    if (e !== first) {
+      setError("Passwords must match.");
+    }
+    setError("");
+  };
+  const handleChange = (e) => {
+    if (e !== password) {
+    }
   };
 
   return (
@@ -57,20 +76,23 @@ const PasswordModal = (props) => {
                     type="password"
                     className="form-control"
                     id="newPassword-1"
+                    onChange={(e) => handleFirst(e.target.value)}
                   />
                   <label htmlFor="newPassword-2" className="col-form-label">
                     Re-enter new password:
                   </label>
+                  <span>{error}</span>
                   <input
                     type="password"
                     className="form-control"
                     id="newPassword-2"
+                    onChange={(e) => handleSecond(e.target.value)}
                   />
                 </div>
               </form>
             </div>
             <div className="modal-footer">
-              <button type="button" className="btn btn-primary">
+              <button type="submit" className="btn btn-primary">
                 Submit new password
               </button>
             </div>
