@@ -1,5 +1,6 @@
 const express = require("express");
 const session = require("express-session");
+const bodyParser = require("body-parser");
 const compression = require("compression");
 const MongoStore = require("connect-mongo");
 
@@ -13,7 +14,7 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 
 app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+app.use(bodyParser.json({ limit: "5mb" }));
 app.use(
   session({
     secret: "foo",

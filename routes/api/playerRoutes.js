@@ -42,6 +42,36 @@ router.get("/byteam/:teamid", (req, res) => {
   }
 });
 
+// Update a player's image by username
+router.put("/update/image/:username", async (req, res) => {
+  try {
+    const updInfo = await Player.findOneAndUpdate(
+      { username: req.params.username },
+      { image: req.body.imageURL },
+      { new: true }
+    );
+    if (!updInfo)
+      res.status(404).json({ message: "No player found with that username" });
+    res.status(200).json(updInfo);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
+router.put("/update/data/:username", async (req, res) => {
+  try {
+    const updInfo = await Player.findOneAndUpdate(
+      { username: req.params.username },
+      req.body,
+      { new: true }
+    );
+    if (!updInfo)
+      res.status(404).json({ message: "No player found with that username" });
+    res.status(200).json(updInfo);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
 // Creates new player
 // router.post('/add', ({body}, res) => {
 //     console.log(body);

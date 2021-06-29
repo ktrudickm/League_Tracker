@@ -3,3 +3,10 @@
   margin: auto;
   margin-top: 50px;
 }
+
+.card-text {
+  padding: 10px 0px;
+}
+.card-img-top {
+  max-width: 200px;
+}
