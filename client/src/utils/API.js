@@ -14,7 +14,7 @@ export default {
 
   // Get a specific user's information
   getSingleUserData: function (id) {
-    return axios.get("/api/players/id" + id);
+    return axios.get("/api/players/id/" + id);
   },
   
   // Search for player by username, firstname, lastname
