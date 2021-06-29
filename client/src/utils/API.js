@@ -37,4 +37,19 @@ export default {
   updatePlayerPassword: function (id, password) {
     return axios.put(`/api/players/user/profile/change/password/${id}`, password);
   },
+
+  // login
+  loginPlayer: function (player) {
+    return axios.post(`/api/user/login`, player);
+  },
+
+  // logout
+  logoutPlayer: function () { 
+    return axios.post(`/api/user/logout`);
+  },
+
+  // signup
+  signupPlayer: function (player) {
+    return axios.post(`/api/user/create`, player);
+  }
 };
