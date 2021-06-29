@@ -4,6 +4,7 @@ const { Player } = require("../../models");
 const withAuth = require("../../scripts/withAuth");
 const withPlayerAuth = require("../../scripts/withPlayerAuth");
 
+<<<<<<< HEAD
 // Fetches players by either username first name last name
 router.get("/:str", async (req, res) => {
   try {
@@ -33,6 +34,24 @@ router.get("/:str", async (req, res) => {
     players = await Player.find({ username: str }).exec();
   }
   res.status(200).json(players);
+=======
+// Fetches players by either username, first name, and or last name
+router.get('/:str', async (req, res) => {
+    try {
+        const str = req.params.str;
+        let players = await Player.find({first_name: str}, '-password -isAdmin -phone -email').exec();
+        if(players.length === 0) {
+            players = await Player.find({last_name: str}, '-password -isAdmin -phone -email').exec();
+        }
+        if(players.length === 0) {
+            players = await Player.find({username: str}, '-password -isAdmin -phone -email').exec();
+        }
+        res.status(200).json(players);
+    } catch (err) {
+        console.err(err);
+        res.status(400).json({message: "ERROR when searching for player"});
+    }
+>>>>>>> dfe786f33ae2827aa7e08616855bf9841dfe9a15
 });
 
 // Fetches single player data
@@ -106,39 +125,56 @@ router.put("/user/profile/update/:id", withPlayerAuth, async (req, res) => {
   }
 });
 
+//Updates password for player
+router.put('/user/profile/change/password/:id', withPlayerAuth, async (req, res) => {
+    try {
+        const {params: {id}, body } = req;
+        const hashedPassword = await bcrypt.hash(body.password, 10);
+        const playerData = await Player.findOneAndUpdate({_id: id}, {password: hashedPassword}, {new: true});
+        res.status(200).json(playerData);
+    } catch (err) {
+        console.error(err);
+        res.status(400).json({ message: "There was an ERROR when updating the player" });
+    }
+});
+
+// Updates image for player
+router.put('/user/profile/change/image/:id', withPlayerAuth, async (req, res) => {
+    try {
+        const {params: {id}, body } = req;
+        const playerData = await Player.findOneAndUpdate({_id: id}, {image: body.image}, {new: true});
+        res.status(200).json(playerData);
+    } catch (err) {
+        console.error(err);
+        res.status(400).json({message: "ERROR when updating user image"});
+    }
+});
+
 // Admin access only
-router.put("/update/:id", withAuth, async (req, res) => {
-  try {
-    const {
-      params: { id },
-      body,
-    } = req;
-    const playerData = await Player.findOneAndReplace(
-      { _id: id },
-      {
-        first_name: body.first_name,
-        last_name: body.last_name,
-        username: body.username,
-        email: body.email,
-        password: body.password,
-        date_of_birth: body.date_of_birth,
-        phone: body.phone,
-        image: body.image,
-        position: body.position,
-        jersey: body.jersey,
-        team_key: body.team_key,
-        stats: body.stats,
-        isAdmin: body.isAdmin,
-      },
-      { new: true }
-    );
-    res.status(200).json(playerData);
-  } catch (err) {
-    console.error(err);
-    res
-      .status(400)
-      .json({ message: "There was an ERROR when updating the player" });
-  }
+// Can change all of the properties of any player
+router.put('/update/:id', withAuth, async(req, res) => {
+    try {
+        const {params: {id}, body } = req;
+        const playerData = await Player.findOneAndReplace({ _id: id }, {
+            first_name: body.first_name, 
+            last_name: body.last_name,
+            username: body.username,
+            email: body.email,
+            password: body.password,
+            date_of_birth: body.date_of_birth,
+            phone: body.phone,
+            image: body.image,
+            position: body.position,
+            jersey: body.jersey,
+            team_key: body.team_key,
+            stats: body.stats,
+            isAdmin: body.isAdmin 
+        }, {new: true});
+        res.status(200).json(playerData);
+    } catch (err) {
+        console.error(err);
+        res.status(400).json({ message: "There was an ERROR when updating the player" });
+    }
 });
 
 module.exports = router;

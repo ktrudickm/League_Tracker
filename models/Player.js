@@ -53,10 +53,6 @@ const playerSchema = new Schema({
     type: Number,
     // required: true
   },
-  team_key: {
-    type: Schema.Types.ObjectId,
-    ref: "Team",
-  },
   stats: {
     goals: {
       type: Number,
@@ -82,23 +78,6 @@ const playerSchema = new Schema({
       type: Number,
       default: 0,
     },
-  },
-  phone: {
-    type: String,
-    trim: true,
-    // required: true
-  },
-  image: {
-    type: String,
-  },
-  position: {
-    type: String,
-    trim: true,
-    // required: true
-  },
-  jersey: {
-    type: Number,
-    // required: true
   },
   isAdmin: {
     type: Boolean,
