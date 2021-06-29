@@ -1,6 +1,9 @@
 import React from "react";
 
-const RegisterPlayer = () => {
+function RegisterPlayer(){
+
+    const [leagues, setleague] = useState([])
+
     return (
         <div class="card w-75 mx-auto mt-5 mb-5">
             <div class="card-body">
