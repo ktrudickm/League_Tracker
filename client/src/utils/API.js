@@ -12,8 +12,16 @@ export default {
   },
 
   // Get a specific user's information
-  getUserData: function () {
-    return axios.get("/api/players/:id");
+  getSingleUserData: function (id) {
+    return axios.get("/api/players/id" + id);
+  },
+
+  searchForUsers: function (str) {
+    return axios.get("/api/players/" + str);
+  },
+
+  searchUsersByTeam: function (teamKey) {
+    return axios.get("/api/players/byteam/" + teamKey);
   },
 
   addUserImage: function () {

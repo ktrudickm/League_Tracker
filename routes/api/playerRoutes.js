@@ -4,7 +4,7 @@ const { Player } = require('../../models');
 const withAuth = require('../../scripts/withAuth');
 const withPlayerAuth = require('../../scripts/withPlayerAuth');
 
-// Fetches players by either username first name last name
+// Fetches players by either username, first name, and or last name
 router.get('/:str', async (req, res) => {
     try {
         const str = req.params.str;
@@ -18,7 +18,7 @@ router.get('/:str', async (req, res) => {
         res.status(200).json(players);
     } catch (err) {
         console.err(err);
-        res.status(400).json(err);
+        res.status(400).json({message: "ERROR when searching for player"});
     }
 });
 
@@ -76,7 +76,21 @@ router.put('/user/profile/update/:id', withPlayerAuth, async (req, res) => {
     }
 });
 
+//Updates password for player
+router.put('/user/profile/change/password/:id', withPlayerAuth, async (req, res) => {
+    try {
+        const {params: {id}, body } = req;
+        const hashedPassword = await bcrypt.hash(body.password, 10);
+        const playerData = await Player.findOneAndUpdate({_id: id}, {password: hashedPassword}, {new: true});
+        res.status(200).json(playerData);
+    } catch (err) {
+        console.error(err);
+        res.status(400).json({ message: "There was an ERROR when updating the player" });
+    }
+});
+
 // Admin access only
+// Can change all of the properties of any player
 router.put('/update/:id', withAuth, async(req, res) => {
     try {
         const {params: {id}, body } = req;
