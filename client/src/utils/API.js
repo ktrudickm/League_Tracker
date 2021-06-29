@@ -2,8 +2,13 @@ import axios from "axios";
 
 export default {
   // Gets all teams by league
-  getTeamsByLeague: function () {
-    return axios.get("/api/teams/byteam/:leagueid");
+  getTeams: function() {
+    return axios.get("/api/teams/allTeams");
+  },
+
+  // Gets all teams by league
+  getTeamsByLeague: function(leagueid) {
+    return axios.get("/api/teams/byteam/" + leagueid);
   },
 
   // Get a specific user's information
