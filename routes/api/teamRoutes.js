@@ -29,7 +29,7 @@ router.get("/byteam/:leagueid", (req, res) => {
 router.get("/search/:str", async (req, res) => {
   try {
     const str = req.params.str;
-    let team = await Team.find({ name: str }).exec();
+    let team = await Team.find({ name: {$regex: str, $options: 'i'} }).exec();
     if (team.length === 0) {
       team = "No teams found";
       res.status(404).json({message: team});

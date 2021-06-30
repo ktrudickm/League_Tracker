@@ -183,4 +183,29 @@ router.put("/update/:id", withAuth, async (req, res) => {
   }
 });
 
+// Adds player to a team : ADMIN ONLY
+router.put('/update/player/team/:id', withAuth, async (req, res) => {
+  try {
+    const {params: { id }, body,} = req;
+    const playerData = await Player.findOneAndUpdate({ _id: id }, {team_key: body.team_key}, {new: true});
+    res.status(200).json(playerData);
+  } catch (err) {
+    console.error(err);
+    res.status(400).json({ message: "ERROR when updating the players team" })
+  }
+});
+
+// Update Players stats : ADMIN ONLY
+router.put('/update/player/stats/:id', withAuth, async (req, res) => {
+  try {
+    const {params: { id }, body,} = req;
+    const playerData = await Player.findOneAndUpdate({ _id: id }, {stats: body.stats}, {new: true});
+    res.status(200).json(playerData);
+  } catch (err) {
+    console.error(err);
+    res.status(400).json({ message: "ERROR when updating the players stats" });
+  }
+});
+
+
 module.exports = router;
