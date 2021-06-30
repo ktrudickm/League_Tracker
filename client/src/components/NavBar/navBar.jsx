@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import API from "../../utils/API";
 import { Link, NavLink } from "react-router-dom";
+import { withRouter } from "react-router";
+
 import SearchModal from "./searchModal";
 
 const NavBar = () => {
@@ -31,6 +33,7 @@ const NavBar = () => {
         results={results}
         query={search}
       />
+
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid">
           <Link className="navbar-brand" to="/">
@@ -95,4 +98,4 @@ const NavBar = () => {
   );
 };
 
-export default NavBar;
+export default withRouter(NavBar);

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const SearchModal = (props) => {
   const { showModal, toggle, query, results } = props;
@@ -36,7 +37,19 @@ const SearchModal = (props) => {
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <div className="modal-body"></div>
+            <div className="modal-body">
+              <ul>
+                {results &&
+                  results.map((result) => (
+                    <li className="searchResult">
+                      <Link
+                        onClick={dismissModal}
+                        to={`/player/${result._id}`}
+                      >{`${result.first_name} ${result.last_name} (${result.position})`}</Link>
+                    </li>
+                  ))}
+              </ul>
+            </div>
             <div className="modal-footer">
               <span style={{ margin: "auto" }}>
                 Click a link above to go to that player's page!
