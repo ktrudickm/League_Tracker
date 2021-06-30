@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import API from "../../utils/API";
 
 function RegisterPlayer(){
 
@@ -9,7 +10,6 @@ function RegisterPlayer(){
         username: "",
         email: "",
         password: "",
-        photo: "",
         team: ""
       })
 
@@ -39,7 +39,6 @@ function RegisterPlayer(){
         username: formObject.username,
         email: formObject.email,
         password: formObject.password,
-        photo: formObject.photo,
         team: formObject.team
         })
         .then(() => setFormObject({
@@ -48,7 +47,6 @@ function RegisterPlayer(){
             username: "",
             email: "",
             password: "",
-            photo: "",
             team: ""
         }))
         .then(() => loadTeams())
@@ -112,16 +110,6 @@ function RegisterPlayer(){
                             className="form-control"
                             id="InputPassword"
                             value={formObject.password}>
-                        </input>
-                    </div>
-                    <div className="mb-3 w-30">
-                        <label for="formFile" className="form-label">Upload Photo</label>
-                        <input
-                            onChange={handleInputChange}
-                            className="form-control"
-                            type="file"
-                            id="formFile"
-                            value={formObject.photo}>
                         </input>
                     </div>
                     <select value={formObject} onChange={handleInputChange} className="form-select w-30 mb-3" aria-label="Default select example">
