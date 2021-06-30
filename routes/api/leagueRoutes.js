@@ -26,6 +26,7 @@ router.get("/:id", (req, res) => {
     });
 });
 
+// Admin Access Only
 // Creates a new league
 router.post("/add", withAuth, ({ body }, res) => {
   League.create(body)

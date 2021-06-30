@@ -4,6 +4,7 @@ import PlayerPage from "./components/PlayerPage/index";
 import UserPage from "./components/UserPage";
 import RegisterPlayer from "./components/RegisterPage/RegisterPlayer";
 import Teams from "./components/TeamsPage/teamsPage"
+import HomePage from "./components/Homepage";
 import "./App.css";
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
       <NavBar />
       <div className="container">
         <Switch>
+          <Route exact path="/" component={HomePage} />
           <Route exact path="/user" component={UserPage} />
           <Route exact path="/player" component={PlayerPage} />
           <Route exact path="/register" component={RegisterPlayer} />

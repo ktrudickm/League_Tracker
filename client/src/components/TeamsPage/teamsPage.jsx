@@ -37,7 +37,7 @@ return (
               <div className="card-body" style={{color: "black"}}>
                 <h5 className="card-title">{team.name}</h5>
               </div>
-              {team.stats.map (stat => {
+              {team.stats.map(stat => {
                 return(
                   <ul className="list-group list-group-flush" style={{color: "black"}}>
                       <li className="list-group-item">Championship: {stat.championships}</li>
