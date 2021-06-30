@@ -15,11 +15,7 @@ function UserPage(props) {
   }, []);
 
   function loadUserData() {
-<<<<<<< HEAD
-    API.getSingleUserData("60db712d2273fd54a8096efc")
-=======
-    API.getSingleUserData("60dbb3c0fd472e39b8477820")
->>>>>>> c3317096d1c8457bdc0aaf23b0fdc6c59340ada7
+    API.getSingleUserData("60dbb3c0fd472e39b8477822")
       .then((res) => setUserData(res.data))
       .catch((err) => console.log(err.message));
   }
