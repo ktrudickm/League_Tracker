@@ -28,15 +28,63 @@
 }
 
 .close {
-  color: #e76f51;
-  font-size: 1.5rem;
-  font-weight: 800;
-  background-color: #2a9d8f;
-  width: 2.5rem;
-  height: auto;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+  background-color: #264653;
   padding-bottom: 4px;
+  width: 2rem;
 }
 
 .close:hover {
   background-color: #f2f1ed;
+  color: #264653;
+}
+
+.passwordButton {
+  /* float: right; */
+  background-color: #e76f51 !important;
+  font-weight: 500 !important;
+  border: 2px solid #264653 !important;
+  color: white;
+}
+
+.buttonText {
+  color: #fff;
+}
+
+.nameText {
+  font-size: 1.5rem;
+}
+
+#usernameEdit {
+  font-size: 1.5rem;
+}
+
+#userName {
+  margin-left: 55px;
+}
+
+.editIcon {
+  cursor: pointer;
+  border: none;
+  font-size: 0.75rem;
+}
+
+.editIcon:hover {
+  color: #e76f51;
+}
+
+.infoElement {
+  border-bottom: 2px dotted black;
+  padding: 5px 0px;
+}
+
+.unIcon {
+  cursor: pointer;
+  border: none;
+}
+
+.unIcon:hover {
+  color: #e76f51;
 }

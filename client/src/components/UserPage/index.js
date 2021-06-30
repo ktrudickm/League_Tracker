@@ -4,11 +4,15 @@ import API from "../../utils/API";
 import { formatDate } from "../../utils/formatDate";
 // import { Link } from "react-router-dom";
 import ImageUploader from "react-images-upload";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 import "./style.css";
 
 function UserPage(props) {
   const [userData, setUserData] = useState({});
   const [showModal, setModal] = useState(false);
+
+  const editIcon = <FontAwesomeIcon icon={faPencilAlt} />;
 
   useEffect(() => {
     loadUserData();
@@ -55,7 +59,18 @@ function UserPage(props) {
         onSubmit={handlePasswordChange}
       />
       <div className="card align-items-center playerCard">
-        <h1>{userData.username}</h1>
+        <h1 id="userName">
+          {userData.username}
+          {` `}
+          <sup>
+            <span id="usernameEdit">
+              {" "}
+              <button className="unIcon" onClick={toggleModal}>
+                {editIcon}
+              </button>
+            </span>
+          </sup>
+        </h1>
         <img
           src={imgSrc || `data:image/png;base64,${userData.image}`}
           className="card-img-top"
@@ -68,7 +83,7 @@ function UserPage(props) {
             withIcon={false}
             withPreview={false}
             singleImage={true}
-            buttonText="Change image"
+            buttonText="Upload image"
             onChange={onDrop}
             imgExtension={[".jpg", ".gif", ".png", ".gif"]}
             maxFileSize={5242880}
@@ -77,21 +92,64 @@ function UserPage(props) {
         </div>
         <div className="card-body">
           <h5 className="card-title">
-            {userData.first_name} {userData.last_name}
+            <span className="nameText">
+              {userData.first_name} {userData.last_name}
+            </span>
           </h5>
-          <p className="card-text">
-            <span style={{ fontWeight: "bolder" }}>Birthdate:</span>{" "}
-            {userData.date_of_birth && formatDate(userData.date_of_birth)}
-          </p>
-          <button
+          <ul className="card-text">
+            <li className="infoElement">
+              <span style={{ fontWeight: "bolder" }}>Birthdate:{` `}</span>
+              {userData.date_of_birth && formatDate(userData.date_of_birth)}
+              {` `}
+              <sup>
+                {" "}
+                <button className="editIcon" onClick={toggleModal}>
+                  {editIcon}
+                </button>
+              </sup>
+            </li>
+            <li className="infoElement">
+              <span style={{ fontWeight: "bolder" }}>Email:{` `}</span>
+              {userData.email}
+              {` `}
+              <sup>
+                {" "}
+                <button className="editIcon" onClick={toggleModal}>
+                  {editIcon}
+                </button>
+              </sup>
+            </li>
+            <li className="infoElement">
+              <span style={{ fontWeight: "bolder" }}>Phone:{` `}</span>
+              {userData.phone}
+              {` `}
+              <sup>
+                {" "}
+                <button className="editIcon" onClick={toggleModal}>
+                  {editIcon}
+                </button>
+              </sup>
+            </li>
+            <li className="infoElement">
+              <span style={{ fontWeight: "bolder" }}>Password:{` `}</span>
+              **********
+              {` `}
+              <sup>
+                <button className="editIcon" onClick={toggleModal}>
+                  {editIcon}
+                </button>
+              </sup>
+            </li>
+          </ul>
+          {/* <button
             type="button"
-            className="btn btn-warning"
+            className="btn passwordButton"
             data-toggle="modal"
             data-target="#passwordModal"
             onClick={toggleModal}
           >
-            Change Password
-          </button>
+            <span className="buttonText">Change Password</span>
+          </button> */}
         </div>
         <ul className="list-group list-group-flush"></ul>
         <div className="card-body"></div>
