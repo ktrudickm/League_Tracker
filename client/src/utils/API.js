@@ -42,6 +42,21 @@ export default {
     );
   },
 
+  // Admin update all player properties route
+  adminUpdatePlayer: function (id, player) {
+    return axios.put(`/api/players/update/${id}`, player);
+  },
+
+  // Admin update players team_key (which team they are on)
+  adminUpdatePlayerTeam: function (id, team_key) {
+    return axios.put(`/api/players/update/player/team/${id}`, team_key);
+  },
+
+  // Admin update players stats
+  adminUpdatePlayerStats: function (id, stats) {
+    return axios.put(`/api/players/update/player/stats/${id}`, stats);
+  },
+
   // login
   loginPlayer: function (player) {
     return axios.post(`/api/user/login`, player);

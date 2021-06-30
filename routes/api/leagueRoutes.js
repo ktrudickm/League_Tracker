@@ -6,7 +6,7 @@ const withAuth = require('../../scripts/withAuth');
 router.get("/:str", async (req, res) => {
   try {
     const str = req.params.str;
-    let league = await League.find({ name: str }).exec();
+    let league = await League.find({ name: {$regex: str, $options: 'i'} }).exec();
     res.status(200).json(league);
   } catch (err) {
     console.err(err);
