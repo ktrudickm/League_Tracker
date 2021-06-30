@@ -1,6 +1,19 @@
 .searchResult {
   display: "block";
   margin-bottom: 5px;
+  list-style-type: none;
+  text-decoration: none;
+  padding-bottom: 5px;
+}
+
+.resultText {
+  color: black;
+  border-bottom: 2px solid black;
+}
+
+.resultText:hover {
+  color: #e76f51;
+  border-bottom: 2px solid #e76f51;
 }
 
 .brandText {
@@ -44,4 +57,9 @@
   -moz-box-shadow: px px 0px 0px #ffffff;
   -webkit-box-shadow: px px 0px 0px #ffffff;
   box-shadow: px px 0px 0px #ffffff;
+}
+
+.modalCustom {
+  background-color: #f2f1ed !important;
+  border: 5px solid #2a9d8f !important;
 }
