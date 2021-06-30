@@ -24,8 +24,10 @@ function UserPage(props) {
     setModal(!showModal);
   };
 
-  const handlePasswordChange = (e) => {
-    console.log("changed");
+  const handlePasswordChange = (password) => {
+    API.updatePlayerPassword(userData._id, { password: password })
+      .then((res) => res.json(res.data))
+      .catch((err) => console.log(err.message));
   };
 
   const onDrop = (imageFile, imageURL) => {
@@ -50,6 +52,7 @@ function UserPage(props) {
         toggle={toggleModal}
         showModal={showModal}
         prevPassword={userData.password}
+        onSubmit={handlePasswordChange}
       />
       <div className="card align-items-center">
         <h1>{userData.username}</h1>

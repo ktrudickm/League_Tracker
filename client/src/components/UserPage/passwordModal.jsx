@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 
 const PasswordModal = (props) => {
-  const { showModal, toggle, prevPassword } = props;
+  const { showModal, toggle, prevPassword, onSubmit } = props;
   const [password, setPassword] = useState(prevPassword);
   const [first, setFirst] = useState("");
   const [second, setSecond] = useState("");
   const [error, setError] = useState(false);
+  const [prevError, setPrevError] = useState(false);
 
   const dismissModal = () => {
     toggle();
@@ -15,15 +16,10 @@ const PasswordModal = (props) => {
     setFirst(e);
   };
   const handleSecond = (e) => {
-    console.log(first);
-    console.log(e);
+    setSecond(e);
     setError(true);
     if (e === first) {
       setError(false);
-    }
-  };
-  const handleChange = (e) => {
-    if (e !== password) {
     }
   };
 
@@ -58,7 +54,7 @@ const PasswordModal = (props) => {
             </div>
             <div className="modal-body">
               <form>
-                <div className="form-group">
+                {/* <div className="form-group">
                   <label htmlFor="oldPassword" className="col-form-label">
                     Enter previous password
                   </label>
@@ -67,7 +63,10 @@ const PasswordModal = (props) => {
                     className="form-control"
                     id="oldPassword"
                   />
-                </div>
+                  <span className={`error ${prevError ? "" : "hidden"}`}>
+                    Previous password incorrect. Please try again.
+                  </span>
+                </div> */}
                 <div className="form-group">
                   <label htmlFor="newPassword-1" className="col-form-label">
                     Enter new password:
@@ -96,7 +95,11 @@ const PasswordModal = (props) => {
               </form>
             </div>
             <div className="modal-footer">
-              <button type="submit" className="btn btn-primary">
+              <button
+                type="submit"
+                className={`btn btn-primary ${error ? "disabled" : ""}  `}
+                onClick={() => onSubmit(second)}
+              >
                 Submit new password
               </button>
             </div>
