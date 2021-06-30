@@ -22,10 +22,10 @@ const SearchModal = (props) => {
         aria-hidden="true"
       >
         <div className="modal-dialog" role="document">
-          <div className="modal-content">
+          <div className="modal-content modalCustom">
             <div className="modal-header">
               <h5 className="modal-title" id="exampleModalLabel">
-                Search results for "{query}"
+                {results.length} result(s) found for "{query}"
               </h5>
               <button
                 type="button"
@@ -41,11 +41,14 @@ const SearchModal = (props) => {
               <ul>
                 {results &&
                   results.map((result) => (
-                    <li className="searchResult">
+                    <li key={result._id} className="searchResult">
                       <Link
+                        style={{ textDecoration: "none" }}
                         onClick={dismissModal}
                         to={`/player/${result._id}`}
-                      >{`${result.first_name} ${result.last_name} (${result.position})`}</Link>
+                      >
+                        <span className="resultText">{`${result.first_name} ${result.last_name} (${result.position})`}</span>
+                      </Link>
                     </li>
                   ))}
               </ul>
