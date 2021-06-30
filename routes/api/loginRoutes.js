@@ -23,7 +23,7 @@ router.post('/login', async(req, res) => {
             req.session.isAdmin = loginData.isAdmin;
             req.session.image = loginData.image;
 
-            loginData.password = undefined; 
+            // loginData.password = undefined; 
             res.status(200).json(loginData);
         });
     } catch (err) {

@@ -10,3 +10,11 @@
 .card-img-top {
   max-width: 200px;
 }
+
+.error {
+  color: red;
+}
+
+.hidden {
+  visibility: hidden;
+}

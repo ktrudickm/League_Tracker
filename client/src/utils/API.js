@@ -1,6 +1,7 @@
 /* eslint-disable import/no-anonymous-default-export */
 import axios from "axios";
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default {
   // Gets all teams by league
   getTeams: function () {
@@ -14,9 +15,9 @@ export default {
 
   // Get a specific user's information
   getSingleUserData: function (id) {
-    return axios.get("/api/players/id/" + id);
+    return axios.get(`/api/players/user/profile/${id}`);
   },
-  
+
   // Search for player by username, firstname, lastname
   searchForUsers: function (str) {
     return axios.get("/api/players/" + str);
@@ -30,12 +31,15 @@ export default {
   // change players avatar image
   updatePlayerImage: function (id, imageURL) {
     console.log(imageURL);
-    return axios.put(`/api/players/users/profile/change/image/${id}`, imageURL);
+    return axios.put(`/api/players/user/profile/change/image/${id}`, imageURL);
   },
 
   // change players password
   updatePlayerPassword: function (id, password) {
-    return axios.put(`/api/players/user/profile/change/password/${id}`, password);
+    return axios.put(
+      `/api/players/user/profile/change/password/${id}`,
+      password
+    );
   },
 
   // login
@@ -44,12 +48,12 @@ export default {
   },
 
   // logout
-  logoutPlayer: function () { 
+  logoutPlayer: function () {
     return axios.post(`/api/user/logout`);
   },
 
   // signup
   signupPlayer: function (player) {
     return axios.post(`/api/user/create`, player);
-  }
+  },
 };
