@@ -5,7 +5,7 @@ const PasswordModal = (props) => {
   const [password, setPassword] = useState(prevPassword);
   const [first, setFirst] = useState("");
   const [second, setSecond] = useState("");
-  const [error, setError] = useState("");
+  const [error, setError] = useState(false);
 
   const dismissModal = () => {
     toggle();
@@ -17,10 +17,10 @@ const PasswordModal = (props) => {
   const handleSecond = (e) => {
     console.log(first);
     console.log(e);
-    if (e !== first) {
-      setError("Passwords must match.");
+    setError(true);
+    if (e === first) {
+      setError(false);
     }
-    setError("");
   };
   const handleChange = (e) => {
     if (e !== password) {
@@ -81,13 +81,17 @@ const PasswordModal = (props) => {
                   <label htmlFor="newPassword-2" className="col-form-label">
                     Re-enter new password:
                   </label>
-                  <span>{error}</span>
                   <input
                     type="password"
                     className="form-control"
                     id="newPassword-2"
                     onChange={(e) => handleSecond(e.target.value)}
                   />
+                  <label htmlFor="newPassword-2" className="col-form-label">
+                    <span className={`error ${error ? "" : "hidden"}`}>
+                      Passwords must match.
+                    </span>
+                  </label>
                 </div>
               </form>
             </div>

@@ -15,7 +15,7 @@ function UserPage(props) {
   }, []);
 
   function loadUserData() {
-    API.getUserData("60db712d2273fd54a8096efc")
+    API.getSingleUserData("60dbb3c0fd472e39b8477820")
       .then((res) => setUserData(res.data))
       .catch((err) => console.log(err.message));
   }
@@ -32,7 +32,7 @@ function UserPage(props) {
     console.log(imageURL);
     const base64 = imageURL[0];
     const base64URL = base64.split(";base64,").pop();
-    API.updatePlayerImage(userData.username, { imageURL: base64URL })
+    API.updatePlayerImage(userData._id, { imageURL: base64URL })
       .then((res) => {
         setUserData({ ...userData, image: res.data.image });
       })
