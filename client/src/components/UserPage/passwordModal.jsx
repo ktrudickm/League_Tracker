@@ -1,21 +1,32 @@
 import React, { useState } from "react";
 
 const PasswordModal = (props) => {
-  const { showModal, toggle, prevPassword, onSubmit } = props;
-  const [password, setPassword] = useState(prevPassword);
+  const { showModal, toggle, onSubmit } = props;
+  // const [password, setPassword] = useState(prevPassword);
   const [first, setFirst] = useState("");
   const [second, setSecond] = useState("");
   const [error, setError] = useState(false);
-  const [prevError, setPrevError] = useState(false);
+  const [inputOne, setInputOne] = useState("");
+  const [inputTwo, setInputTwo] = useState("");
+  // const [prevError, setPrevError] = useState(false);
 
   const dismissModal = () => {
     toggle();
   };
 
+  const handleSubmit = () => {
+    setInputOne("");
+    setInputTwo("");
+    dismissModal();
+    onSubmit(second);
+  };
+
   const handleFirst = (e) => {
+    setInputOne(e);
     setFirst(e);
   };
   const handleSecond = (e) => {
+    setInputTwo(e);
     setSecond(e);
     setError(true);
     if (e === first) {
@@ -75,6 +86,7 @@ const PasswordModal = (props) => {
                     type="password"
                     className="form-control"
                     id="newPassword-1"
+                    value={inputOne}
                     onChange={(e) => handleFirst(e.target.value)}
                   />
                   <label htmlFor="newPassword-2" className="col-form-label">
@@ -84,6 +96,7 @@ const PasswordModal = (props) => {
                     type="password"
                     className="form-control"
                     id="newPassword-2"
+                    value={inputTwo}
                     onChange={(e) => handleSecond(e.target.value)}
                   />
                   <label htmlFor="newPassword-2" className="col-form-label">
@@ -98,7 +111,7 @@ const PasswordModal = (props) => {
               <button
                 type="submit"
                 className={`btn btn-primary ${error ? "disabled" : ""}  `}
-                onClick={() => onSubmit(second)}
+                onClick={handleSubmit}
               >
                 Submit new password
               </button>

@@ -2,3 +2,46 @@
   display: "block";
   margin-bottom: 5px;
 }
+
+.brandText {
+  color: #fff;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-weight: 500;
+  font-size: 1.75rem;
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  padding: 0px 15px 0px 15px;
+  background: linear-gradient(to right, #264653, #264653 50%, #fff 50%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 100%;
+  background-position: 100%;
+  transition: background-position 300ms ease;
+}
+
+.brandText:hover {
+  background-position: 0 100%;
+}
+
+.linkText {
+  color: #fff;
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
+.linkText:hover {
+  color: #264653;
+}
+
+.buttonCustom {
+  color: #fff;
+  border: 2px solid #fff;
+}
+
+.buttonCustom:hover {
+  -moz-box-shadow: px px 0px 0px #ffffff;
+  -webkit-box-shadow: px px 0px 0px #ffffff;
+  box-shadow: px px 0px 0px #ffffff;
+}
