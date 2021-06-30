@@ -32,4 +32,9 @@ export default {
   updatePlayerData: function (username, data) {
     return axios.put(`/api/players/update/data/${username}`, data);
   },
+
+  // Adding a new player to player database
+  savePlayer: function(playerData) {
+    return axios.post("/api/players", playerData);
+  }
 };

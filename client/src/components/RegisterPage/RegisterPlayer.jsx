@@ -2,7 +2,59 @@ import React from "react";
 
 function RegisterPlayer(){
 
-    const [leagues, setleague] = useState([])
+    const [teams, setteams] = useState([])
+    const [formObject, setFormObject] = useState({
+        firstName: "",
+        lastName: "",
+        username: "",
+        email: "",
+        password: "",
+        photo: "",
+        team: ""
+      })
+
+    useEffect(() => {
+        loadTeams()
+      }, [])
+
+    function loadTeams() {
+    API.getTeams()
+        .then(res => 
+        setteams(res.data)
+        )
+        .catch(err => console.log(err));
+    };
+
+    function handleInputChange(event) {
+        const { name, value } = event.target;
+        setFormObject({...formObject, [name]: value})
+      };
+
+    function handleFormSubmit(event) {
+    event.preventDefault();
+    if (formObject.title && formObject.author) {
+        API.savePlayer({
+        firstName: formObject.firstName,
+        lastName: formObject.lastName,
+        username: formObject.username,
+        email: formObject.email,
+        password: formObject.password,
+        photo: formObject.photo,
+        team: formObject.team
+        })
+        .then(() => setFormObject({
+            firstName: "",
+            lastName: "",
+            username: "",
+            email: "",
+            password: "",
+            photo: "",
+            team: ""
+        }))
+        .then(() => loadTeams())
+        .catch(err => console.log(err));
+    }
+    };
 
     return (
         <div class="card w-75 mx-auto mt-5 mb-5">
@@ -12,38 +64,79 @@ function RegisterPlayer(){
                 </div>
                 <form>
                     <div className="mb-3 w-30">
-                        <label for="PlayerName" className="form-label">Full Name</label>
-                        <input type="text" className="form-control" id="PlayerName"></input>
+                        <label for="FirstName" className="form-label">First Name</label>
+                        <input 
+                            onChange={handleInputChange}
+                            type="text" 
+                            className="form-control" 
+                            id="FirstName"
+                            value={formObject.firstName}>
+                        </input>
+                    </div>
+                    <div className="mb-3 w-30">
+                        <label for="LastName" className="form-label">Last Name</label>
+                        <input 
+                            onChange={handleInputChange}
+                            type="text" 
+                            className="form-control" 
+                            id="LastName"
+                            value={formObject.lastName}>
+                        </input>
                     </div>
                     <div className="mb-3 w-30">
                         <label for="UserName" className="form-label">User Name</label>
-                        <input type="text" className="form-control" id="UserName"></input>
+                        <input
+                            onChange={handleInputChange}
+                            type="text"
+                            className="form-control"
+                            id="UserName"
+                            value={formObject.username}>
+                        </input>
                     </div>
                     <div className="mb-3 w-30">
                         <label for="InputEmail" className="form-label">Email address</label>
-                        <input type="email" className="form-control" id="InputEmail" aria-describedby="emailHelp"></input>
+                        <input 
+                            onChange={handleInputChange}
+                            type="email"
+                            className="form-control"
+                            id="InputEmail"
+                            aria-describedby="emailHelp"
+                            value={formObject.email}>
+                        </input>
                     </div>
                     <div className="mb-3 w-30">
                         <label for="InputPassword" className="form-label">Password</label>
-                        <input type="password" className="form-control" id="InputPassword"></input>
+                        <input
+                            onChange={handleInputChange}
+                            type="password"
+                            className="form-control"
+                            id="InputPassword"
+                            value={formObject.password}>
+                        </input>
                     </div>
                     <div className="mb-3 w-30">
                         <label for="formFile" className="form-label">Upload Photo</label>
-                        <input className="form-control" type="file" id="formFile"></input>
+                        <input
+                            onChange={handleInputChange}
+                            className="form-control"
+                            type="file"
+                            id="formFile"
+                            value={formObject.photo}>
+                        </input>
                     </div>
-                    <select className="form-select w-30 mb-3" aria-label="Default select example">
-                        <option selected>Select Your League</option>
-                        <option value="1">One</option>
-                    </select>
-                    <select className="form-select w-30 mb-3" aria-label="Default select example">
-                        <option selected>Select Your Team</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
+                    <select value={formObject} onChange={handleInputChange} className="form-select w-30 mb-3" aria-label="Default select example">
+                            {teams.map(Team => {
+                                return (
+                                    <option value={Team.name} key={Team._id}>{Team.name}</option>
+                                )
+                            })}
                     </select>
                     <button 
                         type="submit"
                         className="btn btn-primary"
-                    >Submit</button>
+                        disabled={!(formObject.firstName && formObject.lastName && formObject.email && formObject.username && formObject.password && formObject.team)}
+                        onClick={handleFormSubmit}
+                    >Register</button>
                 </form>
             </div>
         </div>
