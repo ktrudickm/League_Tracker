@@ -53,6 +53,7 @@ router.get("/:id", (req, res) => {
     });
 });
 
+// Admin Access Only
 // Create a new team
 router.post("/add", withAuth, ({ body }, res) => {
   Team.create(body)

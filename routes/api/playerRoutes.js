@@ -58,16 +58,14 @@ router.get('/user/profile/:id', withPlayerAuth, async (req, res) => {
 });
 
 // Update User Profile page route MUST BE LOGGED IN
-// Updates single user
+// Updates single users phone and email
 router.put('/user/profile/update/:id', withPlayerAuth, async (req, res) => {
     try {
         const {params: {id}, body } = req;
         const hashedPassword = await bcrypt.hash(body.password, 10);
         const playerData = await Player.findOneAndUpdate({ _id: id }, { 
             email: body.email,
-            password: hashedPassword,
             phone: body.phone,
-            image: body.image,
          }, {new: true});
          res.status(200).json(playerData);
     } catch (err) {
