@@ -1,14 +1,22 @@
-.card {
-  width: 30rem;
-  margin: auto;
-  margin-top: 50px;
+.imageUploader {
+  background-color: #f2f1ed !important;
+  /* visibility: hidden; */
 }
 
-.card-text {
-  padding: 10px 0px;
+.uploadButton {
+  background-color: #e76f51 !important;
+  font-weight: 500 !important;
+  border: 2px solid #264653 !important;
 }
-.card-img-top {
-  max-width: 200px;
+
+.uploadButton:hover {
+  border: none !important;
+}
+.fileContainer {
+  background-color: #f2f1ed !important;
+  box-shadow: none;
+  padding: none !important;
+  height: 1rem;
 }
 
 .error {

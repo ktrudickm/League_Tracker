@@ -54,23 +54,27 @@ function UserPage(props) {
         prevPassword={userData.password}
         onSubmit={handlePasswordChange}
       />
-      <div className="card align-items-center">
+      <div className="card align-items-center playerCard">
         <h1>{userData.username}</h1>
         <img
           src={imgSrc || `data:image/png;base64,${userData.image}`}
           className="card-img-top"
           alt="..."
         />
-        <ImageUploader
-          withIcon={false}
-          withPreview={false}
-          singleImage={true}
-          buttonText="Choose image"
-          onChange={onDrop}
-          imgExtension={[".jpg", ".gif", ".png", ".gif"]}
-          maxFileSize={5242880}
-          fileSizeError=" file size is too big"
-        />
+        <div className="imageUploader">
+          <ImageUploader
+            buttonClassName="uploadButton"
+            withLabel={false}
+            withIcon={false}
+            withPreview={false}
+            singleImage={true}
+            buttonText="Change image"
+            onChange={onDrop}
+            imgExtension={[".jpg", ".gif", ".png", ".gif"]}
+            maxFileSize={5242880}
+            fileSizeError="File size is too big. Max size is 5mb."
+          />
+        </div>
         <div className="card-body">
           <h5 className="card-title">
             {userData.first_name} {userData.last_name}
