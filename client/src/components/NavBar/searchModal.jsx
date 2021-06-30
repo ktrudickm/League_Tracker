@@ -34,7 +34,7 @@ const SearchModal = (props) => {
                 aria-label="Close"
                 onClick={dismissModal}
               >
-                <span aria-hidden="true">&times;</span>
+                {/* <span aria-hidden="true">&times;</span> */}X
               </button>
             </div>
             <div className="modal-body">
