@@ -33,7 +33,7 @@ function RegisterPlayer(){
     function handleFormSubmit(event) {
     event.preventDefault();
     if (formObject.title && formObject.author) {
-        API.savePlayer({
+        API.signupPlayer({
         firstName: formObject.firstName,
         lastName: formObject.lastName,
         username: formObject.username,
