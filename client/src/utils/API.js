@@ -15,7 +15,7 @@ export default {
 
   // Get a specific user's information
   getSingleUserData: function (id) {
-    return axios.get("/api/players/id" + id);
+    return axios.get(`/api/players/user/profile/${id}`);
   },
 
   // Search for player by username, firstname, lastname
@@ -31,7 +31,7 @@ export default {
   // change players avatar image
   updatePlayerImage: function (id, imageURL) {
     console.log(imageURL);
-    return axios.put(`/api/players/users/profile/change/image/${id}`, imageURL);
+    return axios.put(`/api/players/user/profile/change/image/${id}`, imageURL);
   },
 
   // change players password
