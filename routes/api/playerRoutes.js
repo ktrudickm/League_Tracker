@@ -9,18 +9,18 @@ router.get("/:str", async (req, res) => {
   try {
     const str = req.params.str;
     let players = await Player.find(
-      { first_name: str },
+      { first_name: {$regex: str, $options: 'i'} },
       "-password -isAdmin -phone -email"
     ).exec();
     if (players.length === 0) {
       players = await Player.find(
-        { last_name: str },
+        { last_name: {$regex: str, $options: 'i'} },
         "-password -isAdmin -phone -email"
       ).exec();
     }
     if (players.length === 0) {
       players = await Player.find(
-        { username: str },
+        { username: {$regex: str, $options: 'i'} },
         "-password -isAdmin -phone -email"
       ).exec();
     }
