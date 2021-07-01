@@ -4,22 +4,22 @@ import API from "../../utils/API";
 import { formatDate } from "../../utils/formatDate";
 // import { Link } from "react-router-dom";
 import ImageUploader from "react-images-upload";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 import "./style.css";
 
 function UserPage(props) {
   const [userData, setUserData] = useState({});
   const [showModal, setModal] = useState(false);
 
+  const editIcon = <FontAwesomeIcon icon={faPencilAlt} />;
+
   useEffect(() => {
     loadUserData();
   }, []);
 
   function loadUserData() {
-<<<<<<< HEAD
-    API.getSingleUserData("60db712d2273fd54a8096efc")
-=======
-    API.getSingleUserData("60dbb3c0fd472e39b8477820")
->>>>>>> c3317096d1c8457bdc0aaf23b0fdc6c59340ada7
+    API.getSingleUserData("60dbb3c0fd472e39b8477822")
       .then((res) => setUserData(res.data))
       .catch((err) => console.log(err.message));
   }
@@ -28,8 +28,10 @@ function UserPage(props) {
     setModal(!showModal);
   };
 
-  const handlePasswordChange = (e) => {
-    console.log("changed");
+  const handlePasswordChange = (password) => {
+    API.updatePlayerPassword(userData._id, { password: password })
+      .then((res) => res.json(res.data))
+      .catch((err) => console.log(err.message));
   };
 
   const onDrop = (imageFile, imageURL) => {
@@ -54,41 +56,100 @@ function UserPage(props) {
         toggle={toggleModal}
         showModal={showModal}
         prevPassword={userData.password}
+        onSubmit={handlePasswordChange}
       />
-      <div className="card align-items-center">
-        <h1>{userData.username}</h1>
+      <div className="card align-items-center playerCard">
+        <h1 id="userName">
+          {userData.username}
+          {` `}
+          <sup>
+            <span id="usernameEdit">
+              {" "}
+              <button className="unIcon" onClick={toggleModal}>
+                {editIcon}
+              </button>
+            </span>
+          </sup>
+        </h1>
         <img
           src={imgSrc || `data:image/png;base64,${userData.image}`}
           className="card-img-top"
           alt="..."
         />
-        <ImageUploader
-          withIcon={false}
-          withPreview={false}
-          singleImage={true}
-          buttonText="Choose image"
-          onChange={onDrop}
-          imgExtension={[".jpg", ".gif", ".png", ".gif"]}
-          maxFileSize={5242880}
-          fileSizeError=" file size is too big"
-        />
+        <div className="imageUploader">
+          <ImageUploader
+            buttonClassName="uploadButton"
+            withLabel={false}
+            withIcon={false}
+            withPreview={false}
+            singleImage={true}
+            buttonText="Upload image"
+            onChange={onDrop}
+            imgExtension={[".jpg", ".gif", ".png", ".gif"]}
+            maxFileSize={5242880}
+            fileSizeError="File size is too big. Max size is 5mb."
+          />
+        </div>
         <div className="card-body">
           <h5 className="card-title">
-            {userData.first_name} {userData.last_name}
+            <span className="nameText">
+              {userData.first_name} {userData.last_name}
+            </span>
           </h5>
-          <p className="card-text">
-            <span style={{ fontWeight: "bolder" }}>Birthdate:</span>{" "}
-            {userData.date_of_birth && formatDate(userData.date_of_birth)}
-          </p>
-          <button
+          <ul className="card-text">
+            <li className="infoElement">
+              <span style={{ fontWeight: "bolder" }}>Birthdate:{` `}</span>
+              {userData.date_of_birth && formatDate(userData.date_of_birth)}
+              {` `}
+              <sup>
+                {" "}
+                <button className="editIcon" onClick={toggleModal}>
+                  {editIcon}
+                </button>
+              </sup>
+            </li>
+            <li className="infoElement">
+              <span style={{ fontWeight: "bolder" }}>Email:{` `}</span>
+              {userData.email}
+              {` `}
+              <sup>
+                {" "}
+                <button className="editIcon" onClick={toggleModal}>
+                  {editIcon}
+                </button>
+              </sup>
+            </li>
+            <li className="infoElement">
+              <span style={{ fontWeight: "bolder" }}>Phone:{` `}</span>
+              {userData.phone}
+              {` `}
+              <sup>
+                {" "}
+                <button className="editIcon" onClick={toggleModal}>
+                  {editIcon}
+                </button>
+              </sup>
+            </li>
+            <li className="infoElement">
+              <span style={{ fontWeight: "bolder" }}>Password:{` `}</span>
+              **********
+              {` `}
+              <sup>
+                <button className="editIcon" onClick={toggleModal}>
+                  {editIcon}
+                </button>
+              </sup>
+            </li>
+          </ul>
+          {/* <button
             type="button"
-            className="btn btn-warning"
+            className="btn passwordButton"
             data-toggle="modal"
             data-target="#passwordModal"
             onClick={toggleModal}
           >
-            Change Password
-          </button>
+            <span className="buttonText">Change Password</span>
+          </button> */}
         </div>
         <ul className="list-group list-group-flush"></ul>
         <div className="card-body"></div>

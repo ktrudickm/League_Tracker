@@ -9,18 +9,18 @@ router.get("/:str", async (req, res) => {
   try {
     const str = req.params.str;
     let players = await Player.find(
-      { first_name: {$regex: str, $options: 'i'} },
+      { first_name: { $regex: str, $options: "i" } },
       "-password -isAdmin -phone -email"
     ).exec();
     if (players.length === 0) {
       players = await Player.find(
-        { last_name: {$regex: str, $options: 'i'} },
+        { last_name: { $regex: str, $options: "i" } },
         "-password -isAdmin -phone -email"
       ).exec();
     }
     if (players.length === 0) {
       players = await Player.find(
-        { username: {$regex: str, $options: 'i'} },
+        { username: { $regex: str, $options: "i" } },
         "-password -isAdmin -phone -email"
       ).exec();
     }
@@ -64,7 +64,7 @@ router.get("/byteam/:teamid", async (req, res) => {
 
 // User Profile page api route MUST BE LOGGED IN TO USE
 // Fetches single player data
-router.get("/user/profile/:id", async (req, res) => {
+router.get("/user/profile/:id", withPlayerAuth, async (req, res) => {
   try {
     const dbPlayer = await Player.findById({ _id: req.params.id }, "-isAdmin");
     res.status(200).json(dbPlayer);
@@ -103,11 +103,9 @@ router.put("/user/profile/update/:id", withPlayerAuth, async (req, res) => {
 });
 
 //Updates password for player
-router.put(
-  "/user/profile/change/password/:id",
-  withPlayerAuth,
-  async (req, res) => {
+router.put("/user/profile/change/password/:id", withPlayerAuth, async (req, res) => {
     try {
+      // console.log(req.body);
       const {
         params: { id },
         body,
@@ -129,7 +127,7 @@ router.put(
 );
 
 // Updates image for player
-router.put("/user/profile/change/image/:id", async (req, res) => {
+router.put("/user/profile/change/image/:id", withPlayerAuth, async (req, res) => {
   try {
     const {
       params: { id },
@@ -184,28 +182,41 @@ router.put("/update/:id", withAuth, async (req, res) => {
 });
 
 // Adds player to a team : ADMIN ONLY
-router.put('/update/player/team/:id', withAuth, async (req, res) => {
+router.put("/update/player/team/:id", withAuth, async (req, res) => {
   try {
-    const {params: { id }, body,} = req;
-    const playerData = await Player.findOneAndUpdate({ _id: id }, {team_key: body.team_key}, {new: true});
+    const {
+      params: { id },
+      body,
+    } = req;
+    const playerData = await Player.findOneAndUpdate(
+      { _id: id },
+      { team_key: body.team_key },
+      { new: true }
+    );
     res.status(200).json(playerData);
   } catch (err) {
     console.error(err);
-    res.status(400).json({ message: "ERROR when updating the players team" })
+    res.status(400).json({ message: "ERROR when updating the players team" });
   }
 });
 
 // Update Players stats : ADMIN ONLY
-router.put('/update/player/stats/:id', withAuth, async (req, res) => {
+router.put("/update/player/stats/:id", withAuth, async (req, res) => {
   try {
-    const {params: { id }, body,} = req;
-    const playerData = await Player.findOneAndUpdate({ _id: id }, {stats: body.stats}, {new: true});
+    const {
+      params: { id },
+      body,
+    } = req;
+    const playerData = await Player.findOneAndUpdate(
+      { _id: id },
+      { stats: body.stats },
+      { new: true }
+    );
     res.status(200).json(playerData);
   } catch (err) {
     console.error(err);
     res.status(400).json({ message: "ERROR when updating the players stats" });
   }
 });
-
 
 module.exports = router;
