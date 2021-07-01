@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import PasswordModal from "./passwordModal";
+import EditModal from "./editModal";
 import API from "../../utils/API";
 import { formatDate } from "../../utils/formatDate";
 // import { Link } from "react-router-dom";
@@ -11,6 +12,8 @@ import "./style.css";
 function UserPage(props) {
   const [userData, setUserData] = useState({});
   const [showModal, setModal] = useState(false);
+  const [showEditModal, setEditModal] = useState(false);
+  const [editField, setEditField] = useState("");
 
   const editIcon = <FontAwesomeIcon icon={faPencilAlt} />;
 
@@ -28,10 +31,24 @@ function UserPage(props) {
     setModal(!showModal);
   };
 
+  const handleEdit = (field) => {
+    // console.log(id);
+    setEditField(field);
+    setEditModal(!showEditModal);
+  };
+
   const handlePasswordChange = (password) => {
     API.updatePlayerPassword(userData._id, { password: password })
       .then((res) => res.json(res.data))
       .catch((err) => console.log(err.message));
+  };
+
+  const handleEditAPI = (field, value) => {
+    console.log(field);
+    console.log(value);
+    // API.updateUserInfo(userData._id, field, value)
+    //   .then((res) => res.json(res.data))
+    //   .catch((err) => console.log(err.message));
   };
 
   const onDrop = (imageFile, imageURL) => {
@@ -58,19 +75,14 @@ function UserPage(props) {
         prevPassword={userData.password}
         onSubmit={handlePasswordChange}
       />
+      <EditModal
+        toggle={handleEdit}
+        showModal={showEditModal}
+        onEdit={handleEditAPI}
+        field={editField}
+      />
       <div className="card align-items-center playerCard">
-        <h1 id="userName">
-          {userData.username}
-          {/* {` `}
-          <sup>
-            <span id="usernameEdit">
-              {" "}
-              <button className="unIcon" onClick={toggleModal}>
-                {editIcon}
-              </button>
-            </span>
-          </sup> */}
-        </h1>
+        <h1 id="userName">{userData.username}</h1>
         <img
           src={imgSrc || `data:image/png;base64,${userData.image}`}
           className="card-img-top"
@@ -103,9 +115,11 @@ function UserPage(props) {
               {` `}
               <sup>
                 {" "}
-                <button className="editIcon" onClick={toggleModal}>
-                  {editIcon}
-                </button>
+                <FontAwesomeIcon
+                  icon={faPencilAlt}
+                  className="editIcon"
+                  onClick={() => handleEdit("date_of_birth")}
+                />
               </sup>
             </li>
             <li className="infoElement">
@@ -114,9 +128,11 @@ function UserPage(props) {
               {` `}
               <sup>
                 {" "}
-                <button className="editIcon" onClick={toggleModal}>
-                  {editIcon}
-                </button>
+                <FontAwesomeIcon
+                  icon={faPencilAlt}
+                  className="editIcon"
+                  onClick={() => handleEdit("email")}
+                />
               </sup>
             </li>
             <li className="infoElement">
@@ -125,9 +141,11 @@ function UserPage(props) {
               {` `}
               <sup>
                 {" "}
-                <button className="editIcon" onClick={toggleModal}>
-                  {editIcon}
-                </button>
+                <FontAwesomeIcon
+                  icon={faPencilAlt}
+                  className="editIcon"
+                  onClick={() => handleEdit("phone")}
+                />
               </sup>
             </li>
             <li className="infoElement">

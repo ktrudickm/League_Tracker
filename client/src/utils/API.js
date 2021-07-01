@@ -42,6 +42,11 @@ export default {
     );
   },
 
+  // Updates user info for logged-in user ONLY
+  updateUserInfo: function (id, field, data) {
+    return axios.put(`api/players/user/profile/update/${id}`, field, data);
+  },
+
   // Admin update all player properties route
   adminUpdatePlayer: function (id, player) {
     return axios.put(`/api/players/update/${id}`, player);

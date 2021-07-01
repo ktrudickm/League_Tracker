@@ -45,10 +45,11 @@ const NavBar = () => {
       />
 
       <nav
-        className="navbar navbar-expand-lg sticky-top navCustom"
+        className="navbar navbar-expand-md sticky-top navCustom"
         style={{
           backgroundColor: "#F75C03",
-          borderBottom: "10px solid #2a9d8f",
+          borderBottom: "5px solid #2a9d8f",
+          height: "4rem",
         }}
       >
         <div className="container-fluid">

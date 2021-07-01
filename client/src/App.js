@@ -5,6 +5,7 @@ import UserPage from "./components/UserPage";
 import RegisterPlayer from "./components/RegisterPage/RegisterPlayer";
 import Teams from "./components/TeamsPage/teamsPage";
 import HomePage from "./components/Homepage";
+import Footer from "./components/Footer/Footer";
 import "./App.css";
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
           <Route exact path="/teamsPage" component={Teams} />
         </Switch>
       </div>
+      <Footer />
     </>
   );
 }

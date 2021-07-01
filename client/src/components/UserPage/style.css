@@ -6,12 +6,13 @@
 .uploadButton {
   background-color: #f75c03 !important;
   font-weight: 500 !important;
-  border: 2px solid #264653 !important;
+  border: 3px solid #2a9d8f !important;
 }
 
 .uploadButton:hover {
   border: none !important;
 }
+
 .fileContainer {
   background-color: #f2f1ed !important;
   box-shadow: none;
@@ -39,14 +40,6 @@
 .close:hover {
   background-color: #f2f1ed;
   color: #264653;
-}
-
-.passwordButton {
-  /* float: right; */
-  background-color: #f75c03 !important;
-  font-weight: 500 !important;
-  border: 2px solid #264653 !important;
-  color: white;
 }
 
 .buttonText {
