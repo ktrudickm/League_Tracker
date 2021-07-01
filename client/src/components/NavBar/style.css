@@ -7,13 +7,12 @@
 }
 
 .resultText {
-  color: black;
-  border-bottom: 2px solid black;
+  color: #f75c03;
+  border-bottom: 2px dotted #f75c03;
 }
 
 .resultText:hover {
-  color: #e76f51;
-  border-bottom: 2px solid #e76f51;
+  font-weight: 600;
 }
 
 .brandText {
@@ -50,13 +49,12 @@
 
 .buttonCustom {
   color: #fff;
-  border: 2px solid #fff;
+  border: 2px solid #fff !important;
 }
 
 .buttonCustom:hover {
-  -moz-box-shadow: px px 0px 0px #ffffff;
-  -webkit-box-shadow: px px 0px 0px #ffffff;
-  box-shadow: px px 0px 0px #ffffff;
+  color: #2a9d8f !important;
+  border: 2px solid #2a9d8f !important;
 }
 
 .modalCustom {
