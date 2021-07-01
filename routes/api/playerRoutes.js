@@ -103,12 +103,9 @@ router.put("/user/profile/update/:id", withPlayerAuth, async (req, res) => {
 });
 
 //Updates password for player
-router.put(
-  "/user/profile/change/password/:id",
-
-  async (req, res) => {
+router.put("/user/profile/change/password/:id", withPlayerAuth, async (req, res) => {
     try {
-      console.log(req.body);
+      // console.log(req.body);
       const {
         params: { id },
         body,
