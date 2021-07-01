@@ -25,24 +25,24 @@ function RegisterPlayer(){
 
     function handleFormSubmit(event) {
     event.preventDefault();
-    if (formObject.firstName && formObject.lastName && formObject.password) {
+    if (formObject.first_name && formObject.last_name && formObject.password) {
         API.signupPlayer({
-        firstName: formObject.firstName,
-        lastName: formObject.lastName,
+        first_name: formObject.first_name,
+        last_name: formObject.last_name,
         username: formObject.username,
         email: formObject.email,
         password: formObject.password,
-        team: formObject.team
+        team_key: formObject.team
         })
+        .then(res => console.log(res))
         .then(() => setFormObject({
-            firstName: "",
-            lastName: "",
+            first_name: "",
+            last_name: "",
             username: "",
             email: "",
             password: "",
-            team: ""
+            team_key: ""
         }))
-        .then(() => loadTeams())
         .catch(err => console.log(err));
     }
     };
@@ -55,29 +55,32 @@ function RegisterPlayer(){
                 </div>
                 <form>
                     <div className="mb-3 w-30">
-                        <label for="FirstName" className="form-label">First Name</label>
+                        <label for="first_name" className="form-label">First Name</label>
                         <input 
                             onChange={handleInputChange}
+                            name="first_name"
                             type="text" 
                             className="form-control" 
-                            id="FirstName"
-                            value={formObject.firstName}>
+                            id="first_name"
+                            value={formObject.first_name}>
                         </input>
                     </div>
                     <div className="mb-3 w-30">
-                        <label for="LastName" className="form-label">Last Name</label>
+                        <label for="last_name" className="form-label">Last Name</label>
                         <input 
                             onChange={handleInputChange}
+                            name="last_name"
                             type="text" 
                             className="form-control" 
-                            id="LastName"
-                            value={formObject.lastName}>
+                            id="last_name"
+                            value={formObject.last_name}>
                         </input>
                     </div>
                     <div className="mb-3 w-30">
                         <label for="UserName" className="form-label">User Name</label>
                         <input
                             onChange={handleInputChange}
+                            name="username"
                             type="text"
                             className="form-control"
                             id="UserName"
@@ -88,6 +91,7 @@ function RegisterPlayer(){
                         <label for="InputEmail" className="form-label">Email address</label>
                         <input 
                             onChange={handleInputChange}
+                            name="email"
                             type="email"
                             className="form-control"
                             id="InputEmail"
@@ -99,6 +103,7 @@ function RegisterPlayer(){
                         <label for="InputPassword" className="form-label">Password</label>
                         <input
                             onChange={handleInputChange}
+                            name="password"
                             type="password"
                             className="form-control"
                             id="InputPassword"
@@ -108,10 +113,10 @@ function RegisterPlayer(){
                     <div className="mb-3 w-30">
                     <label for="Team" className="form-label">Select Your Team</label>
                     {teams.length ? (
-                        <select value={formObject.team} onChange={handleInputChange} className="form-select w-30 mb-3" aria-label="Default select example">
+                        <select value={formObject.team} onChange={handleInputChange} name="team" className="form-select w-30 mb-3" aria-label="Default select example">
                                 {teams.map(Team => {
                                     return (
-                                        <option value={Team.name} key={Team._id}>{Team.name}</option>
+                                        <option value={Team.key} key={Team._id}>{Team.name}</option>
                                     )
                                 })}
                         </select>
