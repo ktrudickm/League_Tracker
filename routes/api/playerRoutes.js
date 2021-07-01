@@ -64,23 +64,15 @@ router.get("/byteam/:teamid", async (req, res) => {
 
 // User Profile page api route MUST BE LOGGED IN TO USE
 // Fetches single player data
-router.get(
-  "/user/profile/:id",
-  /*withPlayerAuth*/ async (req, res) => {
-    try {
-      const dbPlayer = await Player.findById(
-        { _id: req.params.id },
-        "-isAdmin"
-      );
-      res.status(200).json(dbPlayer);
-    } catch (err) {
-      console.error(err);
-      res
-        .status(500)
-        .json({ message: "ERROR when searching for player by id" });
-    }
+router.get("/user/profile/:id", withPlayerAuth, async (req, res) => {
+  try {
+    const dbPlayer = await Player.findById({ _id: req.params.id }, "-isAdmin");
+    res.status(200).json(dbPlayer);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "ERROR when searching for player by id" });
   }
-);
+});
 
 // Update User Profile page route MUST BE LOGGED IN
 // Updates single user
@@ -116,10 +108,10 @@ router.put(
 //Updates password for player
 router.put(
   "/user/profile/change/password/:id",
-
+  withPlayerAuth,
   async (req, res) => {
     try {
-      console.log(req.body);
+      // console.log(req.body);
       const {
         params: { id },
         body,
@@ -141,23 +133,27 @@ router.put(
 );
 
 // Updates image for player
-router.put("/user/profile/change/image/:id", async (req, res) => {
-  try {
-    const {
-      params: { id },
-      body,
-    } = req;
-    const playerData = await Player.findOneAndUpdate(
-      { _id: id },
-      { image: body.imageURL },
-      { new: true }
-    );
-    res.status(200).json(playerData);
-  } catch (err) {
-    console.error(err);
-    res.status(400).json({ message: "ERROR when updating user image" });
+router.put(
+  "/user/profile/change/image/:id",
+  withPlayerAuth,
+  async (req, res) => {
+    try {
+      const {
+        params: { id },
+        body,
+      } = req;
+      const playerData = await Player.findOneAndUpdate(
+        { _id: id },
+        { image: body.imageURL },
+        { new: true }
+      );
+      res.status(200).json(playerData);
+    } catch (err) {
+      console.error(err);
+      res.status(400).json({ message: "ERROR when updating user image" });
+    }
   }
-});
+);
 
 // Admin access only
 // Can change all of the properties of any player

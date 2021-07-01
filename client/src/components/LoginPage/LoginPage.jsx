@@ -1,14 +1,31 @@
-import React from "react";
-import { useHistory } from "react-router-dom";
+import React, { useState } from "react";
+import API from "../../utils/API";
 
-const LoginPage = () => {
+function LoginPage(){
 
-    const history = useHistory();
+    const [formObject, setFormObject] = useState({})
 
-    const routeChange = () =>{ 
-      let path = `RegisterPlayer`; 
-      history.push(path);
-    }
+    function handleInputChange(event) {
+        const { name, value } = event.target;
+        setFormObject({...formObject, [name]: value})
+    };
+
+    function handleFormSubmit(event) {
+        event.preventDefault();
+        if (formObject.email && formObject.password) {
+            API.loginPlayer({
+                email: formObject.email,
+                password: formObject.password
+            })
+            .then(() => setFormObject({
+                email: "",
+                password: ""
+            }))
+            .then(() => loadPlayers())
+            .catch(err => console.log(err));
+        }
+    };
+
 
     return (
         <div class="card w-75 mx-auto mt-5 mb-5">
@@ -20,21 +37,31 @@ const LoginPage = () => {
                     <form>
                         <div className="mb-3">
                             <label for="InputEmail" className="form-label">Email Address</label>
-                            <input type="email" className="form-control" id="InputEmail" aria-describedby="emailHelp"></input>
+                            <input
+                                onChange={handleInputChange}
+                                value={formObject.email}
+                                type="email"
+                                className="form-control"
+                                id="InputEmail"
+                                aria-describedby="emailHelp">
+                            </input>
                         </div>
                         <div className="mb-3">
                             <label for="InputPassword" className="form-label">Password</label>
-                            <input type="password" className="form-control" id="InputPassword"></input>
+                            <input 
+                                onChange={handleInputChange}
+                                value={formObject.password}
+                                type="password"
+                                className="form-control"
+                                id="InputPassword">
+                            </input>
                         </div>
                         <button 
                             type="submit"
                             className="btn btn-primary"
+                            disabled={!(formObject.email && formObject.password)}
+                            onClick={handleFormSubmit}
                         >Login</button>
-                        <button 
-                            type="register"
-                            className="btn btn-primary mx-3"
-                            onClick={routeChange}
-                        >Register</button>
                     </form>
                 </div>
             </div>
