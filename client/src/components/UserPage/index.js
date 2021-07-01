@@ -61,7 +61,7 @@ function UserPage(props) {
       <div className="card align-items-center playerCard">
         <h1 id="userName">
           {userData.username}
-          {` `}
+          {/* {` `}
           <sup>
             <span id="usernameEdit">
               {" "}
@@ -69,7 +69,7 @@ function UserPage(props) {
                 {editIcon}
               </button>
             </span>
-          </sup>
+          </sup> */}
         </h1>
         <img
           src={imgSrc || `data:image/png;base64,${userData.image}`}

@@ -47,7 +47,7 @@ const NavBar = () => {
       <nav
         className="navbar navbar-expand-lg sticky-top navCustom"
         style={{
-          backgroundColor: "#e76f51",
+          backgroundColor: "#F75C03",
           borderBottom: "10px solid #2a9d8f",
         }}
       >

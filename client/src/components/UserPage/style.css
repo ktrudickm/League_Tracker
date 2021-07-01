@@ -4,7 +4,7 @@
 }
 
 .uploadButton {
-  background-color: #e76f51 !important;
+  background-color: #f75c03 !important;
   font-weight: 500 !important;
   border: 2px solid #264653 !important;
 }
@@ -43,7 +43,7 @@
 
 .passwordButton {
   /* float: right; */
-  background-color: #e76f51 !important;
+  background-color: #f75c03 !important;
   font-weight: 500 !important;
   border: 2px solid #264653 !important;
   color: white;
@@ -62,7 +62,7 @@
 }
 
 #userName {
-  margin-left: 55px;
+  margin-left: 15px;
 }
 
 .editIcon {
