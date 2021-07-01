@@ -64,7 +64,7 @@ router.get("/byteam/:teamid", async (req, res) => {
 
 // User Profile page api route MUST BE LOGGED IN TO USE
 // Fetches single player data
-router.get("/user/profile/:id", async (req, res) => {
+router.get("/user/profile/:id", withPlayerAuth, async (req, res) => {
   try {
     const dbPlayer = await Player.findById({ _id: req.params.id }, "-isAdmin");
     res.status(200).json(dbPlayer);
@@ -127,7 +127,7 @@ router.put("/user/profile/change/password/:id", withPlayerAuth, async (req, res)
 );
 
 // Updates image for player
-router.put("/user/profile/change/image/:id", async (req, res) => {
+router.put("/user/profile/change/image/:id", withPlayerAuth, async (req, res) => {
   try {
     const {
       params: { id },
