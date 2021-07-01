@@ -1,4 +1,5 @@
 import { Route, Redirect, Switch } from "react-router-dom";
+import HomePage from "./components/HomePage/homePage.jsx";
 import NavBar from "./components/NavBar/navBar";
 import PlayerPage from "./components/PlayerPage/index";
 import UserPage from "./components/UserPage";

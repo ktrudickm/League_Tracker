@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import HomePage from "./Homepage.jsx"
+import HomePage from "./homePage.jsx"
 import Leagues from "./Leagues.jsx";
 import Teams from "./Teams.jsx"
 
