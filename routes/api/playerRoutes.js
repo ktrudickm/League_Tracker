@@ -76,34 +76,40 @@ router.get("/user/profile/:id", withPlayerAuth, async (req, res) => {
 
 // Update User Profile page route MUST BE LOGGED IN
 // Updates single user
-router.put("/user/profile/update/:id", withPlayerAuth, async (req, res) => {
-  try {
-    const {
-      params: { id },
-      body,
-    } = req;
-    const hashedPassword = await bcrypt.hash(body.password, 10);
-    const playerData = await Player.findOneAndUpdate(
-      { _id: id },
-      {
-        email: body.email,
-        password: hashedPassword,
-        phone: body.phone,
-        image: body.image,
-      },
-      { new: true }
-    );
-    res.status(200).json(playerData);
-  } catch (err) {
-    console.error(err);
-    res
-      .status(400)
-      .json({ message: "There was an ERROR when updating the player" });
+router.put(
+  "/user/profile/update/:id",
+  /*withPlayerAuth*/ async (req, res) => {
+    try {
+      const {
+        params: { id },
+        body,
+      } = req;
+      const hashedPassword = await bcrypt.hash(body.password, 10);
+      const playerData = await Player.findOneAndUpdate(
+        { _id: id },
+        {
+          email: body.email,
+          password: hashedPassword,
+          phone: body.phone,
+          image: body.image,
+        },
+        { new: true }
+      );
+      res.status(200).json(playerData);
+    } catch (err) {
+      console.error(err);
+      res
+        .status(400)
+        .json({ message: "There was an ERROR when updating the player" });
+    }
   }
-});
+);
 
 //Updates password for player
-router.put("/user/profile/change/password/:id", withPlayerAuth, async (req, res) => {
+router.put(
+  "/user/profile/change/password/:id",
+  withPlayerAuth,
+  async (req, res) => {
     try {
       // console.log(req.body);
       const {
@@ -127,23 +133,27 @@ router.put("/user/profile/change/password/:id", withPlayerAuth, async (req, res)
 );
 
 // Updates image for player
-router.put("/user/profile/change/image/:id", withPlayerAuth, async (req, res) => {
-  try {
-    const {
-      params: { id },
-      body,
-    } = req;
-    const playerData = await Player.findOneAndUpdate(
-      { _id: id },
-      { image: body.imageURL },
-      { new: true }
-    );
-    res.status(200).json(playerData);
-  } catch (err) {
-    console.error(err);
-    res.status(400).json({ message: "ERROR when updating user image" });
+router.put(
+  "/user/profile/change/image/:id",
+  withPlayerAuth,
+  async (req, res) => {
+    try {
+      const {
+        params: { id },
+        body,
+      } = req;
+      const playerData = await Player.findOneAndUpdate(
+        { _id: id },
+        { image: body.imageURL },
+        { new: true }
+      );
+      res.status(200).json(playerData);
+    } catch (err) {
+      console.error(err);
+      res.status(400).json({ message: "ERROR when updating user image" });
+    }
   }
-});
+);
 
 // Admin access only
 // Can change all of the properties of any player

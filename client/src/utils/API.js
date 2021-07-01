@@ -3,7 +3,6 @@ import axios from "axios";
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
-
   // ****************************************  NOT LOGGED IN  **************************************
 
   // ** League Routes **
@@ -57,7 +56,7 @@ export default {
   // ************************************   MUST BE LOGGED IN ***************************************
 
   // Grabs the logged in users data from mongodb
-  getLoggedInUser: function(id) {
+  getLoggedInUser: function (id) {
     return axios.get(`/api/players/user/profile/${id}`);
   },
 
