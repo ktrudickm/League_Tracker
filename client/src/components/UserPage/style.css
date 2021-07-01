@@ -1,5 +1,83 @@
-.card {
-  width: 30rem;
-  margin: auto;
-  margin-top: 50px;
+.imageUploader {
+  background-color: #f2f1ed !important;
+  /* visibility: hidden; */
+}
+
+.uploadButton {
+  background-color: #f75c03 !important;
+  font-weight: 500 !important;
+  border: 3px solid #2a9d8f !important;
+}
+
+.uploadButton:hover {
+  border: none !important;
+}
+
+.fileContainer {
+  background-color: #f2f1ed !important;
+  box-shadow: none;
+  padding: none !important;
+  height: 1rem;
+}
+
+.error {
+  color: red;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.close {
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+  background-color: #264653;
+  padding-bottom: 4px;
+  width: 2rem;
+}
+
+.close:hover {
+  background-color: #f2f1ed;
+  color: #264653;
+}
+
+.buttonText {
+  color: #fff;
+}
+
+.nameText {
+  font-size: 1.5rem;
+}
+
+#usernameEdit {
+  font-size: 1.5rem;
+}
+
+#userName {
+  margin-left: 15px;
+}
+
+.editIcon {
+  cursor: pointer;
+  border: none;
+  font-size: 0.75rem;
+}
+
+.editIcon:hover {
+  color: #e76f51;
+}
+
+.infoElement {
+  border-bottom: 2px dotted black;
+  padding: 5px 0px;
+}
+
+.unIcon {
+  cursor: pointer;
+  border: none;
+}
+
+.unIcon:hover {
+  color: #e76f51;
 }

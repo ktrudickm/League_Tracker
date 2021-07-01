@@ -4,8 +4,12 @@
   "description": "A tracker for sports statistics for recreational sport leagues.",
   "main": "server.js",
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.35",
+    "@fortawesome/free-solid-svg-icons": "^5.15.3",
+    "@fortawesome/react-fontawesome": "^0.1.14",
     "axios": "^0.21.1",
     "bcrypt": "^5.0.1",
+    "body-parser": "^1.19.0",
     "compression": "^1.7.4",
     "concurrently": "^6.2.0",
     "connect-mongo": "^4.4.1",
@@ -13,18 +17,32 @@
     "express": "^4.17.1",
     "express-session": "^1.17.2",
     "if-env": "^1.0.4",
+<<<<<<< HEAD
     "mongoose": "^5.12.14",
     "morgan": "^1.10.0",
+=======
+    "mongoose": "^5.13.0",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.2",
+>>>>>>> 84115bcb24f775fbb15afd7ef7966d13ec528320
     "nodemon": "^2.0.7",
     "react-images-upload": "^1.2.8",
     "react-router-dom": "^5.2.0"
   },
   "scripts": {
+<<<<<<< HEAD
     "start": "node server.js",
     "start:prod": "node server.js",
     "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
     "client": "cd client && npm run start",
     "test": "echo \"Error: no test specified\" && exit 1",
+=======
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "start:prod": "node server.js",
+    "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
+    "client": "cd client && npm run start",
+>>>>>>> 84115bcb24f775fbb15afd7ef7966d13ec528320
     "seed": "node scripts/seedDB.js"
   },
   "repository": {

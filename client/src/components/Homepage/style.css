@@ -1,0 +1,12 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.main h2 {
+  text-decoration: underline;
+}
