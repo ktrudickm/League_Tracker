@@ -6,6 +6,7 @@ import RegisterPlayer from "./components/RegisterPage/RegisterPlayer";
 import Teams from "./components/TeamsPage/teamsPage";
 import Login from "./components/LoginPage/LoginPage";
 import HomePage from "./components/Homepage";
+import Footer from "./components/Footer/Footer";
 import "./App.css";
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
           <Route exact path="/login" component={Login} />
         </Switch>
       </div>
+      <Footer />
     </>
   );
 }

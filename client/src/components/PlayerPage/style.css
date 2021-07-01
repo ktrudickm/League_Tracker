@@ -1,7 +1,7 @@
 .playerCard {
   width: 30rem;
   margin: auto;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
   margin-top: 50px;
   box-shadow: rgba(0, 0, 0, 0.35) 10px 25px 15px;
   background-color: #f2f1ed !important;
@@ -14,7 +14,7 @@
   padding: 10px 0px;
 }
 .playerCard .card-img-top {
-  border: 3px solid #2a9d8f;
+  border: 5px solid #2a9d8f;
   background-color: #2a9d8f;
   border-radius: 15%;
   max-width: 200px;
