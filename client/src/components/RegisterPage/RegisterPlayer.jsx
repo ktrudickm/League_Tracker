@@ -4,14 +4,7 @@ import API from "../../utils/API";
 function RegisterPlayer(){
 
     const [teams, setteams] = useState([])
-    const [formObject, setFormObject] = useState({
-        firstName: "",
-        lastName: "",
-        username: "",
-        email: "",
-        password: "",
-        team: ""
-      })
+    const [formObject, setFormObject] = useState({})
 
     useEffect(() => {
         loadTeams()
@@ -32,7 +25,7 @@ function RegisterPlayer(){
 
     function handleFormSubmit(event) {
     event.preventDefault();
-    if (formObject.title && formObject.author) {
+    if (formObject.firstName && formObject.lastName && formObject.password) {
         API.signupPlayer({
         firstName: formObject.firstName,
         lastName: formObject.lastName,
@@ -112,13 +105,20 @@ function RegisterPlayer(){
                             value={formObject.password}>
                         </input>
                     </div>
-                    <select value={formObject} onChange={handleInputChange} className="form-select w-30 mb-3" aria-label="Default select example">
-                            {teams.map(Team => {
-                                return (
-                                    <option value={Team.name} key={Team._id}>{Team.name}</option>
-                                )
-                            })}
-                    </select>
+                    <div className="mb-3 w-30">
+                    <label for="Team" className="form-label">Select Your Team</label>
+                    {teams.length ? (
+                        <select value={formObject.team} onChange={handleInputChange} className="form-select w-30 mb-3" aria-label="Default select example">
+                                {teams.map(Team => {
+                                    return (
+                                        <option value={Team.name} key={Team._id}>{Team.name}</option>
+                                    )
+                                })}
+                        </select>
+                        ) : (
+                            <h4>No teams to display yet.</h4>
+                    )}
+                    </div>
                     <button 
                         type="submit"
                         className="btn btn-primary"
