@@ -48,6 +48,9 @@ const teamSchema = new Schema({
   league_key: {
     type: Number,
   },
+  key: {
+    type: Number,
+  }
 });
 
 const Team = mongoose.model("Team", teamSchema);

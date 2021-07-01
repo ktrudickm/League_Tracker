@@ -116,6 +116,7 @@ export default {
 
   // login
   loginPlayer: function (player) {
+    // console.log(player);
     return axios.post(`/api/user/login`, player);
   },
 
