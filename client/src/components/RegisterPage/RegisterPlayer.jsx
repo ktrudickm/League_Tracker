@@ -13,7 +13,7 @@ function RegisterPlayer(){
     function loadTeams() {
     API.getTeams()
         .then(res => 
-        setteams(res.data)
+            setteams(res.data)
         )
         .catch(err => console.log(err));
     };
@@ -122,7 +122,6 @@ function RegisterPlayer(){
                     <button 
                         type="submit"
                         className="btn btn-primary"
-                        disabled={!(formObject.firstName && formObject.lastName && formObject.email && formObject.username && formObject.password && formObject.team)}
                         onClick={handleFormSubmit}
                     >Register</button>
                 </form>
