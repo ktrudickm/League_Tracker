@@ -4,6 +4,7 @@ import PlayerPage from "./components/PlayerPage";
 import UserPage from "./components/UserPage";
 import RegisterPlayer from "./components/RegisterPage/RegisterPlayer";
 import Teams from "./components/TeamsPage/teamsPage";
+import Login from "./components/LoginPage/LoginPage";
 import HomePage from "./components/Homepage";
 import "./App.css";
 
@@ -18,6 +19,7 @@ function App() {
           <Route path="/player/:id" component={PlayerPage} />
           <Route exact path="/register" component={RegisterPlayer} />
           <Route exact path="/teamsPage" component={Teams} />
+          <Route exact path="/login" component={Login} />
         </Switch>
       </div>
     </>

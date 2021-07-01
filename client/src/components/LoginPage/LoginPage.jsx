@@ -7,7 +7,7 @@ function LoginPage(){
 
     function handleInputChange(event) {
         const { name, value } = event.target;
-        setFormObject({...formObject, [name]: value})
+        setFormObject({...formObject, [name]: value});
     };
 
     function handleFormSubmit(event) {
@@ -17,11 +17,12 @@ function LoginPage(){
                 email: formObject.email,
                 password: formObject.password
             })
+            .then(res => console.log(res))
             .then(() => setFormObject({
                 email: "",
                 password: ""
             }))
-            .then(() => loadPlayers())
+            // .then(() => loadPlayers())
             .catch(err => console.log(err));
         }
     };
@@ -43,7 +44,8 @@ function LoginPage(){
                                 type="email"
                                 className="form-control"
                                 id="InputEmail"
-                                aria-describedby="emailHelp">
+                                aria-describedby="emailHelp"
+                                name="email">
                             </input>
                         </div>
                         <div className="mb-3">
@@ -53,13 +55,14 @@ function LoginPage(){
                                 value={formObject.password}
                                 type="password"
                                 className="form-control"
-                                id="InputPassword">
+                                id="InputPassword"
+                                name="password">
                             </input>
                         </div>
                         <button 
                             type="submit"
                             className="btn btn-primary"
-                            disabled={!(formObject.email && formObject.password)}
+                            // disabled={!(formObject.email && formObject.password)}
                             onClick={handleFormSubmit}
                         >Login</button>
                     </form>

@@ -85,7 +85,7 @@ const playerSchema = new Schema({
     // required: true
   },
   team_key: {
-    type: String,
+    type: Number,
   },
 });
 
