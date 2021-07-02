@@ -13,13 +13,14 @@ const EditModal = (props) => {
   };
 
   const handleSubmit = () => {
-    setValue("");
+    setInput("");
     dismissModal();
     onEdit(field, value);
   };
 
   const handleEdit = (e) => {
     setInput(e);
+    setValue(e);
   };
 
   return (
