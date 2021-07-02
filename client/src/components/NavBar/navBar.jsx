@@ -2,6 +2,14 @@ import React, { useEffect, useState } from "react";
 import API from "../../utils/API";
 import { Link, NavLink } from "react-router-dom";
 import { withRouter } from "react-router";
+import { useAppContext } from "../../utils/context";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faUserAlt,
+  faFlagCheckered,
+  faSignOutAlt,
+  faSignInAlt,
+} from "@fortawesome/free-solid-svg-icons";
 import "./style.css";
 
 import SearchModal from "./searchModal";
@@ -11,6 +19,36 @@ const NavBar = () => {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState("");
   const [showModal, setModal] = useState(false);
+
+  const { isAuthenticated } = useAppContext();
+  const { sessionUN } = useAppContext();
+
+  const logoIcon = <FontAwesomeIcon icon={faFlagCheckered} />;
+
+  const loginIcon = <FontAwesomeIcon icon={faSignInAlt} />;
+  const logoutIcon = <FontAwesomeIcon icon={faSignOutAlt} />;
+
+  const logBtn = isAuthenticated ? (
+    <NavLink className="nav-link" to="/logout">
+      <span className="linkText">{logoutIcon} Logout</span>
+    </NavLink>
+  ) : (
+    <NavLink className="nav-link" to="/login">
+      <span className="linkText">{loginIcon} Login/Sign-Up</span>
+    </NavLink>
+  );
+
+  const userIcon = <FontAwesomeIcon icon={faUserAlt} />;
+
+  const userPage = isAuthenticated ? (
+    <NavLink className="nav-link" to="/user">
+      <span className="linkText">
+        {userIcon} {sessionUN}
+      </span>
+    </NavLink>
+  ) : (
+    ""
+  );
 
   let searchQuery = "";
 
@@ -54,7 +92,7 @@ const NavBar = () => {
       >
         <div className="container-fluid">
           <Link className="navbar-brand" to="/">
-            <span className="brandText">League Tracker</span>
+            <span className="brandText">League Tracker {logoIcon}</span>
           </Link>
           <button
             className="navbar-toggler"
@@ -81,11 +119,7 @@ const NavBar = () => {
                   <span className="linkText">TEAM</span>
                 </NavLink>
               </li>
-              <li className="nav-item px-2">
-                <NavLink className="nav-link" to="/user">
-                  <span className="linkText">USER</span>
-                </NavLink>
-              </li>
+
               <form className="d-flex justify-content-end">
                 <input
                   className="form-control me-2"
@@ -104,11 +138,8 @@ const NavBar = () => {
                   Search
                 </button>
               </form>
-              <li className="nav-item px-2">
-                <NavLink className="nav-link" to="/login">
-                  <span className="linkText">Login/Sign-Up</span>
-                </NavLink>
-              </li>
+              <li className="nav-item px-2">{userPage}</li>
+              <li className="nav-item px-2">{logBtn}</li>
             </ul>
           </div>
         </div>

@@ -1,10 +1,9 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import PasswordModal from "./passwordModal";
 import EditModal from "./editModal";
 import API from "../../utils/API";
 import { useAppContext } from "../../utils/context";
 import { formatDate } from "../../utils/formatDate";
-// import { Link } from "react-router-dom";
 import ImageUploader from "react-images-upload";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPencilAlt } from "@fortawesome/free-solid-svg-icons";

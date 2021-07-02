@@ -16,6 +16,7 @@ import "./App.css";
 function App() {
   const [isAuthenticated, userHasAuthenticated] = useState(false);
   const [sessionID, setSessionID] = useState("");
+  const [sessionUN, setSessionUN] = useState("");
 
   return (
     <>
@@ -25,6 +26,8 @@ function App() {
           userHasAuthenticated,
           sessionID,
           setSessionID,
+          sessionUN,
+          setSessionUN,
         }}
       >
         <NavBar />

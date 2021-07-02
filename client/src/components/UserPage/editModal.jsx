@@ -4,7 +4,6 @@ const EditModal = (props) => {
   const { showModal, toggle, onEdit, field } = props;
   // const [password, setPassword] = useState(prevPassword);
   const [value, setValue] = useState("");
-  const [error, setError] = useState(false);
   const [input, setInput] = useState("");
   // const [prevError, setPrevError] = useState(false);
 
@@ -64,17 +63,12 @@ const EditModal = (props) => {
                   value={input}
                   onChange={(e) => handleEdit(e.target.value)}
                 />
-                <label htmlFor="editForm" className="col-form-label">
-                  <span className={`error ${error ? "" : "hidden"}`}>
-                    Please enter a new value for {field}
-                  </span>
-                </label>
               </form>
             </div>
             <div className="modal-footer">
               <button
                 type="submit"
-                className={`btn btn-primary ${error ? "disabled" : ""}  `}
+                className="btn btn-primary"
                 onClick={handleSubmit}
               >
                 Submit

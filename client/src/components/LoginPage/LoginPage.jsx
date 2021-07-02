@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { useAppContext } from "../../utils/context";
-import { History } from "history";
 import API from "../../utils/API";
 
 function LoginPage(props) {
   const [formObject, setFormObject] = useState({});
   const { userHasAuthenticated } = useAppContext();
   const { setSessionID } = useAppContext();
+  const { setSessionUN } = useAppContext();
 
   function handleInputChange(event) {
     const { name, value } = event.target;
@@ -23,6 +23,7 @@ function LoginPage(props) {
         .then((res) => {
           userHasAuthenticated(true);
           setSessionID(res.data._id);
+          setSessionUN(res.data.username);
           props.history.push("/");
         })
         .then(() =>
