@@ -24,8 +24,10 @@ function LoginPage(){
                 email: "",
                 password: ""
             }))
-            // .then(() => loadPlayers())
-            .catch(err => console.log(err));
+            .catch(err => {
+                console.log(err);
+                alert("Wrong Email and or Password");
+            });
         }
     };
 
