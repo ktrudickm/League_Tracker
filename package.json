@@ -17,32 +17,24 @@
     "express": "^4.17.1",
     "express-session": "^1.17.2",
     "if-env": "^1.0.4",
-<<<<<<< HEAD
-    "mongoose": "^5.12.14",
-    "morgan": "^1.10.0",
-=======
     "mongoose": "^5.13.0",
     "morgan": "^1.10.0",
     "multer": "^1.4.2",
->>>>>>> 84115bcb24f775fbb15afd7ef7966d13ec528320
     "nodemon": "^2.0.7",
     "react-images-upload": "^1.2.8",
     "react-router-dom": "^5.2.0"
   },
   "scripts": {
-<<<<<<< HEAD
     "start": "node server.js",
     "start:prod": "node server.js",
     "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
     "client": "cd client && npm run start",
     "test": "echo \"Error: no test specified\" && exit 1",
-=======
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
     "start:prod": "node server.js",
     "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
     "client": "cd client && npm run start",
->>>>>>> 84115bcb24f775fbb15afd7ef7966d13ec528320
     "seed": "node scripts/seedDB.js"
   },
   "repository": {

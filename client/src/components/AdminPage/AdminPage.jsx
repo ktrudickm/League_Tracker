@@ -5,9 +5,9 @@ const CreateUser = (props) => {
     return(
         <Create name='Create a user account' {...props} >
             <SimpleForm>
-                <TextInput source='user name'/>
-                <TextInput source='first name'/>
-                <TextInput source='last name'/>
+                <TextInput type='user name'/>
+                <TextInput type='first name'/>
+                <TextInput type='last name'/>
                 <EditButton basePath='/user' />
                 <DeleteButton basePath='/user' />
             </SimpleForm>
@@ -19,9 +19,9 @@ const CreateTeam = (props) => {
     return(
         <Create name='Create a team account' {...props} >
             <SimpleForm>
-                <TextInput source='team name'/>
-                <TextInput source='first name'/>
-                <TextInput source='last name'/>
+                <TextInput type='team name'/>
+                <TextInput type='first name'/>
+                <TextInput type='last name'/>
                 <EditButton basePath='/user' />
                 <DeleteButton basePath='/user' />
             </SimpleForm>
@@ -33,9 +33,9 @@ const CreateLeague = (props) => {
     return(
         <Create name='Create a league account' {...props} >
             <SimpleForm>
-                <TextInput source='user name'/>
-                <TextInput source='first name'/>
-                <TextInput source='last name'/>
+                <TextInput type='user name'/>
+                <TextInput type='first name'/>
+                <TextInput type='last name'/>
                 <EditButton basePath='/user' />
                 <DeleteButton basePath='/user' />
             </SimpleForm>
