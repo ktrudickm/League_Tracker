@@ -24,8 +24,15 @@ const createDBData = async () => {
     image: "https://picsum.photos/200",
     position: "Goalkeeper",
     jersey: "0",
-    team_key: "1",
-    stats: "",
+    team_key: 1,
+    stats: {
+      goals: 0,
+      assists: 0,
+      games_played: 0,
+      yellow_cards: 0,
+      red_cards: 0,
+      goals_per_game: 0
+    },
     isAdmin: true,
   },
   {
@@ -39,8 +46,15 @@ const createDBData = async () => {
     image: "https://picsum.photos/200",
     position: "Goalkeeper",
     jersey: "0",
-    team_key: "1",
-    stats: "",
+    team_key: 1,
+    stats: {
+      goals: 0,
+      assists: 0,
+      games_played: 0,
+      yellow_cards: 0,
+      red_cards: 0,
+      goals_per_game: 0
+    },
     isAdmin: false,
   },
   {
@@ -54,8 +68,15 @@ const createDBData = async () => {
     image: "https://picsum.photos/200",
     position: "Defender",
     jersey: "2",
-    team_key: "1",
-    stats: "",
+    team_key: 1,
+    stats: {
+      goals: 0,
+      assists: 0,
+      games_played: 0,
+      yellow_cards: 0,
+      red_cards: 0,
+      goals_per_game: 0
+    },
     isAdmin: false,
   },
   {
@@ -69,8 +90,15 @@ const createDBData = async () => {
     image: "https://picsum.photos/200",
     position: "Defender",
     jersey: "3",
-    team_key: "1",
-    stats: "",
+    team_key: 1,
+    stats: {
+      goals: 0,
+      assists: 0,
+      games_played: 0,
+      yellow_cards: 0,
+      red_cards: 0,
+      goals_per_game: 0
+    },
     isAdmin: false,
   },
   {
@@ -84,8 +112,15 @@ const createDBData = async () => {
     image: "https://picsum.photos/200",
     position: "Defender",
     jersey: "4",
-    team_key: "1",
-    stats: "",
+    team_key: 1,
+    stats: {
+      goals: 0,
+      assists: 0,
+      games_played: 0,
+      yellow_cards: 0,
+      red_cards: 0,
+      goals_per_game: 0
+    },
     isAdmin: false,
   },
   {
@@ -99,8 +134,15 @@ const createDBData = async () => {
     image: "https://picsum.photos/200",
     position: "Defender",
     jersey: "5",
-    team_key: "1",
-    stats: "",
+    team_key: 1,
+    stats: {
+      goals: 0,
+      assists: 0,
+      games_played: 0,
+      yellow_cards: 0,
+      red_cards: 0,
+      goals_per_game: 0
+    },
     isAdmin: false,
   },
   {
@@ -114,8 +156,15 @@ const createDBData = async () => {
     image: "https://picsum.photos/200",
     position: "Midfield",
     jersey: "6",
-    team_key: "1",
-    stats: "",
+    team_key: 1,
+    stats: {
+      goals: 0,
+      assists: 0,
+      games_played: 0,
+      yellow_cards: 0,
+      red_cards: 0,
+      goals_per_game: 0
+    },
     isAdmin: false,
   },
   {
@@ -129,8 +178,15 @@ const createDBData = async () => {
     image: "https://picsum.photos/200",
     position: "Midfield",
     jersey: "8",
-    team_key: "1",
-    stats: "",
+    team_key: 1,
+    stats: {
+      goals: 0,
+      assists: 0,
+      games_played: 0,
+      yellow_cards: 0,
+      red_cards: 0,
+      goals_per_game: 0
+    },
     isAdmin: false,
   },
   {
@@ -144,8 +200,15 @@ const createDBData = async () => {
     image: "https://picsum.photos/200",
     position: "Midfield",
     jersey: "10",
-    team_key: "1",
-    stats: "",
+    team_key: 1,
+    stats: {
+      goals: 0,
+      assists: 0,
+      games_played: 0,
+      yellow_cards: 0,
+      red_cards: 0,
+      goals_per_game: 0
+    },
     isAdmin: false,
   },
   {
@@ -159,8 +222,15 @@ const createDBData = async () => {
     image: "https://picsum.photos/200",
     position: "Forward",
     jersey: "7",
-    team_key: "1",
-    stats: "",
+    team_key: 1,
+    stats: {
+      goals: 0,
+      assists: 0,
+      games_played: 0,
+      yellow_cards: 0,
+      red_cards: 0,
+      goals_per_game: 0
+    },
     isAdmin: false,
   },
   {
@@ -174,8 +244,15 @@ const createDBData = async () => {
     image: "https://picsum.photos/200",
     position: "Forward",
     jersey: "9",
-    team_key: "1",
-    stats: "",
+    team_key: 1,
+    stats: {
+      goals: 0,
+      assists: 0,
+      games_played: 0,
+      yellow_cards: 0,
+      red_cards: 0,
+      goals_per_game: 0
+    },
     isAdmin: false,
   },
   {
@@ -189,8 +266,15 @@ const createDBData = async () => {
     image: "https://picsum.photos/200",
     position: "Forward",
     jersey: "11",
-    team_key: "1",
-    stats: "",
+    team_key: 1,
+    stats: {
+      goals: 0,
+      assists: 0,
+      games_played: 0,
+      yellow_cards: 0,
+      red_cards: 0,
+      goals_per_game: 0
+    },
     isAdmin: false,
   },
   {
@@ -204,8 +288,15 @@ const createDBData = async () => {
     image: "https://picsum.photos/200",
     position: "Forward",
     jersey: "13",
-    team_key: "2",
-    stats: "",
+    team_key: 2,
+    stats: {
+      goals: 0,
+      assists: 0,
+      games_played: 0,
+      yellow_cards: 0,
+      red_cards: 0,
+      goals_per_game: 0
+    },
     isAdmin: false,
   },
   {
@@ -219,8 +310,15 @@ const createDBData = async () => {
     image: "https://picsum.photos/200",
     position: "Forward",
     jersey: "35",
-    team_key: "2",
-    stats: "",
+    team_key: 2,
+    stats: {
+      goals: 0,
+      assists: 0,
+      games_played: 0,
+      yellow_cards: 0,
+      red_cards: 0,
+      goals_per_game: 0
+    },
     isAdmin: false,
   },
   {
@@ -234,8 +332,15 @@ const createDBData = async () => {
     image: "https://picsum.photos/200",
     position: "Forward",
     jersey: "20",
-    team_key: "2",
-    stats: "",
+    team_key: 2,
+    stats: {
+      goals: 0,
+      assists: 0,
+      games_played: 0,
+      yellow_cards: 0,
+      red_cards: 0,
+      goals_per_game: 0
+    },
     isAdmin: false,
   },
   {
@@ -249,8 +354,15 @@ const createDBData = async () => {
     image: "https://picsum.photos/200",
     position: "Midfield",
     jersey: "12",
-    team_key: "2",
-    stats: "",
+    team_key: 2,
+    stats: {
+      goals: 0,
+      assists: 0,
+      games_played: 0,
+      yellow_cards: 0,
+      red_cards: 0,
+      goals_per_game: 0
+    },
     isAdmin: false,
   },
   {
@@ -264,8 +376,15 @@ const createDBData = async () => {
     image: "https://picsum.photos/200",
     position: "Midfield",
     jersey: "7",
-    team_key: "2",
-    stats: "",
+    team_key: 2,
+    stats: {
+      goals: 0,
+      assists: 0,
+      games_played: 0,
+      yellow_cards: 0,
+      red_cards: 0,
+      goals_per_game: 0
+    },
     isAdmin: false,
   },
   {
@@ -279,8 +398,15 @@ const createDBData = async () => {
     image: "https://picsum.photos/200",
     position: "Goalkeeper",
     jersey: "10",
-    team_key: "2",
-    stats: "",
+    team_key: 2,
+    stats: {
+      goals: 0,
+      assists: 0,
+      games_played: 0,
+      yellow_cards: 0,
+      red_cards: 0,
+      goals_per_game: 0
+    },
     isAdmin: false,
   },
   {
@@ -294,8 +420,15 @@ const createDBData = async () => {
     image: "https://picsum.photos/200",
     position: "Midfield",
     jersey: "18",
-    team_key: "2",
-    stats: "",
+    team_key: 2,
+    stats: {
+      goals: 0,
+      assists: 0,
+      games_played: 0,
+      yellow_cards: 0,
+      red_cards: 0,
+      goals_per_game: 0
+    },
     isAdmin: false,
   },
   {
@@ -309,8 +442,15 @@ const createDBData = async () => {
     image: "https://picsum.photos/200",
     position: "Defender",
     jersey: "8",
-    team_key: "2",
-    stats: "",
+    team_key: 2,
+    stats: {
+      goals: 0,
+      assists: 0,
+      games_played: 0,
+      yellow_cards: 0,
+      red_cards: 0,
+      goals_per_game: 0
+    },
     isAdmin: false,
   },
   {
@@ -324,8 +464,15 @@ const createDBData = async () => {
     image: "https://picsum.photos/200",
     position: "Defender",
     jersey: "24",
-    team_key: "2",
-    stats: "",
+    team_key: 2,
+    stats: {
+      goals: 0,
+      assists: 0,
+      games_played: 0,
+      yellow_cards: 0,
+      red_cards: 0,
+      goals_per_game: 0
+    },
     isAdmin: false,
   },
   {
@@ -339,8 +486,15 @@ const createDBData = async () => {
     image: "https://picsum.photos/200",
     position: "Defender",
     jersey: "2",
-    team_key: "2",
-    stats: "",
+    team_key: 2,
+    stats: {
+      goals: 0,
+      assists: 0,
+      games_played: 0,
+      yellow_cards: 0,
+      red_cards: 0,
+      goals_per_game: 0
+    },
     isAdmin: false,
   },
   {
@@ -354,8 +508,15 @@ const createDBData = async () => {
     image: "https://picsum.photos/200",
     position: "Defender",
     jersey: "9",
-    team_key: "2",
-    stats: "",
+    team_key: 2,
+    stats: {
+      goals: 0,
+      assists: 0,
+      games_played: 0,
+      yellow_cards: 0,
+      red_cards: 0,
+      goals_per_game: 0
+    },
     isAdmin: false,
   },
 ];
@@ -402,6 +563,7 @@ const teamSeed = [
       },
     ],
     league_key: 1,
+    key: 1,
   },
   {
     name: "Blue Team",
@@ -420,6 +582,7 @@ const teamSeed = [
       },
     ],
     league_key: 2,
+    key: 2,
   },
   {
     name: "Yellow Team",
@@ -438,6 +601,7 @@ const teamSeed = [
       },
     ],
     league_key: 3,
+    key: 3,
   },
 ];
 

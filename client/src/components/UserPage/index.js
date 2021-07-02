@@ -19,10 +19,11 @@ function UserPage(props) {
 
   useEffect(() => {
     loadUserData();
+    console.log(userData);
   }, []);
 
   function loadUserData() {
-    API.getSingleUserData("60dbb3c0fd472e39b8477822")
+    API.getSingleUserData("60de563734edc35d683555c9")
       .then((res) => setUserData(res.data))
       .catch((err) => console.log(err.message));
   }
@@ -44,11 +45,11 @@ function UserPage(props) {
   };
 
   const handleEditAPI = (field, value) => {
-    console.log(field);
-    console.log(value);
-    // API.updateUserInfo(userData._id, field, value)
-    //   .then((res) => res.json(res.data))
-    //   .catch((err) => console.log(err.message));
+    API.updatePlayer(userData._id, { [field]: value })
+      .then((res) => {
+        res.json(res.data);
+      })
+      .catch((err) => console.log(err.message));
   };
 
   const onDrop = (imageFile, imageURL) => {
