@@ -20,7 +20,7 @@ function UserPage(props) {
   useEffect(() => {
     loadUserData();
     console.log(userData);
-  }, []);
+  }, [editField]);
 
   function loadUserData() {
     API.getSingleUserData("60dbb3c0fd472e39b8477822")
