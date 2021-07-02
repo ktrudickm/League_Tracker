@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import PasswordModal from "./passwordModal";
 import EditModal from "./editModal";
 import API from "../../utils/API";
+import { useAppContext } from "../../utils/context";
 import { formatDate } from "../../utils/formatDate";
 // import { Link } from "react-router-dom";
 import ImageUploader from "react-images-upload";
@@ -17,13 +18,14 @@ function UserPage(props) {
 
   const editIcon = <FontAwesomeIcon icon={faPencilAlt} />;
 
+  const { sessionID } = useAppContext();
+
   useEffect(() => {
     loadUserData();
-    console.log(userData);
   }, [editField]);
 
   function loadUserData() {
-    API.getSingleUserData("60dbb3c0fd472e39b8477822")
+    API.getSingleUserData(sessionID)
       .then((res) => setUserData(res.data))
       .catch((err) => console.log(err.message));
   }
