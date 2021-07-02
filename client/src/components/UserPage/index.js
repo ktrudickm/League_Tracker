@@ -26,6 +26,7 @@ function UserPage(props) {
 
   function loadUserData() {
     API.getSingleUserData(sessionID)
+
       .then((res) => setUserData(res.data))
       .catch((err) => console.log(err.message));
   }

@@ -4,7 +4,8 @@ const Stat = (props) => {
   const { name, stat } = props;
   return (
     <li className="list-group-item">
-      `${name}: ${stat}
+      {/* `${name}: ${stat} */}
+      test
     </li>
   );
 };

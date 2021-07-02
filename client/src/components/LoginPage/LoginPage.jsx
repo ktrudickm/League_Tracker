@@ -35,7 +35,6 @@ function LoginPage(props) {
         .catch((err) => console.log(err));
     }
   }
-
   return (
     <div
       className="card align-items-center playerCard my-8 pb-5"
