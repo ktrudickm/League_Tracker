@@ -64,15 +64,23 @@ router.get("/byteam/:teamid", async (req, res) => {
 
 // User Profile page api route MUST BE LOGGED IN TO USE
 // Fetches single player data
-router.get("/user/profile/:id", withPlayerAuth, async (req, res) => {
-  try {
-    const dbPlayer = await Player.findById({ _id: req.params.id }, "-isAdmin");
-    res.status(200).json(dbPlayer);
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ message: "ERROR when searching for player by id" });
+router.get(
+  "/user/profile/:id",
+  /*withPlayerAuth*/ async (req, res) => {
+    try {
+      const dbPlayer = await Player.findById(
+        { _id: req.params.id },
+        "-isAdmin"
+      );
+      res.status(200).json(dbPlayer);
+    } catch (err) {
+      console.error(err);
+      res
+        .status(500)
+        .json({ message: "ERROR when searching for player by id" });
+    }
   }
-});
+);
 
 // Update User Profile page route MUST BE LOGGED IN
 // Updates single user
@@ -84,17 +92,10 @@ router.put(
         params: { id },
         body,
       } = req;
-      const hashedPassword = await bcrypt.hash(body.password, 10);
-      const playerData = await Player.findOneAndUpdate(
-        { _id: id },
-        {
-          email: body.email,
-          password: hashedPassword,
-          phone: body.phone,
-          image: body.image,
-        },
-        { new: true }
-      );
+      console.log(body);
+      const playerData = await Player.findOneAndUpdate({ _id: id }, body, {
+        new: true,
+      });
       res.status(200).json(playerData);
     } catch (err) {
       console.error(err);
