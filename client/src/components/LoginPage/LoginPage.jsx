@@ -17,7 +17,9 @@ function LoginPage(){
                 email: formObject.email,
                 password: formObject.password
             })
-            .then(res => console.log(res))
+            .then(res => {
+               window.location.replace('/'); 
+            })
             .then(() => setFormObject({
                 email: "",
                 password: ""
