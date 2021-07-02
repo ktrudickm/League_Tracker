@@ -37,22 +37,7 @@ return (
               <div className="card-body" style={{color: "black"}}>
                 <h5 className="card-title">{team.name}</h5>
               </div>
-              {team.stats.map(stat => {
-                return(
-                  <ul className="list-group list-group-flush" style={{color: "black"}}>
-                      <li className="list-group-item">Championship: {stat.championships}</li>
-                      <li className="list-group-item">Made Playoffs: {stat.madePlayoffs}</li>
-                      <li className="list-group-item">Rank: {stat.rank}</li>
-                      <li className="list-group-item">Wins: {stat.wins}</li>
-                      <li className="list-group-item">Losses: {stat.losses}</li>
-                      <li className="list-group-item">Draws: {stat.draws}</li>
-                      <li className="list-group-item">Games Played: {stat.gamesPlayed}</li>
-                      <li className="list-group-item">Goals Scored: {stat.goalsScored}</li>
-                      <li className="list-group-item">Goals Against: {stat.goalsAgainst}</li>
-                  </ul>
-                );}
-              )}
-              <a href="#" className="btn btn-primary">{team.name} Info</a>         
+              <a href={"/team/" + team.name} className="btn btn-primary">{team.name} Info</a>         
           </div>
         </div>
       
