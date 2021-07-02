@@ -26,6 +26,10 @@ function LoginPage(){
             }))
             .catch(err => {
                 console.log(err);
+                setFormObject({
+                    email: "",
+                    password: ""
+                });
                 alert("Wrong Email and or Password");
             });
         }
