@@ -19,6 +19,7 @@ function UserPage(props) {
 
   useEffect(() => {
     loadUserData();
+    console.log(userData);
   }, []);
 
   function loadUserData() {
@@ -44,11 +45,11 @@ function UserPage(props) {
   };
 
   const handleEditAPI = (field, value) => {
-    console.log(field);
-    console.log(value);
-    // API.updateUserInfo(userData._id, field, value)
-    //   .then((res) => res.json(res.data))
-    //   .catch((err) => console.log(err.message));
+    API.updatePlayer(userData._id, { [field]: value })
+      .then((res) => {
+        res.json(res.data);
+      })
+      .catch((err) => console.log(err.message));
   };
 
   const onDrop = (imageFile, imageURL) => {

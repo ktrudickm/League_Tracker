@@ -40,7 +40,7 @@ export default {
 
   // Get a specific user's information
   getSingleUserData: function (id) {
-    return axios.get(`/api/players/id/${id}`);
+    return axios.get(`/api/players/user/profile/${id}`);
   },
 
   // Search for player by username, firstname, lastname
@@ -76,7 +76,7 @@ export default {
 
   // updates all player information
   updatePlayer: function (id, player) {
-    return axios.put(`/api/players/user/profile/${id}`, player);
+    return axios.put(`/api/players/user/profile/update/${id}`, player);
   },
 
   // *******************************************  ADMIN ACCESS ONLY  *************************************
