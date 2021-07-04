@@ -18,6 +18,7 @@ app.use(bodyParser.json({ limit: "5mb" }));
 app.use(
   session({
     secret: "foo",
+    cookie: { maxAge: 600000 },
     saveUninitialized: false,
     resave: false,
     store: MongoStore.create({ mongoUrl: "mongodb://localhost/leagueDB" }),
