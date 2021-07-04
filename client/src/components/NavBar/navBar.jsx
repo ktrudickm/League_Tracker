@@ -6,7 +6,7 @@ import { useAppContext } from "../../utils/context";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faUserAlt,
-  faFlagCheckered,
+  faFutbol,
   faSignOutAlt,
   faSignInAlt,
 } from "@fortawesome/free-solid-svg-icons";
@@ -14,22 +14,45 @@ import "./style.css";
 
 import SearchModal from "./searchModal";
 
-const NavBar = () => {
+const NavBar = (props) => {
   const [search, setSearch] = useState("");
   const [query, setQuery] = useState("");
   const [results, setResults] = useState("");
   const [showModal, setModal] = useState(false);
 
   const { isAuthenticated } = useAppContext();
-  const { sessionUN } = useAppContext();
+  const { userHasAuthenticated } = useAppContext();
+  const { sessionUN, setSessionUN } = useAppContext();
+  const { setSessionID } = useAppContext();
 
-  const logoIcon = <FontAwesomeIcon icon={faFlagCheckered} />;
+  const logoIcon = (
+    <FontAwesomeIcon
+      style={{
+        color: "#264653",
+        fontSize: "2.5rem",
+        paddingLeft: "5px",
+        paddingTop: "5px",
+      }}
+      icon={faFutbol}
+    />
+  );
 
   const loginIcon = <FontAwesomeIcon icon={faSignInAlt} />;
   const logoutIcon = <FontAwesomeIcon icon={faSignOutAlt} />;
 
+  const logoutUser = () => {
+    API.logoutPlayer()
+      .then((res) => {
+        userHasAuthenticated(false);
+        setSessionID("");
+        setSessionUN("");
+        props.history.push("/");
+      })
+      .catch((err) => console.log(err.message));
+  };
+
   const logBtn = isAuthenticated ? (
-    <NavLink className="nav-link" to="/logout">
+    <NavLink className="nav-link" to="#" onClick={logoutUser}>
       <span className="linkText">{logoutIcon} Logout</span>
     </NavLink>
   ) : (
