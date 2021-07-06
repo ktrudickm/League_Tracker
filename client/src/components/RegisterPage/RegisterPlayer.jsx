@@ -16,7 +16,6 @@ function RegisterPlayer() {
   }
 
   function handleInputChange(event) {
-    console.log(event.target.id);
     const { name, value } = event.target;
     setFormObject({ ...formObject, [name]: value });
   }
@@ -48,10 +47,10 @@ function RegisterPlayer() {
   }
 
   return (
-    <div className="card w-75 mx-auto mt-5 mb-5">
-      <div className="card-body">
-        <div className="jumbotron mx-auto">
-          <h2 className="display-4 text-center">Register as a Player.</h2>
+    <div class="card w-75 mx-auto mt-5 mb-5">
+      <div class="card-body">
+        <div class="jumbotron mx-auto">
+          <h2 class="display-4 text-center">Register as a Player.</h2>
         </div>
         <form>
           <div className="mb-3 w-30">
@@ -147,7 +146,8 @@ function RegisterPlayer() {
                 formObject.lastName &&
                 formObject.email &&
                 formObject.username &&
-                formObject.password
+                formObject.password &&
+                formObject.team
               )
             }
             onClick={handleFormSubmit}
