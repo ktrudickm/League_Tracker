@@ -9,6 +9,9 @@ const leagueSchema = new Schema({
     image:{
         type: String,
     },
+    key: {
+        type: Number,
+    }
 });
 
 const League = mongoose.model("League", leagueSchema);

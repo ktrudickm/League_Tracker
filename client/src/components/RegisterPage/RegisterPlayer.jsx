@@ -147,16 +147,6 @@ function RegisterPlayer() {
           <button
             type="submit"
             className="btn btn-primary"
-            disabled={
-              !(
-                formObject.firstName &&
-                formObject.lastName &&
-                formObject.email &&
-                formObject.username &&
-                formObject.password &&
-                formObject.team
-              )
-            }
             onClick={handleFormSubmit}
           >
             Register

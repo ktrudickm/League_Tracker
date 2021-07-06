@@ -525,24 +525,29 @@ const createDBData = async () => {
 
 const leagueSeed = [
   {
-    name: "Keon P",
+    name: "Recreational A",
     image: "https://placekitten.com/300/300",
+    key: 1,
   },
   {
-    name: "Max Green",
+    name: "Recreational B",
     image: "https://placekitten.com/300/300",
+    key: 2,
   },
   {
-    name: "Sam Maxwell",
+    name: "Recreational C",
     image: "https://placekitten.com/300/300",
+    key: 3,
   },
   {
-    name: "John D",
+    name: "Recreational E",
     image: "https://placekitten.com/300/300",
+    key: 4,
   },
   {
-    name: "Mark Wight",
+    name: "Recreational F",
     image: "https://placekitten.com/300/300",
+    key: 5,
   },
 ];
 
@@ -582,7 +587,7 @@ const teamSeed = [
         goalsAgainst: 2,
       },
     ],
-    league_key: 2,
+    league_key: 1,
     key: 2,
   },
   {
@@ -601,7 +606,7 @@ const teamSeed = [
         goalsAgainst: 2,
       },
     ],
-    league_key: 3,
+    league_key: 2,
     key: 3,
   },
 ];
