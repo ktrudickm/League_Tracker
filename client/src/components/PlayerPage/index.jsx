@@ -6,9 +6,12 @@ import "./style.css";
 import Stat from "./stat";
 
 const PlayerPage = (props) => {
-  // const { _id, image, first_name, last_name, position, stats, jersey } = props;
   const [userData, setUserData] = useState({});
   const { id } = useParams();
+
+  let statItems = [];
+  let { stats } = userData;
+  console.log(stats);
 
   useEffect(() => {
     console.log(id);
@@ -28,6 +31,12 @@ const PlayerPage = (props) => {
     userData.image === "https://picsum.photos/200"
       ? "https://picsum.photos/200"
       : null;
+  if (stats) {
+    for (const key in stats) {
+      statItems.push(<Stat key={userData._id} name={key} stat={stats[key]} />);
+    }
+    console.log(statItems);
+  }
 
   return (
     <div
@@ -48,9 +57,7 @@ const PlayerPage = (props) => {
           <span className="statHeader">Position: </span>
           {`${userData.position}`}
         </li>
-        {/* {userData.stats.map((stat) => (
-          <Stat key={userData._id} stat={stat} />
-        ))} */}
+        {statItems}
       </ul>
       <div className="card-body">{/* Player bio? Team name? */}</div>
     </div>
