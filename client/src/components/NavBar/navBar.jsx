@@ -42,7 +42,7 @@ const NavBar = (props) => {
 
   const logoutUser = () => {
     API.logoutPlayer()
-      .then((res) => {
+      .then(() => {
         userHasAuthenticated(false);
         setSessionID("");
         setSessionUN("");
