@@ -26,7 +26,7 @@ router.get("/:str", async (req, res) => {
     }
     res.status(200).json(players);
   } catch (err) {
-    console.err(err);
+    console.error(err);
     res.status(400).json({ message: "ERROR when searching for player" });
   }
 });
@@ -109,7 +109,7 @@ router.put(
 //Updates password for player
 router.put(
   "/user/profile/change/password/:id",
-  withPlayerAuth,
+  /*withPlayerAuth*/
   async (req, res) => {
     try {
       // console.log(req.body);
