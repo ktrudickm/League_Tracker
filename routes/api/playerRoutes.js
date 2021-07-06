@@ -8,6 +8,7 @@ const withPlayerAuth = require("../../scripts/withPlayerAuth");
 router.get("/:str", async (req, res) => {
   try {
     const str = req.params.str;
+    if(str.toLowerCase() === "admin" || str.toLowerCase() === "administrator") throw Error;
     let players = await Player.find(
       { first_name: { $regex: str, $options: "i" } },
       "-password -isAdmin -phone -email"
@@ -26,7 +27,7 @@ router.get("/:str", async (req, res) => {
     }
     res.status(200).json(players);
   } catch (err) {
-    console.err(err);
+    console.error(err);
     res.status(400).json({ message: "ERROR when searching for player" });
   }
 });
@@ -109,7 +110,7 @@ router.put(
 //Updates password for player
 router.put(
   "/user/profile/change/password/:id",
-  withPlayerAuth,
+  /*withPlayerAuth*/
   async (req, res) => {
     try {
       // console.log(req.body);
