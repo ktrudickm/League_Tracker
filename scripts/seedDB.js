@@ -1,8 +1,9 @@
 const mongoose = require("mongoose");
 const db = require("../models");
 const bcrypt = require('bcrypt');
+const dotenv = require('dotenv').config();
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/leagueDB", {
+mongoose.connect(process.env.MONGOD_URI || "mongodb://localhost/leagueDB", {
   useNewUrlParser: true,
 });
 
@@ -24,7 +25,7 @@ const createDBData = async () => {
     image: "https://picsum.photos/200",
     position: "Goalkeeper",
     jersey: "0",
-    team_key: 1,
+    team_key: 0,
     stats: {
       goals: 0,
       assists: 0,
