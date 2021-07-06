@@ -5,4 +5,7 @@
 html,
 #root {
   background-color: #264653;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
