@@ -34,6 +34,7 @@ function RegisterPlayer(){
         password: formObject.password,
         team_key: formObject.team
         })
+        .then(alert("You are now registered!"))
         .then(res => console.log(res))
         .then(() => setFormObject({
             first_name: "",

@@ -17,12 +17,12 @@ function LoginPage(){
                 email: formObject.email,
                 password: formObject.password
             })
+            .then(alert("You have successfully logged in!"))
             .then(res => console.log(res))
             .then(() => setFormObject({
                 email: "",
                 password: ""
             }))
-            // .then(() => loadPlayers())
             .catch(err => console.log(err));
         }
     };
@@ -62,7 +62,6 @@ function LoginPage(){
                         <button 
                             type="submit"
                             className="btn btn-primary"
-                            // disabled={!(formObject.email && formObject.password)}
                             onClick={handleFormSubmit}
                         >Login</button>
                     </form>
