@@ -8,6 +8,9 @@ import Login from "./components/LoginPage/LoginPage";
 import HomePage from "./components/Homepage";
 import Footer from "./components/Footer/Footer";
 import Team from "./components/TeamPage/team";
+import TeamStats from "./components/TeamStatsPage/teamstats";
+import Roster from "./components/RosterPage/roster";
+
 import "./App.css";
 
 function App() {
@@ -23,6 +26,8 @@ function App() {
           <Route exact path="/teamsPage" component={Teams} />
           <Route path="/team/:name" component={Team}/>
           <Route exact path="/login" component={Login} />
+          <Route path="/teamstats/:name" component={TeamStats} />
+          <Route path="/roster/:name" component={Roster} />
         </Switch>
       </div>
       <Footer />
