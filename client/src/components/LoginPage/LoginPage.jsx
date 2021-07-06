@@ -33,7 +33,10 @@ function LoginPage(props) {
           })
         )
         // .then(() => loadPlayers())
-        .catch((err) => console.log(err));
+        .catch((err) => {
+          console.log(err);
+          alert("Login failed, please try agian.");
+        });
     }
   }
   return (
@@ -88,6 +91,7 @@ function LoginPage(props) {
               Login
             </button>
           </form>
+          <a href="/register">signup</a>
         </div>
       </div>
     </div>

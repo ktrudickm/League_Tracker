@@ -25,7 +25,7 @@ const createDBData = async () => {
     image: "https://picsum.photos/200",
     position: "Goalkeeper",
     jersey: "0",
-    team_key: 1,
+    team_key: 0,
     stats: {
       goals: 0,
       assists: 0,
