@@ -25,7 +25,6 @@ return (
     <div className="jumbotron jumbotron-fluid text-white bg-dark text-center">
     <h1>Teams List</h1>
     </div>
-
     {teams.length ? (
     <div>
       <div className="row">
@@ -39,18 +38,14 @@ return (
               </div>
               <a href={"/team/" + team.name} className="btn btn-primary">{team.name} Info</a>         
           </div>
-        </div>
-      
+        </div> 
         );
       })} 
       </div>
     </div>      
-    ) : (
-      <h3>No teams to display</h3>
-    )}
+    ) : (<h3>No teams to display</h3>)}
     </div>
-  );
-  
+  );  
 }
 
 export default Teams;
