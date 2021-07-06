@@ -23,23 +23,30 @@ function Roster(){
       };  
 
     return(
-    <div className="row">
+        <table className="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Image</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Position</th>
+                            <th scope="col">Jersey</th>
+                            </tr>
+                    </thead>
         {roster.map(
             team => {
                 return(
-                <div className="col-sm-2">
-                    <div className="card" style={{width: "10rem"}}>
-                        <img className="card-img-top img-fluid" src={team.image} alt="Player name"/> 
-                        <div className="card-body" >
-                            <h5 className="card-title">Name: {team.first_name + " " + team.last_name}</h5>
-                            <h5 className="card-title">Position: {team.position}</h5>
-                            <h5 className="card-title">Jersey: {team.jersey}</h5>
-                        </div>
-                    </div>
-                </div>
+                    <tbody>
+                        <tr>
+                            {/* <th scope="row"></th> */}
+                            <td><img src={team.image} className="img-responsive" style={{width: "2.5rem"}} alt="Player Image"></img></td>
+                            <td>{team.first_name + " " + team.last_name}</td>
+                            <td>{team.position}</td>
+                            <td>{team.jersey}</td>
+                        </tr>
+                    </tbody>
                 );
-        })};
-    </div>
+        })}
+        </table>
     )
 }
 
