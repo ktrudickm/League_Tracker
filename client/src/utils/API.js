@@ -127,6 +127,7 @@ export default {
 
   // signup
   signupPlayer: function (player) {
+    console.log(player);
     return axios.post(`/api/user/create`, player);
   },
 };
