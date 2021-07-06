@@ -26,7 +26,7 @@ router.get("/:str", async (req, res) => {
     }
     res.status(200).json(players);
   } catch (err) {
-    console.err(err);
+    console.error(err);
     res.status(400).json({ message: "ERROR when searching for player" });
   }
 });

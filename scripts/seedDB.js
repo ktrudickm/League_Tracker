@@ -1,8 +1,9 @@
 const mongoose = require("mongoose");
 const db = require("../models");
 const bcrypt = require('bcrypt');
+const dotenv = require('dotenv').config();
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/leagueDB", {
+mongoose.connect(process.env.MONGOD_URI || "mongodb://localhost/leagueDB", {
   useNewUrlParser: true,
 });
 
