@@ -16,6 +16,10 @@ export default {
     return axios.get(`/api/leagues/${id}`);
   },
 
+  getLeagues: function () {
+    return axios.get("/api/leagues/allLeagues");
+  },
+
   // ** Teams Route **
 
   // Gets all teams by league

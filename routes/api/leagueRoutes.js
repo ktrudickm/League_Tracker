@@ -14,6 +14,18 @@ router.get("/search/:str", async (req, res) => {
   }
 });
 
+//Gets all leagues
+router.get("/allLeagues", async (req, res) => {
+  try {
+    const league = await League.find();
+    if (!league)
+      res.status(404).json({ message: "No leagues found" });
+    res.status(200).json(league);
+  } catch (err) {
+    res.status(400).json({ message: "An ERROR occurred when fetching all teams" });
+  }
+});
+
 // Finds League by id
 router.get("/:id", async (req, res) => {
   try {
