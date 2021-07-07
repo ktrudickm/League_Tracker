@@ -184,6 +184,7 @@ function UserPage(props) {
             <span className="buttonText">Change Password</span>
           </button> */}
         </div>
+        <p>Admin Menu:</p>
         <ul className="list-group list-group-flush">{isAdmin && adminMenu}</ul>
         <div className="card-body"></div>
       </div>
