@@ -26,3 +26,13 @@
 .row {
   padding-bottom: 15px;
 }
+
+.btnCust {
+  background-color: #f75c03 !important;
+  font-weight: 500 !important;
+  border: 3px solid #2a9d8f !important;
+}
+
+.btnCust:hover {
+  color: white !important;
+}

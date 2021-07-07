@@ -27,7 +27,10 @@ function LeaguePage() {
             {leagues.map((league) => {
               return (
                 <div className="col-lg-4">
-                  <div className="card mx-auto" style={{ width: "18rem" }}>
+                  <div
+                    className="card mx-auto"
+                    style={{ width: "18rem", backgroundColor: "#f2f1ed" }}
+                  >
                     <img
                       className="card-img-top"
                       src={
@@ -42,9 +45,9 @@ function LeaguePage() {
                     </div>
                     <a
                       href={"/teamsPage/" + league.key}
-                      className="btn btn-primary"
+                      className="btn btnCust"
                     >
-                      {league.name} Info
+                      Link to {league.name} league page
                     </a>
                   </div>
                 </div>
