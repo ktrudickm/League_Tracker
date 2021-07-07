@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useAppContext } from "../../utils/context";
+import { Link, NavLink } from "react-router-dom";
+import { withRouter } from "react-router";
 import API from "../../utils/API";
 
 function LoginPage(props) {
@@ -93,7 +95,7 @@ function LoginPage(props) {
               Login
             </button>
           </form>
-          <a href="/register">signup</a>
+          <Link to="/register">signup</Link>
         </div>
       </div>
     </div>
