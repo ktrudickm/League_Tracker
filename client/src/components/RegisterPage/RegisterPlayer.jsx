@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import API from "../../utils/API";
 
-function RegisterPlayer() {
+function RegisterPlayer(props) {
   const [teams, setteams] = useState([]);
   const [formObject, setFormObject] = useState({});
 
@@ -44,7 +44,10 @@ function RegisterPlayer() {
             team: "",
           })
         )
-        .then(() => loadTeams())
+        .then(() => {
+          loadTeams();
+          props.history.push("/login");
+        })
         .catch((err) => {
           console.error(err);
           alert("ERROR when trying to sign up, please try again");

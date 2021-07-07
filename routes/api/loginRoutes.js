@@ -35,6 +35,8 @@ router.post('/login', async(req, res) => {
 router.post('/create', async (req, res) => {
     try {
         const {params: {id}, body} = req;
+        const hashedPassword = await bcrypt.hash(body.password, 10);
+        body.password = hashedPassword;
         const signupData = await Player.create(body);
 
         req.session.save(() => {
