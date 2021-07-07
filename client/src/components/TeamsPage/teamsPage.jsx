@@ -44,7 +44,7 @@ const Teams = (props) => {
                     <div className="card-text" style={{ color: "black" }}>
                       <h5 className="card-title">{team.name}</h5>
                     </div>
-                    <Link to={"/team/" + team.name} className="btn btn-primary">
+                    <Link to={"/team/" + team.name} className="btn btnCust">
                       {team.name} Info
                     </Link>
                   </div>
