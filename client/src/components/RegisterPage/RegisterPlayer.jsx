@@ -17,16 +17,18 @@ function RegisterPlayer() {
 
   function handleInputChange(event) {
     const { id, value } = event.target;
-    console.log(event.target);
+    console.log(id);
     setFormObject({ ...formObject, [id]: value });
+    console.log(formObject);
   }
 
   function handleFormSubmit(event) {
     event.preventDefault();
-    if (formObject.firstName && formObject.lastName && formObject.password) {
+    console.log(formObject);
+    // if (formObject.first_name.length !== 0 && formObject.last_name.length !== 0 && formObject.password.length !== 0) {
       API.signupPlayer({
-        first_name: formObject.firstName,
-        last_name: formObject.lastName,
+        first_name: formObject.first_name,
+        last_name: formObject.last_name,
         username: formObject.username,
         email: formObject.email,
         password: formObject.password,
@@ -43,8 +45,13 @@ function RegisterPlayer() {
           })
         )
         .then(() => loadTeams())
-        .catch((err) => console.log(err));
-    }
+        .catch((err) => {
+          console.error(err);
+          alert("ERROR when trying to sign up, please try again");
+        });
+    // } else {
+    //   alert("ERROR when trying to sign up, please try again");
+    // }
   }
 
   return (
@@ -62,20 +69,20 @@ function RegisterPlayer() {
               onChange={handleInputChange}
               type="text"
               className="form-control"
-              id="FirstName"
+              id="first_name"
               value={formObject.firstName}
               name="first_name"
             ></input>
           </div>
           <div className="mb-3 w-30">
-            <label htmlFor="LastName" className="form-label">
+            <label htmlFor="last_name" className="form-label">
               Last Name
             </label>
             <input
               onChange={handleInputChange}
               type="text"
               className="form-control"
-              id="LastName"
+              id="last_name"
               value={formObject.lastName}
               name="last_name"
             ></input>
@@ -88,7 +95,7 @@ function RegisterPlayer() {
               onChange={handleInputChange}
               type="text"
               className="form-control"
-              id="UserName"
+              id="username"
               value={formObject.username}
               name="username"
             ></input>
@@ -101,7 +108,7 @@ function RegisterPlayer() {
               onChange={handleInputChange}
               type="email"
               className="form-control"
-              id="InputEmail"
+              id="email"
               aria-describedby="emailHelp"
               value={formObject.email}
               name="email"
@@ -115,7 +122,7 @@ function RegisterPlayer() {
               onChange={handleInputChange}
               type="password"
               className="form-control"
-              id="InputPassword"
+              id="password"
               value={formObject.password}
               name="password"
             ></input>
@@ -131,10 +138,11 @@ function RegisterPlayer() {
                 className="form-select w-30 mb-3"
                 aria-label="Default select example"
                 name="team"
+                id="team_key"
               >
                 {teams.map((Team) => {
                   return (
-                    <option value={Team.name} key={Team._id}>
+                    <option value={Team.key} key={Team._id}>
                       {Team.name}
                     </option>
                   );

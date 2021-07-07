@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Route, Switch } from "react-router-dom";
+import { withRouter } from "react-router";
 import ProtectedRoute from "./components/UtilComponents/protectedRoute.jsx";
 import { AppContext } from "./utils/context";
 import NavBar from "./components/NavBar/navBar";
@@ -56,4 +57,4 @@ function App() {
   );
 }
 
-export default App;
+export default withRouter(App);

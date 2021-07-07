@@ -163,11 +163,6 @@ const NavBar = (props) => {
               </form>
               <li className="nav-item px-2">{userPage}</li>
               <li className="nav-item px-2">{logBtn}</li>
-              <li className="nav-item px-2"> 
-                <NavLink className="nav-link" to="/teamsPage/1">
-                  <span className="linkText">{loginIcon} Test</span>
-                </NavLink>
-              </li>
             </ul>
           </div>
         </div>
