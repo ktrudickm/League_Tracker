@@ -18,6 +18,7 @@ import "./App.css";
 
 function App() {
   const [isAuthenticated, userHasAuthenticated] = useState(false);
+  const [isAdmin, setAdminStatus] = useState(false);
   const [sessionID, setSessionID] = useState("");
   const [sessionUN, setSessionUN] = useState("");
 
@@ -31,6 +32,8 @@ function App() {
           setSessionID,
           sessionUN,
           setSessionUN,
+          isAdmin,
+          setAdminStatus,
         }}
       >
         <NavBar />

@@ -7,6 +7,7 @@ function LoginPage(props) {
   const { userHasAuthenticated } = useAppContext();
   const { setSessionID } = useAppContext();
   const { setSessionUN } = useAppContext();
+  const { setAdminStatus } = useAppContext();
 
   function handleInputChange(event) {
     const { name, value } = event.target;
@@ -24,6 +25,7 @@ function LoginPage(props) {
           userHasAuthenticated(true);
           setSessionID(res.data._id);
           setSessionUN(res.data.username);
+          setAdminStatus(res.data.isAdmin);
           props.history.push("/");
         })
         .then(() =>

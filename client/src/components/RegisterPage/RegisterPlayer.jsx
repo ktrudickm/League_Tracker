@@ -16,21 +16,21 @@ function RegisterPlayer() {
   }
 
   function handleInputChange(event) {
-    const { name, value } = event.target;
-    console.log(event.target.email);
-    setFormObject({ ...formObject, [name]: value });
+    const { id, value } = event.target;
+    console.log(event.target);
+    setFormObject({ ...formObject, [id]: value });
   }
 
   function handleFormSubmit(event) {
     event.preventDefault();
     if (formObject.firstName && formObject.lastName && formObject.password) {
       API.signupPlayer({
-        firstName: formObject.firstName,
-        lastName: formObject.lastName,
+        first_name: formObject.firstName,
+        last_name: formObject.lastName,
         username: formObject.username,
         email: formObject.email,
         password: formObject.password,
-        team: formObject.team,
+        team_key: formObject.team_key,
       })
         .then(() =>
           setFormObject({
@@ -126,7 +126,7 @@ function RegisterPlayer() {
             </label>
             {teams.length ? (
               <select
-                value={formObject.team}
+                value={formObject.team_key}
                 onChange={handleInputChange}
                 className="form-select w-30 mb-3"
                 aria-label="Default select example"
