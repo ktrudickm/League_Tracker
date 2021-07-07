@@ -34,7 +34,7 @@
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install npm && run build"
   },
   "engines": {
-    "node": "7.6.3"
+    "node": "6.11.1"
   },
   "repository": {
     "type": "git",
