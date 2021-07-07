@@ -48,14 +48,14 @@ function RegisterPlayer() {
   }
 
   return (
-    <div class="card w-75 mx-auto mt-5 mb-5">
-      <div class="card-body">
-        <div class="jumbotron mx-auto">
-          <h2 class="display-4 text-center">Register as a Player.</h2>
+    <div className="card w-75 mx-auto mt-5 mb-5">
+      <div className="card-body">
+        <div className="jumbotron mx-auto">
+          <h2 className="display-4 text-center">Register as a Player.</h2>
         </div>
         <form>
           <div className="mb-3 w-30">
-            <label for="FirstName" className="form-label">
+            <label htmlFor="FirstName" className="form-label">
               First Name
             </label>
             <input
@@ -64,10 +64,11 @@ function RegisterPlayer() {
               className="form-control"
               id="FirstName"
               value={formObject.firstName}
+              name="first_name"
             ></input>
           </div>
           <div className="mb-3 w-30">
-            <label for="LastName" className="form-label">
+            <label htmlFor="LastName" className="form-label">
               Last Name
             </label>
             <input
@@ -76,10 +77,11 @@ function RegisterPlayer() {
               className="form-control"
               id="LastName"
               value={formObject.lastName}
+              name="last_name"
             ></input>
           </div>
           <div className="mb-3 w-30">
-            <label for="UserName" className="form-label">
+            <label htmlFor="UserName" className="form-label">
               User Name
             </label>
             <input
@@ -88,10 +90,11 @@ function RegisterPlayer() {
               className="form-control"
               id="UserName"
               value={formObject.username}
+              name="username"
             ></input>
           </div>
           <div className="mb-3 w-30">
-            <label for="InputEmail" className="form-label">
+            <label htmlFor="InputEmail" className="form-label">
               Email address
             </label>
             <input
@@ -101,10 +104,11 @@ function RegisterPlayer() {
               id="InputEmail"
               aria-describedby="emailHelp"
               value={formObject.email}
+              name="email"
             ></input>
           </div>
           <div className="mb-3 w-30">
-            <label for="InputPassword" className="form-label">
+            <label htmlFor="InputPassword" className="form-label">
               Password
             </label>
             <input
@@ -113,10 +117,11 @@ function RegisterPlayer() {
               className="form-control"
               id="InputPassword"
               value={formObject.password}
+              name="password"
             ></input>
           </div>
           <div className="mb-3 w-30">
-            <label for="Team" className="form-label">
+            <label htmlFor="Team" className="form-label">
               Select Your Team
             </label>
             {teams.length ? (
@@ -125,6 +130,7 @@ function RegisterPlayer() {
                 onChange={handleInputChange}
                 className="form-select w-30 mb-3"
                 aria-label="Default select example"
+                name="team"
               >
                 {teams.map((Team) => {
                   return (

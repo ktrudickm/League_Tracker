@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import PasswordModal from "./passwordModal";
 import EditModal from "./editModal";
 import API from "../../utils/API";
+import AdminPage from "../AdminPage";
 import { useAppContext } from "../../utils/context";
 import { formatDate } from "../../utils/formatDate";
 import ImageUploader from "react-images-upload";
@@ -11,6 +12,7 @@ import "./style.css";
 
 function UserPage(props) {
   const [userData, setUserData] = useState({});
+  const [leagueData, setLeagueData] = useState({});
   const [showModal, setModal] = useState(false);
   const [showEditModal, setEditModal] = useState(false);
   const [editField, setEditField] = useState("");
@@ -18,14 +20,23 @@ function UserPage(props) {
   const editIcon = <FontAwesomeIcon icon={faPencilAlt} />;
 
   const { sessionID } = useAppContext();
+  const { isAdmin } = useAppContext();
 
   useEffect(() => {
     loadUserData();
+    loadLeagueData();
+    console.log(leagueData);
   }, [editField]);
 
   function loadUserData() {
     API.getSingleUserData(sessionID)
       .then((res) => setUserData(res.data))
+      .catch((err) => console.log(err.message));
+  }
+
+  function loadLeagueData() {
+    API.getLeagues()
+      .then((res) => setLeagueData(res.data))
       .catch((err) => console.log(err.message));
   }
 
@@ -63,6 +74,8 @@ function UserPage(props) {
       })
       .catch((err) => console.log(err.message));
   };
+
+  const adminMenu = <AdminPage leagues={leagueData} />;
 
   let imgSrc =
     userData.image === "https://picsum.photos/200"
@@ -171,7 +184,7 @@ function UserPage(props) {
             <span className="buttonText">Change Password</span>
           </button> */}
         </div>
-        <ul className="list-group list-group-flush"></ul>
+        <ul className="list-group list-group-flush">{isAdmin && adminMenu}</ul>
         <div className="card-body"></div>
       </div>
     </>

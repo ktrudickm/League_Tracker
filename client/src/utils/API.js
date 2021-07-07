@@ -7,6 +7,10 @@ export default {
 
   // ** League Routes **
 
+  // Gets all leagues
+  getLeagues: function (str) {
+    return axios.get(`/api/leagues/all`);
+  },
   // Gets leagues by string
   getLeaguesByStr: function (str) {
     return axios.get(`/api/leagues/search/${str}`);
