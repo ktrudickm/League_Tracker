@@ -7,6 +7,22 @@
   margin-top: 50px;
 }
 
-.main h2 {
-  text-decoration: underline;
+.explore {
+  font-size: 18px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.welcome {
+  padding-top: 30px;
+  border-bottom: 2px white solid;
+  padding-bottom: 30px;
+}
+
+.card {
+  margin-top: 10px;
+}
+
+.row {
+  padding-bottom: 15px;
 }
