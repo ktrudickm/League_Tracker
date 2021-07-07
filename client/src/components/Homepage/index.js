@@ -20,16 +20,17 @@ function LeaguePage(){
 
     return (
     <div>
-        <div className="jumbotron jumbotron-fluid text-white bg-dark text-center">
-        <h1>All Leagues</h1>
+        <div className="jumbotron jumbotron-fluid text-white text-center">
+        <h1 className='welcome'>Welcome to the League Tracker!</h1>
+        <h2 className='explore'>Explore all current in-session leagues:</h2>
         </div>
         {setLeagues.length ? (
         <div>
-        <div className="row">
+        <div className="row pb-15 text-center">
         {leagues.map(league => {
             return(
-            <div className="col-sm-3">
-            <div className="card" style={{width: "18rem"}}>
+            <div className="col-lg-4">
+            <div className="card mx-auto" style={{width: "18rem"}}>
                 <img className="card-img-top" src={league.image} alt="Team"/> 
                 <div className="card-body" style={{color: "black"}}>
                     <h5 className="card-title">{league.name}</h5>
