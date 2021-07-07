@@ -96,7 +96,10 @@ function UserPage(props) {
         onEdit={handleEditAPI}
         field={editField}
       />
-      <div className="card align-items-center playerCard">
+      <div
+        className="card align-items-center playerCard"
+        style={{ width: "35rem" }}
+      >
         <h1 id="userName">{userData.username}</h1>
         <img
           src={imgSrc || `data:image/png;base64,${userData.image}`}
@@ -184,9 +187,19 @@ function UserPage(props) {
             <span className="buttonText">Change Password</span>
           </button> */}
         </div>
-        <p>Admin Menu:</p>
-        <ul className="list-group list-group-flush">{isAdmin && adminMenu}</ul>
-        <div className="card-body"></div>
+        <h2
+          className="adminMenu"
+          style={{
+            marginLeft: "20px",
+            marginBottom: "30px",
+            borderBottom: "2px dotted black",
+          }}
+        >
+          Admin Menu
+        </h2>
+        <div className="adminMenu">
+          <ul>{isAdmin && adminMenu}</ul>
+        </div>
       </div>
     </>
   );

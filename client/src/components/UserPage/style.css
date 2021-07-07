@@ -81,3 +81,11 @@
 .unIcon:hover {
   color: #e76f51;
 }
+
+.btnSubmit {
+  margin: auto !important;
+}
+
+.input-group {
+  margin: auto !important;
+}

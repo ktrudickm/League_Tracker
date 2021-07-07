@@ -27,13 +27,24 @@ const PlayerPage = (props) => {
       .catch((err) => console.log(err.message));
   }
 
+  const labels = [
+    "Goals",
+    "Assists",
+    "Games Played",
+    "Yellow Cards",
+    "Red Cards",
+    "Goals Per Game",
+  ];
+
   let imgSrc =
     userData.image === "https://picsum.photos/200"
       ? "https://picsum.photos/200"
       : null;
   if (stats) {
     for (const key in stats) {
-      statItems.push(<Stat key={userData._id} name={key} stat={stats[key]} />);
+      statItems.push(
+        <Stat key={userData._id} name={key} stat={stats[key]} labels={labels} />
+      );
     }
     console.log(statItems);
   }

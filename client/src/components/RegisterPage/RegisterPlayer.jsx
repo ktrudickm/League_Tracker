@@ -48,10 +48,10 @@ function RegisterPlayer() {
   }
 
   return (
-    <div className="card w-75 mx-auto mt-5 mb-5">
+    <div className="card w-75 mx-auto mt-5 mb-5 playerCard">
       <div className="card-body">
         <div className="jumbotron mx-auto">
-          <h2 className="display-4 text-center">Register as a Player.</h2>
+          <h2 className="display-4 text-center">Register as a Player</h2>
         </div>
         <form>
           <div className="mb-3 w-30">
