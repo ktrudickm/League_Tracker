@@ -27,13 +27,13 @@ return (
     </div>
     {teams.length ? (
     <div>
-      <div className="row">
+      <div className="row teamCard">
       {teams.map(team => {
         return(
         <div className="col-sm-3">
           <div className="card" style={{width: "18rem"}}>
             <img className="card-img-top" src={team.image} alt="Team"/> 
-              <div className="card-body" style={{color: "black"}}>
+              <div className="card-text" style={{color: "black"}}>
                 <h5 className="card-title">{team.name}</h5>
               </div>
               <a href={"/team/" + team.name} className="btn btn-primary">{team.name} Info</a>         
