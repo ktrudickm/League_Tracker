@@ -93,7 +93,8 @@ function LoginPage(props) {
               Login
             </button>
           </form>
-          <a href="/register">signup</a>
+          <br></br>
+          <a href="/register">Sign up instead</a>
         </div>
       </div>
     </div>

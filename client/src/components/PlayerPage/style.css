@@ -33,3 +33,8 @@
 .playerCard ul {
   list-style-type: none;
 }
+
+.statItem {
+  background-color: #f2f1ed;
+  padding: 4px;
+}
