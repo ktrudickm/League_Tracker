@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { Link, NavLink } from "react-router-dom";
+import { withRouter } from "react-router";
 import API from "../../utils/API";
 
 const Teams = (props) => {
@@ -42,9 +44,9 @@ const Teams = (props) => {
                     <div className="card-text" style={{ color: "black" }}>
                       <h5 className="card-title">{team.name}</h5>
                     </div>
-                    <a href={"/team/" + team.name} className="btn btn-primary">
+                    <Link to={"/team/" + team.name} className="btn btn-primary">
                       {team.name} Info
-                    </a>
+                    </Link>
                   </div>
                 </div>
               );

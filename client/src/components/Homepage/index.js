@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { Link, NavLink } from "react-router-dom";
+import { withRouter } from "react-router";
 import API from "../../utils/API";
 import "./style.css";
 
@@ -40,12 +42,12 @@ function LeaguePage() {
                     <div className="card-body" style={{ color: "black" }}>
                       <h5 className="card-title">{league.name}</h5>
                     </div>
-                    <a
-                      href={"/teamsPage/" + league.key}
+                    <Link
+                      to={"/teamsPage/" + league.key}
                       className="btn btn-primary"
                     >
                       {league.name} Info
-                    </a>
+                    </Link>
                   </div>
                 </div>
               );

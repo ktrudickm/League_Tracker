@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { Link, NavLink } from "react-router-dom";
+import { withRouter } from "react-router";
 
 const Team = (props) => {
     const teamName = props.match.params.name;
@@ -7,12 +9,12 @@ const Team = (props) => {
       <div>
           <div className="card">
               <div className="card-body">
-                  <a href={"/teamstats/" + teamName} className="card-link">Team Stats</a>
+                  <Link to={"/teamstats/" + teamName} className="card-link">Team Stats</Link>
               </div>
           </div>
           <div className="card">
               <div className="card-body">
-                  <a href={"/roster/" + teamName} className="card-link">Roster</a>
+                  <Link to={"/roster/" + teamName} className="card-link">Roster</Link>
               </div>
           </div>
       </div>
