@@ -134,13 +134,13 @@ const NavBar = (props) => {
           >
             <ul className="navbar-nav">
               <li className="nav-item">
-                <NavLink
+                {/* <NavLink
                   className="nav-link"
                   aria-current="page"
                   to="/teamsPage"
                 >
                   <span className="linkText">TEAM</span>
-                </NavLink>
+                </NavLink> */}
               </li>
 
               <form className="d-flex justify-content-end">

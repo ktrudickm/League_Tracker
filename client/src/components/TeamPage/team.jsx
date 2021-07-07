@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from "react";
-import API from "../../utils/API";
-import { useParams } from "react-router-dom";
 
 const Team = (props) => {
     const teamName = props.match.params.name;

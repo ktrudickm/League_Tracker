@@ -1,22 +1,20 @@
 import React, {useState,useEffect} from "react";
 import API from "../../utils/API";
 
-function Teams(){
+const Teams = (props) => {
     // Setting our component's initial state
   const [teams, setteams] = useState([])
-  const [formObject, setFormObject] = useState({})
+  const leagueId = props.match.params.id;
 
-// Load all books and store them with setBooks
+// Load all teams by league and store them with setteams
 useEffect(() => {
   loadTeams()
 }, [])
 
 // Loads all books and sets them to books
 function loadTeams() {
-  API.getTeams()
-    .then(res =>
-      setteams(res.data)
-    )
+  API.getTeamByLeague(leagueId)
+    .then(res =>setteams(res.data))
     .catch(err => console.log(err.message));
 };
 
