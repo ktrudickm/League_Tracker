@@ -40,6 +40,10 @@ export default {
     return axios.get(`/api/teams/${id}`);
   },
 
+  getTeamByLeague: function (league) {
+    return axios.get(`/api/teams/byteam/${league}`);
+  },
+
   // ** Players Route **
 
   // Get a specific user's information

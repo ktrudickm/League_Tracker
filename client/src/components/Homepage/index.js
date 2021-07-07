@@ -3,7 +3,6 @@ import API from "../../utils/API";
 import "./style.css";
 
 function LeaguePage(){
-
     const [leagues, setLeagues] = useState([])
     
     useEffect(() => {
@@ -12,9 +11,7 @@ function LeaguePage(){
 
     function loadLeagues() {
         API.getLeagues()
-            .then(res =>
-                setLeagues(res.data)
-            )
+            .then(res =>setLeagues(res.data))
             .catch(err => console.log(err.message));
     };
 
@@ -34,7 +31,7 @@ function LeaguePage(){
                 <div className="card-body" style={{color: "black"}}>
                     <h5 className="card-title">{league.name}</h5>
                 </div>
-                <a href={"/league/" + league.name} className="btn btn-primary">{league.name} Info</a>         
+                <a href={"/teamsPage/" + league.key} className="btn btn-primary">{league.name} Info</a>         
             </div>
             </div> 
             );

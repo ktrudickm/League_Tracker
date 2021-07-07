@@ -40,7 +40,7 @@ function App() {
             <ProtectedRoute exact path="/user" component={UserPage} />
             <Route path="/player/:id" component={PlayerPage} />
             <Route exact path="/register" component={RegisterPlayer} />
-            <Route exact path="/teamsPage" component={Teams} />
+            <Route path="/teamsPage/:id" component={Teams} />
             <Route path="/team/:name" component={Team} />
             <Route exact path="/login" component={Login} />
             <Route path="/teamstats/:name" component={TeamStats} />
