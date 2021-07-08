@@ -23,7 +23,7 @@ function Roster(){
       };  
 
     return(
-        <table className="table">
+        <table className="table bg-light">
                     <thead>
                         <tr>
                             <th scope="col">Image</th>
@@ -35,7 +35,7 @@ function Roster(){
         {roster.map(
             team => {
                 return(
-                    <tbody>
+                    <tbody className="table-body" key={team._id}>
                         <tr>
                             {/* <th scope="row"></th> */}
                             <td><img src={team.image} className="img-responsive" style={{width: "2.5rem"}} alt="Player Image"></img></td>
