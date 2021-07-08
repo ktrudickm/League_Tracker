@@ -94,112 +94,127 @@ const AdminPage = (props) => {
 
   return (
     <>
-      <span className="input-group-text" id="basic-addon1">
-        Create League
-      </span>
-      <div className="input-group mb-3">
-        <input
-          type="text"
-          className="form-control"
-          placeholder="Enter league name"
-          aria-label="League Name"
-          aria-describedby="basic-addon1"
-          onChange={(e) => handleEdit(e.target.value)}
-        />
-      </div>
-      <div className="adminImage">
-        <img
-          src={leagueImgSrc || `data:image/png;base64,${value.image}`}
-          alt="league image"
-          style={{ height: "10rem", margin: "10px 0px 0px 30px" }}
-        />
-        <ImageUploader
-          buttonClassName="adminUpload"
-          withLabel={false}
-          withIcon={false}
-          withPreview={false}
-          singleImage={true}
-          buttonText="Choose image"
-          onChange={onLeagueDrop}
-          imgExtension={[".jpg", ".gif", ".png", ".gif"]}
-          maxFileSize={5242880}
-          fileSizeError="File size is too big. Max size is 5mb."
-        />
-      </div>
-      <button
-        type="submit"
-        className="btn btn-secondary"
-        onClick={() => handleSubmitLeague()}
-        style={{ marginLeft: "39px", marginBottom: "10px" }}
+      <div
+        className="card align-items-center playerCard"
+        style={{ width: "35rem" }}
       >
-        Submit League
-      </button>
-      <span
-        className="input-group-text"
-        id="basic-addon1"
-        style={{ textAlign: "center" }}
-      >
-        Create Team
-      </span>
-      <div className="input-group mb-3">
-        <input
-          type="text"
-          className="form-control"
-          placeholder="Enter team name"
-          aria-label="Team Name"
-          aria-describedby="basic-addon1"
-          onChange={(e) => handleTeamName(e.target.value)}
-        />
+        <h2
+          className="adminMenu"
+          style={{
+            marginLeft: "20px",
+            marginBottom: "30px",
+            borderBottom: "2px dotted black",
+          }}
+        >
+          Admin Menu
+        </h2>
+        <span className="input-group-text" id="basic-addon1">
+          Create League
+        </span>
+        <div className="input-group mb-3">
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Enter league name"
+            aria-label="League Name"
+            aria-describedby="basic-addon1"
+            onChange={(e) => handleEdit(e.target.value)}
+          />
+        </div>
+        <div className="adminImage">
+          <img
+            src={leagueImgSrc || `data:image/png;base64,${value.image}`}
+            alt="league image"
+            style={{ height: "10rem", margin: "10px 0px 0px 30px" }}
+          />
+          <ImageUploader
+            buttonClassName="adminUpload"
+            withLabel={false}
+            withIcon={false}
+            withPreview={false}
+            singleImage={true}
+            buttonText="Choose image"
+            onChange={onLeagueDrop}
+            imgExtension={[".jpg", ".gif", ".png", ".gif"]}
+            maxFileSize={5242880}
+            fileSizeError="File size is too big. Max size is 5mb."
+          />
+        </div>
+        <button
+          type="submit"
+          className="btn btn-secondary"
+          onClick={() => handleSubmitLeague()}
+          style={{ marginLeft: "39px", marginBottom: "10px" }}
+        >
+          Submit League
+        </button>
+        <span
+          className="input-group-text"
+          id="basic-addon1"
+          style={{ textAlign: "center" }}
+        >
+          Create Team
+        </span>
+        <div className="input-group mb-3">
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Enter team name"
+            aria-label="Team Name"
+            aria-describedby="basic-addon1"
+            onChange={(e) => handleTeamName(e.target.value)}
+          />
+        </div>
+        <div className="mb-3 w-30">
+          {props.leagues.length ? (
+            <select
+              // value={teamData.name}
+              onChange={(e) => handleInputChange(e)}
+              className="form-select"
+              aria-label="Default select example"
+              name="league"
+            >
+              {/* <option selected>Select a league</option> */}
+              {props.leagues.map((league) => {
+                return (
+                  <option value={league.key} key={league._id}>
+                    {league.name}
+                  </option>
+                );
+              })}
+            </select>
+          ) : (
+            <h4>No teams to display yet.</h4>
+          )}
+        </div>
+        <div className="adminImage">
+          <img
+            src={teamImgSrc || `data:image/png;base64,${teamData.image}`}
+            alt="team image"
+            style={{ height: "10rem", margin: "10px 0px 0px 30px" }}
+          />
+          <ImageUploader
+            buttonClassName="adminUpload"
+            withLabel={false}
+            withIcon={false}
+            withPreview={false}
+            singleImage={true}
+            buttonText="Choose image"
+            onChange={onTeamDrop}
+            imgExtension={[".jpg", ".gif", ".png", ".gif"]}
+            maxFileSize={5242880}
+            fileSizeError="File size is too big. Max size is 5mb."
+          />
+        </div>
+        <button
+          type="submit"
+          className="btn btn-secondary"
+          onClick={() => handleSubmitTeam()}
+          style={{ marginLeft: "45px" }}
+        >
+          Submit Team
+        </button>
       </div>
-      <div className="mb-3 w-30">
-        {props.leagues.length ? (
-          <select
-            // value={teamData.name}
-            onChange={(e) => handleInputChange(e)}
-            className="form-select"
-            aria-label="Default select example"
-            name="league"
-          >
-            {/* <option selected>Select a league</option> */}
-            {props.leagues.map((league) => {
-              return (
-                <option value={league.key} key={league._id}>
-                  {league.name}
-                </option>
-              );
-            })}
-          </select>
-        ) : (
-          <h4>No teams to display yet.</h4>
-        )}
-      </div>
-      <div className="adminImage">
-        <img
-          src={teamImgSrc || `data:image/png;base64,${teamData.image}`}
-          alt="team image"
-          style={{ height: "10rem", margin: "10px 0px 0px 30px" }}
-        />
-        <ImageUploader
-          buttonClassName="adminUpload"
-          withLabel={false}
-          withIcon={false}
-          withPreview={false}
-          singleImage={true}
-          buttonText="Choose image"
-          onChange={onTeamDrop}
-          imgExtension={[".jpg", ".gif", ".png", ".gif"]}
-          maxFileSize={5242880}
-          fileSizeError="File size is too big. Max size is 5mb."
-        />
-      </div>
-      <button
-        type="submit"
-        className="btn btn-secondary"
-        onClick={() => handleSubmitTeam()}
-        style={{ marginLeft: "45px" }}
-      >
-        Submit Team
-      </button>
     </>
   );
 };

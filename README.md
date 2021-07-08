@@ -6,6 +6,8 @@ A tracker for sports statistics for recreational sport leagues.
 We wanted a way for recreational sport teams to be able to have way of staying up to date with their league including team statistics, as well as individual player statistics. 
 This app builds somewhat of a community around recreational leagues for both participants, as well as people on the outside who want to stay in the loop.
 
+Deployed project: https://shielded-hollows-83621.herokuapp.com/
+
 ## Screenshots
 
 ![Screenshot_one](/assets/screenshot_one.PNG)

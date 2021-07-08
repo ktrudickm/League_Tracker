@@ -187,20 +187,11 @@ function UserPage(props) {
             <span className="buttonText">Change Password</span>
           </button> */}
         </div>
-        <h2
-          className="adminMenu"
-          style={{
-            marginLeft: "20px",
-            marginBottom: "30px",
-            borderBottom: "2px dotted black",
-          }}
-        >
-          Admin Menu
-        </h2>
-        <div className="adminMenu">
+        {/* <div className="adminMenu">
           <ul>{isAdmin && adminMenu}</ul>
-        </div>
+        </div> */}
       </div>
+      {isAdmin && adminMenu}      
     </>
   );
 }
